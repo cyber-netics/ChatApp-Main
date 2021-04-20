@@ -2,32 +2,31 @@ import { createGlobalStyle } from "styled-components";
 
 const dark = "#1a2236";
 const light = "white";
-const active = "#0a80ff";
-const primary100 = "rgba(255, 255, 255, 0.75)";
-const primary200 = "#212529";
-const secondery100 = "#969696";
-const secondery200 = "rgba(255, 255, 255, 0.4)";
 const highlight100 = "#293145";
 const highlight200 = "#e6e6e6";
+const primary = "#0a80ff";
+const secondary100 = "#fff";
+const secondary200 = "rgba(255, 255, 255, 0.5)";
+const error = "red";
 
 const baseColors = {
   dark,
   light,
-  active,
+  error,
 };
 
 const lightColors = {
   background: light,
-  primary: primary200,
-  secondery: secondery200,
   highlight: highlight200,
+  active: primary,
 };
 
 const darkColors = {
   background: dark,
-  primary: primary100,
-  secondery: secondery100,
   highlight: highlight100,
+  active: primary,
+  secondaryActive: secondary100,
+  secondaryNoneActive: secondary200,
 };
 
 const lightThemeColors = Object.assign({}, baseColors, lightColors);
@@ -56,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin:0;
+    padding: 0;
     height: 100%;
   }
-  a {
 `;

@@ -14,3 +14,15 @@ export const Section = styled.div`
     display: none;
   }
 `;
+
+export const List = styled.ul`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`;
+
+export const ListItem = styled.li`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;

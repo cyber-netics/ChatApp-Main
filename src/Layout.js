@@ -4,7 +4,6 @@ import { darkTheme, lightTheme, GlobalStyle } from "./theme";
 
 const LayoutContainer = styled.div`
   background: ${(props) => props.theme.colors.background};
-  color: red;
   height: 100vh;
   display: flex;
   overflow: hidden;

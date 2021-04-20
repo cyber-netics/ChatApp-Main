@@ -1,0 +1,23 @@
+{
+  "tabs": [
+    {
+      "name": "message",
+      "icon": "MessageCircle",
+      "status": "warning"
+    },
+
+    {
+      "name": "users",
+      "icon": "User",
+      "status": "error"
+    },
+    {
+      "name": "stars",
+      "icon": "Star"
+    },
+    {
+      "name": "archive",
+      "icon": "Archive"
+    }
+  ]
+}

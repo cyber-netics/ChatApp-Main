@@ -7,6 +7,10 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.div`
-  border-right: 1px solid #293145;
+  border-right: 1px solid ${(props) => props.theme.colors.highlight};
   position: relative;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;

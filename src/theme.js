@@ -7,6 +7,8 @@ const primary100 = "rgba(255, 255, 255, 0.75)";
 const primary200 = "#212529";
 const secondery100 = "#969696";
 const secondery200 = "rgba(255, 255, 255, 0.4)";
+const highlight100 = "#293145";
+const highlight200 = "#e6e6e6";
 
 const baseColors = {
   dark,
@@ -18,12 +20,14 @@ const lightColors = {
   background: light,
   primary: primary200,
   secondery: secondery200,
+  highlight: highlight200,
 };
 
 const darkColors = {
   background: dark,
   primary: primary100,
   secondery: secondery100,
+  highlight: highlight100,
 };
 
 const lightThemeColors = Object.assign({}, baseColors, lightColors);

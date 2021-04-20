@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Section } from "../Shared";
+import { Section, Container as Wrapper } from "../Shared";
 
-const Container = styled.div`
+const Container = styled(Wrapper)`
   width: 100px;
 `;
 

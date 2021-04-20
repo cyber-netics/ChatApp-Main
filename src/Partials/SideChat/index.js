@@ -1,10 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { Section } from "../../Components/Shared";
-
-const Container = styled(Section)`
-  width: 100%;
-`;
+import { Container } from "../../Components/Shared";
 
 const Chat = () => {
   return (

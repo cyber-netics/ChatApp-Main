@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  color: ${(props) => props.theme.colors.background};
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Section = styled.div`
+  border-right: 1px solid #293145;
+  position: relative;
 `;

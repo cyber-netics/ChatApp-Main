@@ -1,18 +1,26 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const Section = styled.div`
+  border-right: 1px solid
+    ${(props) => props.theme.colors.highlight};
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
+export const InnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+`;
 
 export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-`;
-
-export const Section = styled.div`
-  border-right: 1px solid ${(props) => props.theme.colors.highlight};
-  position: relative;
-
-  @media (max-width: 1200px) {
-    display: none;
-  }
 `;
 
 export const List = styled.ul`

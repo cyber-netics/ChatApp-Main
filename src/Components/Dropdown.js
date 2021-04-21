@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import WomenAvatar5 from "../assets/img/women_avatar5.jpg";
+import WomenAvatar5 from '../assets/img/women_avatar5.jpg';
 
 const Figure = styled.figure`
   display: inline-block;
@@ -22,7 +22,11 @@ const Img = styled.img`
 const Dropdown = () => {
   return (
     <Figure>
-      <Img src={WomenAvatar5} className="rounded-circle" alt="avatar" />
+      <Img
+        src={WomenAvatar5}
+        className="rounded-circle"
+        alt="avatar"
+      />
     </Figure>
   );
 };

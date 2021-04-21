@@ -8,10 +8,12 @@ const primary = "#0a80ff";
 const secondary100 = "#fff";
 const secondary200 = "rgba(255, 255, 255, 0.5)";
 const error = "red";
+const warning = "#ffc107";
 
 const baseColors = {
   dark,
   light,
+  warning,
   error,
 };
 

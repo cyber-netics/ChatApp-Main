@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { ReactComponent as logo } from "../../assets/logo.svg";
-import { tabs } from "./tabs.json";
+import { ReactComponent as logo } from '../../assets/logo.svg';
+import { tabs } from './tabs.json';
+import { ButtonSelect, Badge } from '../SharedStyles';
+import {
+  Section,
+  Container as Wrapper,
+} from '../Shared';
 
-import { Section, Container as Wrapper } from "../Shared";
-import { ButtonSelect, Badge } from "../SharedStyles";
-
-import FlatList from "../FlatList";
-import Icon from "../Icon";
+import Icon from '../Icon';
+import Dropdown from '../Dropdown';
 
 const Container = styled(Wrapper)`
   width: 100px;
@@ -17,10 +19,16 @@ const Container = styled(Wrapper)`
 
 const InnerContainer = styled.div`
   width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 `;
 
 const NavLogo = styled.a`
-  padding: 1.5rem 0 2.35rem 0;
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
 `;
@@ -32,32 +40,70 @@ const LogoIcon = styled(logo)`
   padding-top: 1px;
 `;
 
+const NavBody = styled.div``;
+
+const NavFooter = styled.div`
+  margin-top: auto;
+  padding-bottom: 1rem;
+`;
+
+const NavList = styled.ul`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`;
+
+const NavItem = styled.li`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const TabPanel = (props) => {
+  return props.list.map(({ name, icon, status }) => (
+    <NavItem>
+      <ButtonSelect
+        key={name}
+        active={props.selected === name}
+      >
+        <Icon icon={icon} />
+        <Badge status={status} />
+      </ButtonSelect>
+    </NavItem>
+  ));
+};
+
 const Navigation = (props) => {
-  const [navtab, setnavtab] = useState("message");
+  const [navtab, setnavtab] = useState('message');
 
   return (
     <Section>
       <Container>
         <InnerContainer>
-          <header>
-            <NavLogo href={"/"}>
-              <LogoIcon />
-            </NavLogo>
-          </header>
-          <div>
-            <FlatList
-              list={tabs}
-              item={(tab) => (
-                <ButtonSelect
-                  onClick={() => setnavtab(tab.name)}
-                  active={navtab === tab.name}
-                >
-                  <Icon icon={tab.icon} />
-                  <Badge status={tab.status} />
+          <NavLogo href={'/'}>
+            <LogoIcon />
+          </NavLogo>
+          <NavBody>
+            <NavList>
+              <TabPanel
+                list={tabs}
+                selected={navtab}
+                toggle={setnavtab}
+              />
+            </NavList>
+          </NavBody>
+          <NavFooter>
+            <NavList>
+              <NavItem>
+                <ButtonSelect>
+                  <Icon icon={'Moon'} />
                 </ButtonSelect>
-              )}
-            />
-          </div>
+              </NavItem>
+              <NavItem>
+                <Dropdown />
+              </NavItem>
+            </NavList>
+          </NavFooter>
         </InnerContainer>
       </Container>
     </Section>

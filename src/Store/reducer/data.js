@@ -2,7 +2,7 @@ import { TEST } from '../static';
 
 const initialState = {};
 
-const user = (state = initialState, action) => {
+const appData = (state = initialState, action) => {
   switch (action.type) {
     case TEST: {
       return {
@@ -16,4 +16,4 @@ const user = (state = initialState, action) => {
   }
 };
 
-export default user;
+export default appData;

@@ -55,8 +55,6 @@ const NavItem = styled(ListItem)`
 `;
 
 const Navigation = (props) => {
-  const [navtab, setnavtab] = useState('message');
-
   return (
     <Section>
       <Container>
@@ -70,8 +68,8 @@ const Navigation = (props) => {
             <NavList>
               <TabPanel
                 list={tabs}
-                selected={navtab}
-                toggle={setnavtab}
+                selected={props.activeNavTab}
+                toggle={props.toggleNavTab}
               />
             </NavList>
           </NavBody>

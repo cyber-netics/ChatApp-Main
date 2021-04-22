@@ -4,10 +4,13 @@ import {
   applyMiddleware,
 } from 'redux';
 import thunk from 'redux-thunk';
-import app from './reducer';
+
+import ui from './reducer/ui';
+import data from './reducer/data';
 
 const rootReducer = combineReducers({
-  app,
+  ui,
+  data,
 });
 
 // Creating store and apply thunk redux middleware

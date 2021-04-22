@@ -5,7 +5,7 @@ import { ReactComponent as logo } from '../../assets/logo.svg';
 import { tabs } from './tabs.json';
 
 import Icon from '../Icon';
-import DropDown from '../Dropdown';
+import Avatar from '../Avatar';
 import TabPanel from './TabPanel';
 
 import { ButtonSelect } from '../SharedStyles';
@@ -85,7 +85,7 @@ const Navigation = (props) => {
                 </ButtonSelect>
               </NavItem>
               <NavItem>
-                <DropDown />
+                <Avatar />
               </NavItem>
             </NavList>
           </NavFooter>

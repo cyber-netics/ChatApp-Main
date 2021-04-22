@@ -11,9 +11,8 @@ const ListItem = styled(Item)`
 
 const TabPanel = (props) => {
   return props.list.map(({ name, icon, status }) => (
-    <ListItem>
+    <ListItem key={name}>
       <ButtonSelect
-        key={name}
         onClick={() => props.toggle(name)}
         active={props.selected === name}
       >

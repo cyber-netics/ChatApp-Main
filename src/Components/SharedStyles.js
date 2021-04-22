@@ -16,8 +16,17 @@ export const ButtonSelect = styled(Button)`
 
   color: ${(props) =>
     props.active
-      ? props.theme.colors.secondaryActive
-      : props.theme.colors.secondaryNoneActive};
+      ? props.theme.colors.fontActive
+      : props.theme.colors.fontInactive};
+
+  &: hover {
+    background-color: ${(props) =>
+      !props.active &&
+      props.theme.colors.highlightSecondary};
+
+    color: ${(props) =>
+      props.theme.colors.activeSecondary};
+  }
 `;
 
 export const Badge = styled.span`

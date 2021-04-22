@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import { ButtonSelect, Badge } from '../SharedStyles';
 import { ListItem as Item } from '../Shared';
-
-import { tabs } from './tabs.json';
 import Icon from '../Icon';
 
 const ListItem = styled(Item)`
@@ -12,10 +10,11 @@ const ListItem = styled(Item)`
 `;
 
 const TabPanel = (props) => {
-  return tabs.map(({ name, icon, status }) => (
+  return props.list.map(({ name, icon, status }) => (
     <ListItem>
       <ButtonSelect
         key={name}
+        onClick={() => props.toggle(name)}
         active={props.selected === name}
       >
         <Icon icon={icon} />

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import { ReactComponent as logo } from '../../assets/logo.svg';
+import { tabs } from './tabs.json';
 
 import Icon from '../Icon';
 import DropDown from '../Dropdown';
@@ -52,7 +54,7 @@ const NavItem = styled(ListItem)`
   margin-top: 1.5rem;
 `;
 
-const Navigation = () => {
+const Navigation = (props) => {
   const [navtab, setnavtab] = useState('message');
 
   return (
@@ -67,6 +69,7 @@ const Navigation = () => {
           <NavBody>
             <NavList>
               <TabPanel
+                list={tabs}
                 selected={navtab}
                 toggle={setnavtab}
               />
@@ -75,7 +78,9 @@ const Navigation = () => {
           <NavFooter>
             <NavList>
               <NavItem>
-                <ButtonSelect>
+                <ButtonSelect
+                  onClick={props.toggleTheme}
+                >
                   <Icon icon={'Moon'} />
                 </ButtonSelect>
               </NavItem>

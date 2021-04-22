@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as logo } from '../../assets/logo.svg';
@@ -7,6 +7,8 @@ import { tabs } from './tabs.json';
 import Icon from '../Icon';
 import Avatar from '../Avatar';
 import TabPanel from './TabPanel';
+import Dropdown from '../Dropdown';
+import DropMenu from './DropMenu';
 
 import { ButtonSelect } from '../SharedStyles';
 import {
@@ -54,6 +56,14 @@ const NavItem = styled(ListItem)`
   margin: 1.5rem 20px 0;
 `;
 
+const DropDown = styled(Dropdown)`
+  background: ${(props) =>
+    props.theme.colors.highlightSecondary};
+  color: ${(props) =>
+    props.theme.colors.fontSecondary};
+  box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
+`;
+
 const Navigation = (props) => {
   return (
     <Section>
@@ -83,7 +93,9 @@ const Navigation = (props) => {
                 </ButtonSelect>
               </NavItem>
               <NavItem>
-                <Avatar />
+                <DropDown overlay={DropMenu}>
+                  <Avatar />
+                </DropDown>
               </NavItem>
             </NavList>
           </NavFooter>

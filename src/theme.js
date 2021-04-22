@@ -4,9 +4,14 @@ const dark = '#1a2236';
 const light = 'white';
 const highlight100 = '#293145';
 const highlight200 = '#e6e6e6';
+const highlight300 = '#384054';
+const highlight400 = '#212529';
+
 const primary = '#0a80ff';
 const secondary100 = 'black';
 const secondary200 = 'rgba(255, 255, 255, 0.5)';
+const secondary300 = '#ebebeb';
+
 const success = '#0abb87';
 const warning = '#ffc107';
 const error = 'red';
@@ -26,8 +31,11 @@ const lightColors = {
   highlightSecondary: light,
 
   active: highlight200,
+  highlightPrimary: secondary300,
+
   activeSecondary: primary,
 
+  fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
 };
@@ -36,11 +44,13 @@ const darkColors = {
   background: dark,
 
   highlight: highlight100,
+  highlightPrimary: highlight300,
   highlightSecondary: highlight100,
 
   active: primary,
   activeSecondary: secondary200,
 
+  fontSecondary: 'rgba(255, 255, 255, 0.7)',
   fontInactive: secondary200,
   fontActive: light,
 };

@@ -21,7 +21,6 @@ const LayoutContainer = styled.div`
 const Layout = ({ children }) => {
   const [isDarkTheme, setThemeMode] = useState(true);
   const theme = isDarkTheme ? darkTheme : lightTheme;
-
   const toggleTheme = () => setThemeMode(!isDarkTheme);
 
   return (

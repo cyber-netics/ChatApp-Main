@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { List, ListItem } from './Common';
 
-const Menu = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
-const Item = styled.li`
+const MenuItem = styled(ListItem)`
   padding: 0.25rem 1.5rem;
 `;
 
 const MenuComponent = (props) => {
-  return <Menu>{props.children}</Menu>;
+  return <List>{props.children}</List>;
 };
 
 const ItemMenuComponent = (props) => {
-  return <Item>{props.children}</Item>;
+  return (
+    <MenuItem>
+      <span>{props.children}</span>
+    </MenuItem>
+  );
 };
 
 MenuComponent.Item = ItemMenuComponent;

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import Menu from '../Menu';
+import Menu from '../../Components/Menu';
 
 const Divider = styled.hr`
   border-color: ${(props) =>
@@ -11,19 +10,11 @@ const Divider = styled.hr`
 
 const DropMenu = () => (
   <Menu>
-    <Menu.Item>
-      <span>Edit profile</span>
-    </Menu.Item>
-    <Menu.Item>
-      <span>Profile</span>
-    </Menu.Item>
-    <Menu.Item>
-      <span>Settings</span>
-    </Menu.Item>
+    <Menu.Item>Edit profile</Menu.Item>
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
     <Divider />
-    <Menu.Item>
-      <span>Logout</span>
-    </Menu.Item>
+    <Menu.Item>Logout</Menu.Item>
   </Menu>
 );
 

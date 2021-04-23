@@ -3,21 +3,23 @@ import styled from 'styled-components';
 
 import { ReactComponent as logo } from '../../assets/logo.svg';
 import { tabs } from './tabs.json';
+import menulist from './menu';
 
-import Icon from '../Icon';
-import Avatar from '../Avatar';
 import TabPanel from './TabPanel';
-import Dropdown from '../Dropdown';
-import DropMenu from './DropMenu';
+import Icon from '../../Components/Icon';
+import Avatar from '../../Components/Avatar';
+import Dropdown from '../../Components/Dropdown';
 
-import { ButtonSelect } from '../SharedStyles';
 import {
-  Section,
   Container as Wrapper,
   InnerContainer,
   List,
   ListItem,
-} from '../Shared';
+} from '../../Components/Common';
+import {
+  Section,
+  ButtonSelect,
+} from '../../Components/SharedStyles';
 
 const Container = styled(Wrapper)`
   width: 100px;
@@ -56,14 +58,6 @@ const NavItem = styled(ListItem)`
   margin: 1.5rem 20px 0;
 `;
 
-const DropDown = styled(Dropdown)`
-  background: ${(props) =>
-    props.theme.colors.highlightSecondary};
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
-  box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
-`;
-
 const Navigation = (props) => {
   return (
     <Section>
@@ -93,9 +87,9 @@ const Navigation = (props) => {
                 </ButtonSelect>
               </NavItem>
               <NavItem>
-                <DropDown overlay={DropMenu}>
+                <Dropdown overlay={menulist}>
                   <Avatar />
-                </DropDown>
+                </Dropdown>
               </NavItem>
             </NavList>
           </NavFooter>

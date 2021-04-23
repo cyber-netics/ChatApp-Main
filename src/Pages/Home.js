@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// Components
-import { Container } from '../Components/Shared';
-import Navigation from '../Components/Navigation';
 // Partials
+import Navigation from '../Partials/Navigation';
 import SideBar from '../Partials/SideBar';
 import SideChat from '../Partials/SideChat';
 
 // Redux actions
 import { navTab } from '../Store/action/interface';
+
+// Components
+import { Container } from '../Components/Common';
 
 class Home extends Component {
   render() {

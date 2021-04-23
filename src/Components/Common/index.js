@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
-  border-right: 1px solid
-    ${(props) => props.theme.colors.highlight};
-
-  @media (max-width: 1200px) {
-    display: none;
-  }
-`;
-
 export const InnerContainer = styled.div`
   width: 100%;
   display: flex;
@@ -33,4 +24,23 @@ export const ListItem = styled.li`
   list-style: none;
   padding: 0;
   margin: 0;
+`;
+
+export const ButtonBase = styled.span`
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+  transition: all 0.23s;
+  padding: 0.9rem;
+  position: relative;
+  cursor: pointer;
+`;
+
+export const BadgeBase = styled.span`
+  position: absolute;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  top: 10px;
+  right: 10px;
 `;

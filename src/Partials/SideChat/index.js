@@ -1,5 +1,5 @@
-import React from "react";
-import { Container } from "../../Components/Shared";
+import React from 'react';
+import { Container } from '../../Components/Common';
 
 const Chat = () => {
   return (

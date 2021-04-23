@@ -1,13 +1,14 @@
 import React, { useState, createRef } from 'react';
 import styled from 'styled-components';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
+import { CardSecondary } from './SharedStyles';
 
 const Container = styled.div`
   position: relative;
   border-color: transparent;
 `;
 
-const Content = styled.div`
+const Content = styled(CardSecondary)`
   display: ${(props) =>
     props.isOpen ? 'block' : 'none'};
   text-align: left;
@@ -25,7 +26,7 @@ const InnerContainer = styled.div`
   min-width: 10rem;
 `;
 
-const Dropdown = (props) => {
+const DropDown = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = createRef();
 
@@ -54,4 +55,4 @@ const Dropdown = (props) => {
   );
 };
 
-export default Dropdown;
+export default DropDown;

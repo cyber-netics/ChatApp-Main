@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Section } from "../../Components/Shared";
+import React from 'react';
+import styled from 'styled-components';
+import { Section } from '../../Components/SharedStyles';
 
 const Container = styled.div`
   width: 350px;

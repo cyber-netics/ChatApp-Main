@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ButtonSelect, Badge } from '../SharedStyles';
-import { ListItem as Item } from '../Shared';
-import Icon from '../Icon';
+import Icon from '../../Components/Icon';
+import { ListItem } from '../../Components/Common';
 
-const ListItem = styled(Item)`
+import {
+  ButtonSelect,
+  Badge,
+} from '../../Components/SharedStyles';
+
+const TabItem = styled(ListItem)`
   margin: 5px 20px;
 `;
 
 const TabPanel = (props) => {
   return props.list.map(({ name, icon, status }) => (
-    <ListItem key={name}>
+    <TabItem key={name}>
       <ButtonSelect
         onClick={() => props.toggle(name)}
         active={props.selected === name}
@@ -19,7 +23,7 @@ const TabPanel = (props) => {
         <Icon icon={icon} />
         <Badge status={status} />
       </ButtonSelect>
-    </ListItem>
+    </TabItem>
   ));
 };
 

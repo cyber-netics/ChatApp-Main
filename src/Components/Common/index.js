@@ -26,7 +26,7 @@ export const ListItem = styled.li`
   margin: 0;
 `;
 
-export const ButtonBase = styled.span`
+export const BtnSelect = styled.span`
   display: flex;
   justify-content: center;
   border-radius: 7px;
@@ -36,6 +36,21 @@ export const ButtonBase = styled.span`
   cursor: pointer;
 `;
 
+export const BtnSimple = styled.button`
+  display: inline-flex;
+  background: transparent;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  font-size: 14px;
+  width: auto;
+  line-height: 14px;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+`;
+
 export const BadgeBase = styled.span`
   position: absolute;
   border-radius: 50%;
@@ -43,4 +58,23 @@ export const BadgeBase = styled.span`
   height: 8px;
   top: 10px;
   right: 10px;
+`;
+
+export const TextBase = styled.span`
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+`;
+
+export const InputBase = styled.input`
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 `;

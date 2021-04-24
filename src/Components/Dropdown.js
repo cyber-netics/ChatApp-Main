@@ -6,6 +6,7 @@ import { CardSecondary } from './SharedStyles';
 const Container = styled.div`
   position: relative;
   border-color: transparent;
+  cursor: pointer;
 `;
 
 const Content = styled(CardSecondary)`

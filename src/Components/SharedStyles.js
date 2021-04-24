@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import {
-  ButtonBase,
+  BtnSelect,
+  BtnSimple,
   BadgeBase,
   ListItem,
+  TextBase,
+  InputBase,
 } from './Common';
 
 export const Section = styled.div`
@@ -14,7 +17,7 @@ export const Section = styled.div`
   }
 `;
 
-export const ButtonSelect = styled(ButtonBase)`
+export const ButtonSelect = styled(BtnSelect)`
   background-color: ${(props) =>
     props.active && props.theme.colors.active};
 
@@ -54,5 +57,43 @@ export const ListItemHighlight = styled(ListItem)`
   &: hover {
     background-color: ${(props) =>
       props.theme.colors.highlightItem};
+  }
+`;
+
+export const Text = styled(TextBase)`
+  color: ${(props) =>
+    props.theme.colors.fontSecondary};
+`;
+
+export const ButtonSimple = styled(BtnSimple)`
+  border: 1px solid
+    ${(props) => props.theme.colors.highlight};
+  color: ${(props) =>
+    props.theme.colors.fontSecondary};
+
+  &: focus {
+    border-width: 1px;
+    border-color: ${(props) =>
+      props.theme.colors.activeSecondary};
+    box-shadow: rgb(133, 133, 133);
+  }
+
+  &: hover {
+    background-color: ${(props) =>
+      props.theme.colors.highlight};
+  }
+`;
+
+export const Input = styled(InputBase)`
+  color: ${(props) =>
+    props.theme.colors.fontSecondary};
+  border: 1px solid
+    ${(props) => props.theme.colors.highlight};
+
+  &:focus {
+    outline-style: none;
+    outline-offset: 0px;
+    border: 1px solid
+      ${(props) => props.theme.colors.primary};
   }
 `;

@@ -3,8 +3,8 @@ import * as FeatherIcon from "react-feather";
 
 const iconSize = {
   sm: {
-    height: "17px",
-    width: "17px",
+    height: "16px",
+    width: "16px",
   },
   md: {
     height: "19px",

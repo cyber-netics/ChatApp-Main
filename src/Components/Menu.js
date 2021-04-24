@@ -5,6 +5,7 @@ import { ListItemHighlight } from './SharedStyles';
 
 const MenuItem = styled(ListItemHighlight)`
   padding: 0.25rem 1.5rem;
+  cursor: pointer;
 `;
 
 const MenuComponent = (props) => {

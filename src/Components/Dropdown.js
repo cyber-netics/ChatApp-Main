@@ -18,6 +18,7 @@ const Content = styled(CardSecondary)`
   font-size: 14px;
   top: 0px;
   border-radius: 5px;
+  z-index: 1;
 `;
 
 const MenuContainer = styled.div`

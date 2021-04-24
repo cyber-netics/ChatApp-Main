@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Icon from '../../Components/Icon';
+import UserList from './UserList';
 
 import {
   Container as Wrapper,
@@ -64,7 +65,13 @@ const SearchInput = styled(Input)`
   padding: 11.5px 15px;
 `;
 
-const Sidebar = () => {
+const SidebarBody = styled.div`
+  position: relative;
+  overflow: scroll;
+  height: calc(100% - 180px);
+`;
+
+const Sidebar = (props) => {
   return (
     <Section>
       <Container>
@@ -94,10 +101,15 @@ const Sidebar = () => {
               <SearchInput placeholder="Search chats" />
             </Form>
           </SearchContainer>
+          <SidebarBody>
+            {props.active === 'message' && (
+              <UserList data={props.chats} />
+            )}
+          </SidebarBody>
         </InnerContainer>
       </Container>
     </Section>
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

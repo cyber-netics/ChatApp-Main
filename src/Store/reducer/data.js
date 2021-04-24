@@ -1,13 +1,26 @@
-import { TEST } from '../static';
+import {
+  SET_FRIEND_LIST,
+  SET_CHAT_LIST,
+} from '../static';
 
-const initialState = {};
+const initialState = {
+  friendList: [],
+  chatList: [],
+};
 
 const appData = (state = initialState, action) => {
   switch (action.type) {
-    case TEST: {
+    case SET_FRIEND_LIST: {
       return {
         ...state,
-        data: action.payload,
+        friendList: action.payload,
+      };
+    }
+
+    case SET_CHAT_LIST: {
+      return {
+        ...state,
+        chatList: action.payload,
       };
     }
 

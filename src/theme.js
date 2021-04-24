@@ -2,18 +2,20 @@ import { createGlobalStyle } from 'styled-components';
 
 const dark = '#1a2236';
 const light = 'white';
+const primary = '#0a80ff';
+
 const highlight100 = '#293145';
 const highlight200 = '#e6e6e6';
 const highlight300 = '#384054';
 const highlight400 = '#212529';
 const highlight500 = '#333b4f';
-
 const highlight600 = 'rgba(255, 255, 255, 0.75)';
 
-const primary = '#0a80ff';
 const secondary100 = 'black';
 const secondary200 = 'rgba(255, 255, 255, 0.5)';
 const secondary300 = '#ebebeb';
+const secondary400 = 'rgba(255, 255, 255, 0.4)';
+const secondary500 = '#6c757d';
 
 const success = '#0abb87';
 const warning = '#ffc107';
@@ -40,6 +42,7 @@ const lightColors = {
 
   activeSecondary: primary,
 
+  fontNeutral: secondary400,
   fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
@@ -56,6 +59,7 @@ const darkColors = {
   active: primary,
   activeSecondary: secondary200,
 
+  fontNeutral: secondary500,
   fontSecondary: highlight600,
   fontInactive: secondary200,
   fontActive: light,

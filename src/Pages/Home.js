@@ -8,11 +8,20 @@ import SideChat from '../Partials/SideChat';
 
 // Redux actions
 import { navTab } from '../Store/action/interface';
+import {
+  getFriends,
+  getChat,
+} from '../Store/action/chat';
 
 // Components
 import { Container } from '../Components/Common';
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.getFriendList();
+    this.props.getChatList();
+  }
+
   render() {
     return (
       <Container>
@@ -21,7 +30,11 @@ class Home extends Component {
           toggleNavTab={this.props.toggleNavTab}
           activeNavTab={this.props.activeNavTab}
         />
-        <SideBar />
+        <SideBar
+          active={this.props.activeNavTab}
+          friends={this.props.friendList}
+          chats={this.props.chatList}
+        />
         <SideChat />
       </Container>
     );
@@ -31,12 +44,16 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     activeNavTab: state.ui.tab,
+    friendList: state.data.friendList,
+    chatList: state.data.chatList,
   };
 };
 
 const mapDispatchToProsp = (dispatch) => {
   return {
     toggleNavTab: (tab) => dispatch(navTab(tab)),
+    getFriendList: () => dispatch(getFriends()),
+    getChatList: () => dispatch(getChat()),
   };
 };
 

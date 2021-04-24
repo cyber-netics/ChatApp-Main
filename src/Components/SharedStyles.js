@@ -60,6 +60,11 @@ export const ListItemHighlight = styled(ListItem)`
   }
 `;
 
+export const ListItemDivider = styled(ListItem)`
+  border-bottom: 1px solid
+    ${(props) => props.theme.colors.highlight};
+`;
+
 export const Text = styled(TextBase)`
   color: ${(props) =>
     props.theme.colors.fontSecondary};

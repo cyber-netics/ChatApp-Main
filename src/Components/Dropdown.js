@@ -12,14 +12,14 @@ const Content = styled(CardSecondary)`
   display: ${(props) =>
     props.isOpen ? 'block' : 'none'};
   text-align: left;
-  transform: translate3d(12px, -145px, 0px);
+  transform: translate3d(12px, -143px, 0px);
   position: absolute;
   font-size: 14px;
   top: 0px;
   border-radius: 5px;
 `;
 
-const InnerContainer = styled.div`
+const MenuContainer = styled.div`
   margin: 0.125rem 0 0;
   padding: 0.5rem 0;
   line-height: 1.5;
@@ -40,16 +40,16 @@ const DropDown = (props) => {
 
   return (
     <Container>
-      <button ref={ref} onClick={toggle}>
+      <div ref={ref} onClick={toggle}>
         {props.children}
-      </button>
+      </div>
       <Content
         isOpen={isOpen}
         className={props.className}
       >
-        <InnerContainer>
+        <MenuContainer>
           {props.overlay()}
-        </InnerContainer>
+        </MenuContainer>
       </Content>
     </Container>
   );

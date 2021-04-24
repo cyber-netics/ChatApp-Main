@@ -55,7 +55,7 @@ const NavList = styled(List)`
 `;
 
 const NavItem = styled(ListItem)`
-  margin: 1.5rem 20px 0;
+  margin: 1.5rem 15px 0;
 `;
 
 const Navigation = (props) => {

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { List, ListItem } from './Common';
+import { List } from './Common';
+import { ListItemHighlight } from './SharedStyles';
 
-const MenuItem = styled(ListItem)`
+const MenuItem = styled(ListItemHighlight)`
   padding: 0.25rem 1.5rem;
 `;
 

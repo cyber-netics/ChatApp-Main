@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { ButtonBase, BadgeBase } from './Common';
+import {
+  ButtonBase,
+  BadgeBase,
+  ListItem,
+} from './Common';
 
 export const Section = styled.div`
   border-right: 1px solid
@@ -44,4 +48,11 @@ export const CardSecondary = styled.div`
   color: ${(props) =>
     props.theme.colors.fontSecondary};
   box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
+`;
+
+export const ListItemHighlight = styled(ListItem)`
+  &: hover {
+    background-color: ${(props) =>
+      props.theme.colors.highlightItem};
+  }
 `;

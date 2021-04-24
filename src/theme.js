@@ -6,6 +6,7 @@ const highlight100 = '#293145';
 const highlight200 = '#e6e6e6';
 const highlight300 = '#384054';
 const highlight400 = '#212529';
+const highlight500 = '#333b4f';
 
 const primary = '#0a80ff';
 const secondary100 = 'black';
@@ -32,6 +33,7 @@ const lightColors = {
 
   active: highlight200,
   highlightPrimary: secondary300,
+  highlightItem:highlight200,
 
   activeSecondary: primary,
 
@@ -46,7 +48,8 @@ const darkColors = {
   highlight: highlight100,
   highlightPrimary: highlight300,
   highlightSecondary: highlight100,
-
+  highlightItem:highlight500,
+  
   active: primary,
   activeSecondary: secondary200,
 

@@ -13,16 +13,7 @@ const Container = styled.div`
   transform: none;
 `;
 
-const Content = styled(CardSecondary)`
-  transform: ${(props) =>
-    ({
-      topRight: 'translate3d(12px, -143px, 0px)',
-      bottomLeft: 'translate3d(-100px, 20px, 0px)',
-    }[props.position])};
-    
-  display: ${(props) =>
-    props.isOpen ? 'block' : 'none'};
-
+const ContentStyle = styled(CardSecondary)`
   text-align: left;
   position: absolute;
   font-size: 14px;
@@ -37,6 +28,17 @@ const MenuContainer = styled.div`
   line-height: 1.5;
   min-width: 10rem;
   transform: none;
+`;
+
+const Content = styled(ContentStyle)`
+  transform: ${(props) =>
+    ({
+      topRight: 'translate3d(12px, -143px, 0px)',
+      bottomLeft: 'translate3d(-100px, 20px, 0px)',
+    }[props.position])};
+
+  display: ${(props) =>
+    props.isOpen ? 'block' : 'none'};
 `;
 
 const DropDown = (props) => {
@@ -59,6 +61,7 @@ const DropDown = (props) => {
       <div ref={ref} onClick={toggle}>
         {props.children}
       </div>
+
       <Content position={props.position} isOpen={isOpen}>
         <MenuContainer>
           {props.overlay && props.overlay()}

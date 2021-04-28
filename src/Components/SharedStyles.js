@@ -48,8 +48,7 @@ export const Badge = styled(BadgeBase)`
 export const CardSecondary = styled.div`
   background: ${(props) =>
     props.theme.colors.highlightSecondary};
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
+  color: ${(props) => props.theme.colors.fontSecondary};
   box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
 `;
 
@@ -61,6 +60,9 @@ export const ListItemHighlight = styled(ListItem)`
 `;
 
 export const ListItemDivider = styled(ListItem)`
+  background-color: ${(props) =>
+    props.active &&
+    props.theme.colors.highlightItemSecondary};
   border-bottom: 1px solid
     ${(props) => props.theme.colors.highlight};
 `;
@@ -68,8 +70,7 @@ export const ListItemDivider = styled(ListItem)`
 export const ButtonSimple = styled(BtnSimple)`
   border: 1px solid
     ${(props) => props.theme.colors.highlight};
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
+  color: ${(props) => props.theme.colors.fontSecondary};
 
   &: focus {
     border-width: 1px;
@@ -85,8 +86,7 @@ export const ButtonSimple = styled(BtnSimple)`
 `;
 
 export const Input = styled(InputBase)`
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
+  color: ${(props) => props.theme.colors.fontSecondary};
   border: 1px solid
     ${(props) => props.theme.colors.highlight};
 
@@ -113,8 +113,7 @@ export const TextPrimary = styled.p`
 `;
 
 export const TextSecondary = styled(TextBase)`
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
+  color: ${(props) => props.theme.colors.fontSecondary};
 `;
 
 export const TitleText = styled.h5`
@@ -127,7 +126,6 @@ export const TitleText = styled.h5`
 export const Divider = styled.hr`
   border-color: ${(props) =>
     props.theme.colors.highlightPrimary};
-  border-top: 1px solid transparent;
 `;
 
 export const ActiveIcon = styled.span`

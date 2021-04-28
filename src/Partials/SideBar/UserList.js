@@ -48,8 +48,6 @@ const ListView = styled(ListItemDivider)`
   display: flex;
   cursor: pointer;
   border-width: 0 0 1px;
-  background-color: ${(props) =>
-    props.active && '#1f273b'};
 
   &: hover .dropdown-item {
     display: block;
@@ -64,7 +62,7 @@ const DropDown = styled(Dropdown)`
   text-align: right;
 `;
 
-const ChatView = ({ data, select }) => {
+const ChatView = ({ data, select, menu }) => {
   const [active, setactive] = useState();
 
   if (!data) return <></>;
@@ -116,10 +114,22 @@ const ChatView = ({ data, select }) => {
                 position="bottomLeft"
                 align="right"
                 overlay={() => (
-                  <Menu>
-                    <Menu.Item>Profile</Menu.Item>
-                    <Menu.Item>Delete</Menu.Item>
-                  </Menu>
+                  <>
+                    {menu === 'chat' && (
+                      <Menu>
+                        <Menu.Item>Profile</Menu.Item>
+                        <Menu.Item>Delete</Menu.Item>
+                      </Menu>
+                    )}
+                    {menu === 'users' && (
+                      <Menu>
+                        <Menu.Item>New Chat</Menu.Item>
+                        <Menu.Item>Profile</Menu.Item>
+                        <Menu.Divider />
+                        <Menu.Item>Block</Menu.Item>
+                      </Menu>
+                    )}
+                  </>
                 )}
               >
                 <ActiveIcon>

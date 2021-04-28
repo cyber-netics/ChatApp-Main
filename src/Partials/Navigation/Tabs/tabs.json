@@ -3,6 +3,7 @@
     {
       "name": "chat",
       "action": "getMessage",
+      "content": "messages",
       "icon": "MessageCircle",
       "status": "warning"
     },
@@ -10,6 +11,7 @@
     {
       "name": "users",
       "action": "getMessage",
+      "content": "messages",
       "icon": "User",
       "status": "error"
     },

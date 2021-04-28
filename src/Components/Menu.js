@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { List } from './Common';
-import { ListItemHighlight } from './SharedStyles';
+import {
+  ListItemHighlight,
+  Divider,
+} from './SharedStyles';
 
 const MenuItem = styled(ListItemHighlight)`
   padding: 0.25rem 1.5rem;
   cursor: pointer;
-`;
-
-const Divider = styled.hr`
-  border-color: ${(props) =>
-    props.theme.colors.highlightPrimary};
-  border-top: 1px solid transparent;
 `;
 
 const MenuComponent = (props) => {

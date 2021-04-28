@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // Partials
 import Navigation from '../Partials/Navigation';
 import SideBar from '../Partials/SideBar';
-import SideChat from '../Partials/SideChat';
+import WorkBench from '../Partials/WorkBench';
 
 // Components
 import { Container } from '../Components/Common';
@@ -44,7 +44,10 @@ class Home extends Component {
           select={this.props[activeNavAction]}
           data={this.props.data[activeNavTab]}
         />
-        <SideChat data={this.props.data} />
+        <WorkBench
+          data={this.props.data.messages}
+          current={activeNavTab}
+        />
       </Container>
     );
   }

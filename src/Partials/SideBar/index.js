@@ -106,7 +106,11 @@ const Sidebar = ({ data, active, select }) => {
           </SearchContainer>
           <SidebarBody>
             {(active === 'chat' || 'users') && (
-              <UserList data={data} select={select} />
+              <UserList
+                menu={active}
+                data={data}
+                select={select}
+              />
             )}
           </SidebarBody>
         </InnerContainer>

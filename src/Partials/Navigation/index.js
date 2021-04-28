@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as logo } from '../../assets/logo.svg';
 import TabPanel from './Tabs';
+import Link from '../../Components/Link';
 import Icon from '../../Components/Icon';
 import Avatar from '../../Components/Avatar';
 import Dropdown from '../../Components/Dropdown';
@@ -29,8 +30,8 @@ const NavHeader = styled.div`
   padding: 25px 0;
 `;
 
-const NavLogo = styled.a`
-  height: 80px;
+const NavLogo = styled(Link)`
+  height: 100%;
 `;
 
 const LogoIcon = styled(logo)`
@@ -63,7 +64,7 @@ const Navigation = (props) => {
       <Container>
         <InnerContainer>
           <NavHeader>
-            <NavLogo href={'/'}>
+            <NavLogo to={'/'}>
               <LogoIcon />
             </NavLogo>
           </NavHeader>

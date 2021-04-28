@@ -6,14 +6,23 @@ import { CardSecondary } from './SharedStyles';
 const Container = styled.div`
   position: relative;
   border-color: transparent;
+  transform: none;
   cursor: pointer;
+  text-align: ${(props) =>
+    props.align ? props.align : 'center'};
+  transform: none;
 `;
+
+const position = {
+  topRight: 'translate3d(12px, -143px, 0px)',
+  bottomLeft: 'translate3d(-100px, 20px, 0px)',
+};
 
 const Content = styled(CardSecondary)`
   display: ${(props) =>
     props.isOpen ? 'block' : 'none'};
   text-align: left;
-  transform: translate3d(12px, -143px, 0px);
+  transform: ${(props) => position[props.position]};
   position: absolute;
   font-size: 14px;
   top: 0px;
@@ -26,6 +35,7 @@ const MenuContainer = styled.div`
   padding: 0.5rem 0;
   line-height: 1.5;
   min-width: 10rem;
+  transform: none;
 `;
 
 const DropDown = (props) => {
@@ -41,16 +51,19 @@ const DropDown = (props) => {
   };
 
   return (
-    <Container>
+    <Container
+      align={props.align}
+      className={props.className}
+    >
       <div ref={ref} onClick={toggle}>
         {props.children}
       </div>
       <Content
+        position={props.position}
         isOpen={isOpen}
-        className={props.className}
       >
         <MenuContainer>
-          {props.overlay()}
+          {props.overlay && props.overlay()}
         </MenuContainer>
       </Content>
     </Container>

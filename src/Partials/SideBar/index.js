@@ -12,7 +12,7 @@ import {
 
 import {
   Section,
-  Text,
+  TextSecondary,
   ButtonSimple,
   Input,
 } from '../../Components/SharedStyles';
@@ -30,7 +30,7 @@ const Header = styled.header`
   font-weight: 500;
 `;
 
-const Title = styled(Text)`
+const Title = styled(TextSecondary)`
   font-size: 22px;
   font-weight: 600;
 `;
@@ -103,7 +103,10 @@ const Sidebar = (props) => {
           </SearchContainer>
           <SidebarBody>
             {props.active === 'message' && (
-              <UserList data={props.chats} />
+              <UserList
+                data={props.chats}
+                handleSelect={()=>{console.log('select')}}
+              />
             )}
           </SidebarBody>
         </InnerContainer>

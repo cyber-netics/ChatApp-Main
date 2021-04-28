@@ -65,11 +65,6 @@ export const ListItemDivider = styled(ListItem)`
     ${(props) => props.theme.colors.highlight};
 `;
 
-export const Text = styled(TextBase)`
-  color: ${(props) =>
-    props.theme.colors.fontSecondary};
-`;
-
 export const ButtonSimple = styled(BtnSimple)`
   border: 1px solid
     ${(props) => props.theme.colors.highlight};
@@ -101,4 +96,40 @@ export const Input = styled(InputBase)`
     border: 1px solid
       ${(props) => props.theme.colors.primary};
   }
+`;
+
+export const Small = styled.small`
+  color: ${(props) =>
+    props.active
+      ? props.theme.colors.primary
+      : props.theme.colors.fontNeutral};
+  font-size: 12px;
+  font-weight: 400;
+`;
+
+export const TextPrimary = styled.p`
+  color: ${(props) => props.theme.colors.fontNeutral};
+  margin: 0;
+`;
+
+export const TextSecondary = styled(TextBase)`
+  color: ${(props) =>
+    props.theme.colors.fontSecondary};
+`;
+
+export const TitleText = styled.h5`
+  color: ${(props) =>
+    props.active
+      ? props.theme.colors.primary
+      : props.theme.colors.fontNeutralSecondary};
+`;
+
+export const Divider = styled.hr`
+  border-color: ${(props) =>
+    props.theme.colors.highlightPrimary};
+  border-top: 1px solid transparent;
+`;
+
+export const ActiveIcon = styled.span`
+  color: ${(props) => props.theme.colors.primary};
 `;

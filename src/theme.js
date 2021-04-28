@@ -14,7 +14,7 @@ const highlight600 = 'rgba(255, 255, 255, 0.75)';
 const secondary100 = 'black';
 const secondary200 = 'rgba(255, 255, 255, 0.5)';
 const secondary300 = '#ebebeb';
-const secondary400 = 'rgba(255, 255, 255, 0.4)';
+const secondary400 = '#969696';
 const secondary500 = '#6c757d';
 
 const success = '#0abb87';
@@ -43,6 +43,7 @@ const lightColors = {
   activeSecondary: primary,
 
   fontNeutral: secondary400,
+  fontNeutralSecondary: highlight400,
   fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
@@ -59,6 +60,7 @@ const darkColors = {
   active: primary,
   activeSecondary: secondary200,
 
+  fontNeutralSecondary: highlight600,
   fontNeutral: secondary500,
   fontSecondary: highlight600,
   fontInactive: secondary200,

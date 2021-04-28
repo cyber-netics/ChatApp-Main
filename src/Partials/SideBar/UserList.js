@@ -2,20 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 import UserFigure from '../../Components/UserFigure';
-import { ListItemDivider } from '../../Components/SharedStyles';
+import Dropdown from '../../Components/Dropdown';
+import Icon from '../../Components/Icon';
+import Menu from '../../Components/Menu';
+
+import {
+  ListItemDivider,
+  Small,
+  ActiveIcon,
+} from '../../Components/SharedStyles';
 
 const ListAction = styled.div`
   right: 0;
   width: 50px;
+  .count {
+    display: block;
+  }
 `;
 
-const Small = styled.small`
-  color: ${(props) =>
-    props.active
-      ? props.theme.colors.activeColor
-      : props.theme.colors.neutralTextSecond};
-  font-size: 80%;
-  font-weight: 400;
+const Action = styled.div`
+  position: absolute;
+  text-align: right;
 `;
 
 const Count = styled.div`
@@ -40,14 +47,21 @@ const ListView = styled(ListItemDivider)`
   padding: 17px 30px;
   display: flex;
   cursor: pointer;
-  border-color: #293145;
   border-width: 0 0 1px;
   background-color: ${(props) =>
-    props.active ? '#1f273b' : ''} !important;
+    props.active && '#1f273b'};
 
   &: hover .dropdown-item {
-    visibility: visible;
+    display: block;
   }
+  &: hover .count {
+    display: none;
+  }
+`;
+
+const DropDown = styled(Dropdown)`
+  display: none;
+  text-align: right;
 `;
 
 const ChatView = ({ data, active, handleSelect }) => {
@@ -63,13 +77,13 @@ const ChatView = ({ data, active, handleSelect }) => {
             <UserFigure
               name={item.name}
               avatar={item.avatar}
-              active={item.unread_messages}
+              active={!!item.unread_messages}
               text={<Text>{item.text}</Text>}
               status={item.status}
             />
           )}
           <ListAction>
-            <div style={{ position: 'absolute' }}>
+            <Action className="count">
               {item.unread_messages ? (
                 <Count>{item.unread_messages}</Count>
               ) : (
@@ -78,12 +92,25 @@ const ChatView = ({ data, active, handleSelect }) => {
               <Small active={item.unread_messages}>
                 {item.date}
               </Small>
-            </div>
-            {/* <Dropdown align="right">
-              <span>
-                <Icon size={"lg"} icon={"MoreHorizontal"} />
-              </span>
-            </Dropdown> */}
+            </Action>
+            <DropDown
+              className="dropdown-item"
+              position="bottomLeft"
+              align="right"
+              overlay={() => (
+                <Menu>
+                  <Menu.Item>Profile</Menu.Item>
+                  <Menu.Item>Delete</Menu.Item>
+                </Menu>
+              )}
+            >
+              <ActiveIcon>
+                <Icon
+                  size="lg"
+                  icon="MoreHorizontal"
+                />
+              </ActiveIcon>
+            </DropDown>
           </ListAction>
         </ListView>
       ))}

@@ -88,7 +88,10 @@ const Navigation = (props) => {
                 </ButtonSelect>
               </NavItem>
               <NavItem>
-                <Dropdown overlay={menulist}>
+                <Dropdown
+                  position={'topRight'}
+                  overlay={menulist}
+                >
                   <Avatar />
                 </Dropdown>
               </NavItem>

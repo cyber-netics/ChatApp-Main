@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Badge } from './SharedStyles';
+import {
+  Badge,
+  TitleText,
+  TextPrimary,
+} from './SharedStyles';
 
 const Figure = styled.figure`
   display: inline-block;
@@ -40,11 +44,7 @@ const ListBody = styled.div`
   display: flex;
 `;
 
-const ContentTitle = styled.h5`
-  color: ${(props) =>
-    props.active
-      ? props.theme.colors.activeColor
-      : props.theme.colors.textColor};
+const ContentTitle = styled(TitleText)`
   white-space: nowrap;
   font-size: 16px;
   font-weight: 500;
@@ -52,9 +52,9 @@ const ContentTitle = styled.h5`
   margin-bottom: 0.2rem;
 `;
 
-const Text = styled.p`
-  color: ${(props) => props.theme.colors.fontNeutral};
-  margin: 0;
+const CustomBadge = styled(Badge)`
+  top: -2px;
+  right: -2px;
 `;
 
 const UserFigure = ({
@@ -64,30 +64,37 @@ const UserFigure = ({
   active,
   status,
 }) => {
+  const AvatarFigure = (props) => (
+    <Figure>
+      {props.status && (
+        <CustomBadge
+          border={true}
+          status={
+            props.status === 'active'
+              ? 'success'
+              : 'warning'
+          }
+        />
+      )}
+      {props.children}
+    </Figure>
+  );
+
   return (
     <>
-      <Figure>
-        {status && (
-          <Badge
-            status={
-              status === 'active'
-                ? 'success'
-                : 'warning'
-            }
-          />
-        )}
+      <AvatarFigure status={status} avatar={avatar}>
         {avatar.image ? (
           <AvatarImg src={avatar.image} alt="avatar" />
         ) : (
           <AvatarTitle>{avatar.title}</AvatarTitle>
         )}
-      </Figure>
+      </AvatarFigure>
       <ListBody>
         <div>
           <ContentTitle active={active}>
             {name}
           </ContentTitle>
-          <Text>{text}</Text>
+          <TextPrimary>{text}</TextPrimary>
         </div>
       </ListBody>
     </>

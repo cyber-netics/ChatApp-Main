@@ -6,15 +6,17 @@ import Navigation from '../Partials/Navigation';
 import SideBar from '../Partials/SideBar';
 import SideChat from '../Partials/SideChat';
 
+// Components
+import { Container } from '../Components/Common';
+
 // Redux actions
-import { navTab } from '../Store/action/interface';
+import { navTab } from '../Store/action/ui';
+
 import {
   getFriends,
   getChat,
-} from '../Store/action/chat';
-
-// Components
-import { Container } from '../Components/Common';
+  getMessage,
+} from '../Store/action/data';
 
 class Home extends Component {
   componentDidMount() {
@@ -23,19 +25,26 @@ class Home extends Component {
   }
 
   render() {
+    const {
+      toggleTheme,
+      toggleNavTab,
+      activeNavTab,
+      activeNavAction,
+    } = this.props;
+
     return (
       <Container>
         <Navigation
-          toggleTheme={this.props.toggleTheme}
-          toggleNavTab={this.props.toggleNavTab}
-          activeNavTab={this.props.activeNavTab}
+          toggleTheme={toggleTheme}
+          toggleNavTab={toggleNavTab}
+          activeNavTab={activeNavTab}
         />
         <SideBar
-          active={this.props.activeNavTab}
-          friends={this.props.friendList}
-          chats={this.props.chatList}
+          active={activeNavTab}
+          select={this.props[activeNavAction]}
+          data={this.props.data[activeNavTab]}
         />
-        <SideChat />
+        <SideChat data={this.props.data} />
       </Container>
     );
   }
@@ -43,9 +52,9 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeNavTab: state.ui.tab,
-    friendList: state.data.friendList,
-    chatList: state.data.chatList,
+    activeNavTab: state.ui.nav.name,
+    activeNavAction: state.ui.nav.action,
+    data: state.data,
   };
 };
 
@@ -54,6 +63,7 @@ const mapDispatchToProsp = (dispatch) => {
     toggleNavTab: (tab) => dispatch(navTab(tab)),
     getFriendList: () => dispatch(getFriends()),
     getChatList: () => dispatch(getChat()),
+    getMessage: (id) => dispatch(getMessage(id)),
   };
 };
 

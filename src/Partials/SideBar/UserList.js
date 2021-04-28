@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import UserFigure from '../../Components/UserFigure';
@@ -64,56 +64,75 @@ const DropDown = styled(Dropdown)`
   text-align: right;
 `;
 
-const ChatView = ({ data, active, handleSelect }) => {
+const ChatView = ({ data, select }) => {
+  const [active, setactive] = useState();
+
+  if (!data) return <></>;
+
   return (
     <>
-      {data.map((item, i) => (
-        <ListView
-          key={i}
-          active={active === item.id}
-          onClick={() => handleSelect(item)}
-        >
-          {item.avatar && (
-            <UserFigure
-              name={item.name}
-              avatar={item.avatar}
-              active={!!item.unread_messages}
-              text={<Text>{item.text}</Text>}
-              status={item.status}
-            />
-          )}
-          <ListAction>
-            <Action className="count">
-              {item.unread_messages ? (
-                <Count>{item.unread_messages}</Count>
-              ) : (
-                <></>
-              )}
-              <Small active={item.unread_messages}>
-                {item.date}
-              </Small>
-            </Action>
-            <DropDown
-              className="dropdown-item"
-              position="bottomLeft"
-              align="right"
-              overlay={() => (
-                <Menu>
-                  <Menu.Item>Profile</Menu.Item>
-                  <Menu.Item>Delete</Menu.Item>
-                </Menu>
-              )}
-            >
-              <ActiveIcon>
-                <Icon
-                  size="lg"
-                  icon="MoreHorizontal"
-                />
-              </ActiveIcon>
-            </DropDown>
-          </ListAction>
-        </ListView>
-      ))}
+      {data.map((item, i) => {
+        const {
+          id,
+          date,
+          text,
+          name,
+          avatar,
+          status,
+          unread_messages,
+        } = item;
+
+        return (
+          <ListView
+            key={i}
+            active={active === id}
+            onClick={() => {
+              setactive(id);
+              select(id);
+            }}
+          >
+            {avatar && (
+              <UserFigure
+                name={name}
+                avatar={avatar}
+                active={!!unread_messages}
+                text={<Text>{text}</Text>}
+                status={status}
+              />
+            )}
+            <ListAction>
+              <Action className="count">
+                {unread_messages ? (
+                  <Count>{unread_messages}</Count>
+                ) : (
+                  <></>
+                )}
+                <Small active={unread_messages}>
+                  {date}
+                </Small>
+              </Action>
+              <DropDown
+                className="dropdown-item"
+                position="bottomLeft"
+                align="right"
+                overlay={() => (
+                  <Menu>
+                    <Menu.Item>Profile</Menu.Item>
+                    <Menu.Item>Delete</Menu.Item>
+                  </Menu>
+                )}
+              >
+                <ActiveIcon>
+                  <Icon
+                    size="lg"
+                    icon="MoreHorizontal"
+                  />
+                </ActiveIcon>
+              </DropDown>
+            </ListAction>
+          </ListView>
+        );
+      })}
     </>
   );
 };

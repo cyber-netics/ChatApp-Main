@@ -2,13 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as logo } from '../../assets/logo.svg';
-import { tabs } from './tabs.json';
-import menulist from './menu';
-
-import TabPanel from './TabPanel';
+import TabPanel from './Tabs';
 import Icon from '../../Components/Icon';
 import Avatar from '../../Components/Avatar';
 import Dropdown from '../../Components/Dropdown';
+import Menu from '../../Components/Menu';
 
 import {
   Container as Wrapper,
@@ -72,7 +70,6 @@ const Navigation = (props) => {
           <NavBody>
             <NavList>
               <TabPanel
-                list={tabs}
                 selected={props.activeNavTab}
                 toggle={props.toggleNavTab}
               />
@@ -90,7 +87,15 @@ const Navigation = (props) => {
               <NavItem>
                 <Dropdown
                   position={'topRight'}
-                  overlay={menulist}
+                  overlay={() => (
+                    <Menu>
+                      <Menu.Item>Edit profile</Menu.Item>
+                      <Menu.Item>Profile</Menu.Item>
+                      <Menu.Item>Settings</Menu.Item>
+                      <Menu.Divider />
+                      <Menu.Item>Logout</Menu.Item>
+                    </Menu>
+                  )}
                 >
                   <Avatar />
                 </Dropdown>

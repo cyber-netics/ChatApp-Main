@@ -1,7 +1,10 @@
 import { SET_NAV_TAB } from '../static';
 
 const initialState = {
-  tab: 'message',
+  nav: {
+    name: 'chat',
+    action: 'getMessage',
+  },
 };
 
 const uiInterface = (state = initialState, action) => {
@@ -9,7 +12,7 @@ const uiInterface = (state = initialState, action) => {
     case SET_NAV_TAB: {
       return {
         ...state,
-        tab: action.payload,
+        nav: action.payload,
       };
     }
 

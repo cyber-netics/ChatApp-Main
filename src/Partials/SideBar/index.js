@@ -71,7 +71,7 @@ const SidebarBody = styled.div`
   height: calc(100% - 180px);
 `;
 
-const Sidebar = (props) => {
+const Sidebar = ({ data, active, select }) => {
   return (
     <Section>
       <Container>
@@ -98,15 +98,15 @@ const Sidebar = (props) => {
           </Header>
           <SearchContainer>
             <Form>
-              <SearchInput placeholder="Search chats" />
+              <SearchInput
+                onChange={() => {}}
+                placeholder="Search chats"
+              />
             </Form>
           </SearchContainer>
           <SidebarBody>
-            {props.active === 'message' && (
-              <UserList
-                data={props.chats}
-                handleSelect={()=>{console.log('select')}}
-              />
+            {(active === 'chat' || 'users') && (
+              <UserList data={data} select={select} />
             )}
           </SidebarBody>
         </InnerContainer>

@@ -1,11 +1,13 @@
 import {
   SET_FRIEND_LIST,
   SET_CHAT_LIST,
+  GET_CONVERSATION,
 } from '../static';
 
 const initialState = {
-  friendList: [],
-  chatList: [],
+  users: [],
+  chat: [],
+  messages: [],
 };
 
 const appData = (state = initialState, action) => {
@@ -13,14 +15,21 @@ const appData = (state = initialState, action) => {
     case SET_FRIEND_LIST: {
       return {
         ...state,
-        friendList: action.payload,
+        users: action.payload,
       };
     }
 
     case SET_CHAT_LIST: {
       return {
         ...state,
-        chatList: action.payload,
+        chat: action.payload,
+      };
+    }
+
+    case GET_CONVERSATION: {
+      return {
+        ...state,
+        messages: action.payload,
       };
     }
 

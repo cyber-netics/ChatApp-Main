@@ -8,6 +8,12 @@ const MenuItem = styled(ListItemHighlight)`
   cursor: pointer;
 `;
 
+const Divider = styled.hr`
+  border-color: ${(props) =>
+    props.theme.colors.highlightPrimary};
+  border-top: 1px solid transparent;
+`;
+
 const MenuComponent = (props) => {
   return <List>{props.children}</List>;
 };
@@ -21,4 +27,5 @@ const ItemMenuComponent = (props) => {
 };
 
 MenuComponent.Item = ItemMenuComponent;
+MenuComponent.Divider = Divider;
 export default MenuComponent;

@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as logo } from '../../assets/logo.svg';
+import { ReactComponent as logo } from 'assets/logo.svg';
 import TabPanel from './Tabs';
-import Link from '../../Components/Link';
-import Icon from '../../Components/Icon';
-import Avatar from '../../Components/Avatar';
-import Dropdown from '../../Components/Dropdown';
-import Menu from '../../Components/Menu';
+import Link from 'Components/Link';
+import Icon from 'Components/Icon';
+import Avatar from 'Components/Avatar';
+import Dropdown from 'Components/Dropdown';
+import Menu from 'Components/Menu';
 
 import {
   Container as Wrapper,
   InnerContainer,
   List,
   ListItem,
-} from '../../Components/Common';
+} from 'Components/Common';
 
 import {
   Section,
   ButtonSelect,
-} from '../../Components/SharedStyles';
+} from 'Components/SharedStyles';
 
 const Container = styled(Wrapper)`
   width: 100px;

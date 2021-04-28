@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { tabs } from './tabs.json';
-import Icon from '../../../Components/Icon';
-import { ListItem } from '../../../Components/Common';
+import Icon from 'Components/Icon';
+import { ListItem } from 'Components/Common';
 import {
   ButtonSelect,
   Badge,
-} from '../../../Components/SharedStyles';
+} from 'Components/SharedStyles';
 
 const TabItem = styled(ListItem)`
   margin: 5px 20px;

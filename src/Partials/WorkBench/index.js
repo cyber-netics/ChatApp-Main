@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container } from '../../Components/Common';
-import UnselectedChat from '../../assets/img/unselected-chat.svg';
+import { Container } from 'Components/Common';
+import UnselectedChat from 'assets/img/unselected-chat.svg';
 
 const Wrapper = styled.div`
   width: 100%;

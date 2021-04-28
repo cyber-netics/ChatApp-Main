@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Partials
-import Navigation from '../Partials/Navigation';
-import SideBar from '../Partials/SideBar';
-import WorkBench from '../Partials/WorkBench';
+import Navigation from 'Partials/Navigation';
+import SideBar from 'Partials/SideBar';
+import WorkBench from 'Partials/WorkBench';
 
 // Components
-import { Container } from '../Components/Common';
+import { Container } from 'Components/Common';
 
 // Redux actions
-import { navTab } from '../Store/action/ui';
+import { navTab } from 'Store/action/ui';
 
 import {
   getFriends,
@@ -45,8 +45,8 @@ class Home extends Component {
           data={this.props.data[activeNavTab]}
         />
         <WorkBench
-          data={this.props.data.messages}
           current={activeNavTab}
+          data={this.props.data.messages}
         />
       </Container>
     );

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import UserFigure from '../../Components/UserFigure';
-import Dropdown from '../../Components/Dropdown';
-import Icon from '../../Components/Icon';
-import Menu from '../../Components/Menu';
-
+import UserFigure from 'Components/UserFigure';
+import Dropdown from 'Components/Dropdown';
+import Icon from 'Components/Icon';
+import Menu from 'Components/Menu';
 import {
   ListItemDivider,
   Small,
   ActiveIcon,
-} from '../../Components/SharedStyles';
+} from 'Components/SharedStyles';
 
 const ListAction = styled.div`
   right: 0;
@@ -63,7 +62,12 @@ const DropDown = styled(Dropdown)`
 `;
 
 const ChatView = ({ data, select, menu }) => {
-  const [active, setactive] = useState();
+  const [active, setactive] = useState({});
+
+  const handleSelect = (id) => {
+    setactive({ ...active, [menu]: id });
+    select(id); // Get Content action
+  };
 
   if (!data) return <></>;
 
@@ -83,11 +87,8 @@ const ChatView = ({ data, select, menu }) => {
         return (
           <ListView
             key={i}
-            active={active === id}
-            onClick={() => {
-              setactive(id);
-              select(id);
-            }}
+            active={active[menu] === id}
+            onClick={() => handleSelect(id)}
           >
             {avatar && (
               <UserFigure

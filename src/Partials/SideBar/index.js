@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Icon from '../../Components/Icon';
+
+import Icon from 'Components/Icon';
 import UserList from './UserList';
 
 import {
@@ -8,14 +9,14 @@ import {
   InnerContainer,
   List,
   ListItem,
-} from '../../Components/Common';
+} from 'Components/Common';
 
 import {
   Section,
   TextSecondary,
   ButtonSimple,
   Input,
-} from '../../Components/SharedStyles';
+} from 'Components/SharedStyles';
 
 const Container = styled(Wrapper)`
   width: 350px;

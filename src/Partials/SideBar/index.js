@@ -72,52 +72,47 @@ const SidebarBody = styled.div`
   height: calc(100% - 180px);
 `;
 
-const Sidebar = ({ data, active, select }) => {
-  return (
-    <Section>
-      <Container>
-        <InnerContainer>
-          <Header>
-            <Title>Chats</Title>
-            <div>
-              <ButtonList>
-                <ButtonItem>
-                  <Button>
-                    <Icon size="sm" icon={'Users'} />
-                  </Button>
-                </ButtonItem>
-                <ButtonItem>
-                  <Button>
-                    <Icon
-                      size="sm"
-                      icon={'PlusCircle'}
-                    />
-                  </Button>
-                </ButtonItem>
-              </ButtonList>
-            </div>
-          </Header>
-          <SearchContainer>
-            <Form>
-              <SearchInput
-                onChange={() => {}}
-                placeholder="Search chats"
-              />
-            </Form>
-          </SearchContainer>
-          <SidebarBody>
-            {(active === 'chat' || 'users') && (
-              <UserList
-                menu={active}
-                data={data}
-                select={select}
-              />
-            )}
-          </SidebarBody>
-        </InnerContainer>
-      </Container>
-    </Section>
-  );
-};
+const Sidebar = ({ data, active, select }) => (
+  <Section>
+    <Container>
+      <InnerContainer>
+        <Header>
+          <Title>Chats</Title>
+          <div>
+            <ButtonList>
+              <ButtonItem>
+                <Button>
+                  <Icon size="sm" icon={'Users'} />
+                </Button>
+              </ButtonItem>
+              <ButtonItem>
+                <Button>
+                  <Icon size="sm" icon={'PlusCircle'} />
+                </Button>
+              </ButtonItem>
+            </ButtonList>
+          </div>
+        </Header>
+        <SearchContainer>
+          <Form>
+            <SearchInput
+              onChange={() => {}}
+              placeholder="Search chats"
+            />
+          </Form>
+        </SearchContainer>
+        <SidebarBody>
+          {(active === 'chat' || 'users') && (
+            <UserList
+              menu={active}
+              data={data}
+              select={select}
+            />
+          )}
+        </SidebarBody>
+      </InnerContainer>
+    </Container>
+  </Section>
+);
 
 export default memo(Sidebar);

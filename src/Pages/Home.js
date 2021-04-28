@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container } from 'Components/Common';
 
-// Partials
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 
-// Components
-import { Container } from 'Components/Common';
-
-// Redux actions
 import { navTab } from 'Store/action/ui';
-
 import {
   getFriends,
   getChat,
@@ -39,11 +34,13 @@ class Home extends Component {
           toggleNavTab={toggleNavTab}
           activeNavTab={activeNavTab}
         />
+
         <SideBar
           active={activeNavTab}
           select={this.props[activeNavAction]}
           data={this.props.data[activeNavTab]}
         />
+
         <WorkBench
           current={activeNavTab}
           data={this.props.data.messages}

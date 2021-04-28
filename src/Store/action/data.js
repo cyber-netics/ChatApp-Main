@@ -32,15 +32,15 @@ export const getChat = () => {
   };
 };
 
-export const getMessage = (id) => {
+export const getMessage = (user) => {
   return async (dispatch) => {
-    const messages = await Promise.all(
-      conversation[id],
+    const chat = await Promise.all(
+      conversation[user.id],
     );
 
     dispatch({
       type: GET_CONVERSATION,
-      payload: messages,
+      payload: { chat, user },
     });
   };
 };

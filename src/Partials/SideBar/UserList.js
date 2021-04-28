@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import UserFigure from 'Components/UserFigure';
@@ -62,11 +62,14 @@ const DropDown = styled(Dropdown)`
 `;
 
 const ChatView = ({ data, select, menu }) => {
-  const [active, setactive] = useState({});
+  const [active, setactive] = useState({
+    chat: {}, // Clean up
+    users: {},
+  });
 
-  const handleSelect = (id) => {
-    setactive({ ...active, [menu]: id });
-    select(id); // Get Content action
+  const handleSelect = (item) => {
+    setactive({ ...active, [menu]: item });
+    select(item); // Get Content action
   };
 
   if (!data) return <></>;
@@ -87,8 +90,8 @@ const ChatView = ({ data, select, menu }) => {
         return (
           <ListView
             key={i}
-            active={active[menu] === id}
-            onClick={() => handleSelect(id)}
+            active={active[menu].id === id}
+            onClick={() => handleSelect(item)}
           >
             {avatar && (
               <UserFigure

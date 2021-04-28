@@ -131,3 +131,19 @@ export const Divider = styled.hr`
 export const ActiveIcon = styled.span`
   color: ${(props) => props.theme.colors.primary};
 `;
+
+export const BorderBox = styled.div`
+  border-bottom: 1px solid
+    ${(props) => props.theme.colors.highlight};
+`;
+
+export const MessageStyle = styled.div`
+  background-color: ${(props) =>
+    props.outgoing
+      ? props.theme.colors.primary
+      : props.theme.colors.textHighlight};
+  color: ${(props) =>
+    props.outgoing
+      ? 'white'
+      : props.theme.colors.fontSecondary};
+`;

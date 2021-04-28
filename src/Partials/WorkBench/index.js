@@ -1,17 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container } from 'Components/Common';
 import UnselectedChat from 'assets/img/unselected-chat.svg';
+import { Container } from 'Components/Common';
+
+// App
+import ChatApplication from 'Resource/Chat';
 
 const Wrapper = styled.div`
   width: 100%;
 `;
 
 const UnselectedContainer = styled.div`
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
 `;
 
 const Unselected = styled.div`
@@ -32,25 +38,27 @@ const Text = styled.p`
   color: #828282;
 `;
 
-const EmptySelection = () => (
-  <UnselectedContainer>
-    <Unselected>
-      <Image
-        src={UnselectedChat}
-        width={200}
-        alt="unselected"
-      />
-      <Text>Select a chat to read messages</Text>
-    </Unselected>
-  </UnselectedContainer>
-);
-
-const Workbench = (props) => {
-  if (!false) return <EmptySelection />;
+const Workbench = ({ data }) => {
+  if (!data.user) {
+    return (
+      <UnselectedContainer>
+        <Unselected>
+          <Image
+            src={UnselectedChat}
+            width={200}
+            alt="unselected"
+          />
+          <Text>Select a chat to read messages</Text>
+        </Unselected>
+      </UnselectedContainer>
+    );
+  }
 
   return (
     <Container>
-      <Wrapper></Wrapper>
+      <Wrapper>
+        <ChatApplication data={data} />
+      </Wrapper>
     </Container>
   );
 };

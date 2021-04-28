@@ -11,7 +11,7 @@ const highlight400 = '#212529';
 const highlight500 = '#333b4f';
 const highlight600 = 'rgba(255, 255, 255, 0.75)';
 const highlight700 = '#f0f0f0';
-const highlight800 = '#1f273b'
+const highlight800 = '#1f273b';
 
 const secondary100 = 'black';
 const secondary200 = 'rgba(255, 255, 255, 0.5)';
@@ -44,12 +44,13 @@ const lightColors = {
   highlightItemSecondary: highlight700,
 
   activeSecondary: primary,
-
   fontNeutral: secondary400,
   fontNeutralSecondary: highlight400,
   fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
+
+  textHighlight: secondary300,
 };
 
 const darkColors = {
@@ -60,7 +61,7 @@ const darkColors = {
   highlightSecondary: highlight100,
   highlightItem: highlight500,
   highlightItemSecondary: highlight800,
-  
+
   active: primary,
   activeSecondary: secondary200,
 
@@ -69,6 +70,8 @@ const darkColors = {
   fontSecondary: highlight600,
   fontInactive: secondary200,
   fontActive: light,
+
+  textHighlight: highlight100,
 };
 
 const lightThemeColors = Object.assign(

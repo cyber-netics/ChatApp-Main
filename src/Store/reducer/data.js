@@ -7,7 +7,7 @@ import {
 const initialState = {
   users: [],
   chat: [],
-  messages: [],
+  messages: {},
 };
 
 const appData = (state = initialState, action) => {

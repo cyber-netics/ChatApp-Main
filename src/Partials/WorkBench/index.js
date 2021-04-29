@@ -12,12 +12,8 @@ const Wrapper = styled.div`
 `;
 
 const UnselectedContainer = styled.div`
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
   height: 100%;
   width: 100%;
-  display: flex;
 `;
 
 const Unselected = styled.div`

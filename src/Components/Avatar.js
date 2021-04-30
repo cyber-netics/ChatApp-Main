@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import WomenAvatar5 from '../assets/img/women_avatar5.jpg';
 
@@ -25,4 +25,4 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default memo(Dropdown);

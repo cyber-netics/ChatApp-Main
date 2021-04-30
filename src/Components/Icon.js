@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import * as FeatherIcon from 'react-feather';
 import Helpers from 'helpers';
 
@@ -34,4 +34,4 @@ const Icon = (props) => {
   );
 };
 
-export default Icon;
+export default memo(Icon);

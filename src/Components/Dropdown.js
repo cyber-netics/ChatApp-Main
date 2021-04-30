@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { memo, useState, createRef } from 'react';
 import styled from 'styled-components';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import { CardSecondary } from './SharedStyles';
@@ -81,4 +81,4 @@ const DropDown = (props) => {
   );
 };
 
-export default DropDown;
+export default memo(DropDown);

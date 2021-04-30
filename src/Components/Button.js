@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
 import { ButtonSimple } from 'Components/SharedStyles';
@@ -43,4 +43,4 @@ const ButtonComponent = ({
   </Button>
 );
 
-export default ButtonComponent;
+export default memo(ButtonComponent);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 const LinkElem = styled.a`
@@ -21,4 +21,4 @@ const Link = ({ to, className, children }) => {
   );
 };
 
-export default Link;
+export default memo(Link);

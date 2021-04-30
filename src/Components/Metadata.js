@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
@@ -107,4 +107,4 @@ PageMetadata.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default PageMetadata;
+export default memo(PageMetadata);

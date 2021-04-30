@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { BgHighlight } from 'Components/SharedStyles';
 import Helpers from 'helpers';
@@ -73,4 +73,4 @@ const Tooltip = (props) => {
   );
 };
 
-export default Tooltip;
+export default memo(Tooltip);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import {
   Badge,
@@ -103,4 +103,4 @@ const UserFigure = ({
   </>
 );
 
-export default UserFigure;
+export default memo(UserFigure);

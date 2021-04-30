@@ -51,29 +51,33 @@ const Message = styled(MessageStyle)`
 const Messages = ({ messages = [] }) => (
   <Container>
     <Wrapper>
-      {messages.map(
-        ({ outgoing, name, avatar, date, text }) => (
-          <Content
-            outgoing={outgoing}
-            key={`${name}${date}`}
-          >
-            <UserContainer>
-              <UserInfo outgoing={outgoing}>
-                <UserFigure
-                  name={name}
-                  avatar={avatar}
-                  text={<Small>{date}</Small>}
-                />
-              </UserInfo>
-            </UserContainer>
-            <MessageContent>
-              <Message outgoing={!!outgoing}>
-                <span>{text}</span>
-              </Message>
-            </MessageContent>
-          </Content>
-        ),
-      )}
+      <>
+        {messages.map(
+          ({ outgoing, name, avatar, date, text }) => (
+            <Content
+              outgoing={outgoing}
+              key={`${name}${date}`}
+            >
+              <>
+                <UserContainer>
+                  <UserInfo outgoing={outgoing}>
+                    <UserFigure
+                      name={name}
+                      avatar={avatar}
+                      text={<Small>{date}</Small>}
+                    />
+                  </UserInfo>
+                </UserContainer>
+                <MessageContent>
+                  <Message outgoing={!!outgoing}>
+                    <span>{text}</span>
+                  </Message>
+                </MessageContent>
+              </>
+            </Content>
+          ),
+        )}
+      </>
     </Wrapper>
   </Container>
 );

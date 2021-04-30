@@ -54,19 +54,9 @@ const Footer = () => {
     console.log('onSubmit');
   };
 
-  const handleInputMessage = (e) => {
-    e.preventDefault();
-    console.log('message value', e.target.value);
-  };
-
   const handleSelectFile = (e) => {
     e.preventDefault();
     console.log('select File');
-  };
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    console.log('send Message');
   };
 
   return (

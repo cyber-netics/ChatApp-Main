@@ -14,20 +14,33 @@ const TabItem = styled(ListItem)`
   margin: 5px 20px;
 `;
 
-const TabPanel = (props) => {
-  return tabs.map(({ name, action, icon, status }) => (
-    <TabItem key={name}>
-      <Tootip placement="right" title={name}>
-        <ButtonSelect
-          active={props.selected === name}
-          onClick={() => props.toggle({ name, action })}
-        >
-          <Icon icon={icon} />
-          <Badge status={status} />
-        </ButtonSelect>
-      </Tootip>
-    </TabItem>
-  ));
-};
+const Tab = ({
+  name,
+  action,
+  icon,
+  status,
+  selected,
+  toggle,
+}) => (
+  <ButtonSelect
+    active={selected === name}
+    onClick={() => toggle({ name, action })}
+  >
+    <Icon icon={icon} />
+    <Badge status={status} />
+  </ButtonSelect>
+);
+
+const TabPanel = (props) => (
+  <>
+    {tabs.map((item) => (
+      <TabItem key={item.name}>
+        <Tootip placement="right" title={item.name}>
+          <Tab {...item} {...props} />
+        </Tootip>
+      </TabItem>
+    ))}
+  </>
+);
 
 export default TabPanel;

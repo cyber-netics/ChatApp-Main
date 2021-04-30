@@ -96,7 +96,7 @@ const Navigation = (props) => {
                   placement="right"
                   title="User Menu"
                 >
-                  <Dropdown 
+                  <Dropdown
                     placement={'topRight'}
                     overlay={() => (
                       <Menu>

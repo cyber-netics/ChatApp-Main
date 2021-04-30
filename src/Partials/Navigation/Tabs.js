@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { tabs } from './tabs.json';
 import Icon from 'Components/Icon';
 import Tootip from 'Components/Tooltip';
 import { ListItem } from 'Components/Common';
+
 import {
   ButtonSelect,
   Badge,
@@ -13,6 +13,31 @@ import {
 const TabItem = styled(ListItem)`
   margin: 5px 20px;
 `;
+
+const tabs = [
+  {
+    name: 'chat',
+    action: 'getMessage',
+    content: 'messages',
+    icon: 'MessageCircle',
+    status: 'warning',
+  },
+  {
+    name: 'users',
+    action: 'getMessage',
+    content: 'messages',
+    icon: 'User',
+    status: 'error',
+  },
+  {
+    name: 'stars',
+    icon: 'Star',
+  },
+  {
+    name: 'archive',
+    icon: 'Archive',
+  },
+];
 
 const Tab = ({
   name,

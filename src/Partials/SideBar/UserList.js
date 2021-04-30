@@ -67,10 +67,7 @@ const DropDown = styled(Dropdown)`
 `;
 
 const ChatView = ({ data, select, menu }) => {
-  const [active, setactive] = useState({
-    chat: {}, // Clean up
-    users: {},
-  });
+  const [active, setactive] = useState({});
 
   const handleSelect = (item) => {
     setactive({ ...active, [menu]: item });
@@ -95,7 +92,7 @@ const ChatView = ({ data, select, menu }) => {
         return (
           <ListView
             key={i}
-            active={active[menu].id === id}
+            active={active[menu]?.id === id}
             onClick={() => handleSelect(item)}
           >
             {avatar && (

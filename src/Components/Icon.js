@@ -1,6 +1,6 @@
 import React from 'react';
 import * as FeatherIcon from 'react-feather';
-import Helpers from 'Helpers';
+import Helpers from 'helpers';
 
 const iconSize = {
   sm: {

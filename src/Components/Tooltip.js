@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BgHighlight } from 'Components/SharedStyles';
-import Helpers from 'Helpers';
+import Helpers from 'helpers';
 
 const Container = styled.span`
   z-index: 11;

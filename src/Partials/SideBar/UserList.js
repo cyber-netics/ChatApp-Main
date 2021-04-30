@@ -14,8 +14,9 @@ import {
 const ListAction = styled.div`
   right: 0;
   width: 50px;
+
   .count {
-    display: block;
+    visibility: visible;
   }
 `;
 
@@ -50,14 +51,18 @@ const ListView = styled(ListItemDivider)`
 
   &: hover .dropdown-item {
     display: block;
+    visibility: visible;
+    transition: visibility 0s linear 0.1s;
   }
+
   &: hover .count {
-    display: none;
+    visibility: hidden;
+    transition: visibility 0s linear 0.1s;
   }
 `;
 
 const DropDown = styled(Dropdown)`
-  display: none;
+  visibility: hidden;
   text-align: right;
 `;
 
@@ -117,7 +122,7 @@ const ChatView = ({ data, select, menu }) => {
                 className="dropdown-item"
                 placement="bottomLeft"
                 align="right"
-                overlay={() => ( 
+                overlay={() => (
                   <>
                     {menu === 'chat' && (
                       <Menu>

@@ -58,19 +58,21 @@ const CustomBadge = styled(Badge)`
 `;
 
 const AvatarFigure = (props) => (
-  <Figure>
-    {props.status && (
-      <CustomBadge
-        border={true}
-        status={
-          props.status === 'active'
-            ? 'success'
-            : 'warning'
-        }
-      />
-    )}
-    {props.children}
-  </Figure>
+  <>
+    <Figure>
+      {props.status && (
+        <CustomBadge
+          border={true}
+          status={
+            props.status === 'active'
+              ? 'success'
+              : 'warning'
+          }
+        />
+      )}
+      {props.children}
+    </Figure>
+  </>
 );
 
 const UserFigure = ({
@@ -82,15 +84,13 @@ const UserFigure = ({
 }) => (
   <>
     <AvatarFigure status={status} avatar={avatar}>
-      {avatar.image ? (
-        <>
+      <>
+        {avatar.image ? (
           <AvatarImg src={avatar.image} alt="avatar" />
-        </>
-      ) : (
-        <>
+        ) : (
           <AvatarTitle>{avatar.title}</AvatarTitle>
-        </>
-      )}
+        )}
+      </>
     </AvatarFigure>
     <ListBody>
       <div>

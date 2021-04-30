@@ -57,48 +57,50 @@ const CustomBadge = styled(Badge)`
   right: -2px;
 `;
 
+const AvatarFigure = (props) => (
+  <Figure>
+    {props.status && (
+      <CustomBadge
+        border={true}
+        status={
+          props.status === 'active'
+            ? 'success'
+            : 'warning'
+        }
+      />
+    )}
+    {props.children}
+  </Figure>
+);
+
 const UserFigure = ({
   text,
   avatar,
   name,
   active,
   status,
-}) => {
-  const AvatarFigure = (props) => (
-    <Figure>
-      {props.status && (
-        <CustomBadge
-          border={true}
-          status={
-            props.status === 'active'
-              ? 'success'
-              : 'warning'
-          }
-        />
-      )}
-      {props.children}
-    </Figure>
-  );
-
-  return (
-    <>
-      <AvatarFigure status={status} avatar={avatar}>
-        {avatar.image ? (
+}) => (
+  <>
+    <AvatarFigure status={status} avatar={avatar}>
+      {avatar.image ? (
+        <>
           <AvatarImg src={avatar.image} alt="avatar" />
-        ) : (
+        </>
+      ) : (
+        <>
           <AvatarTitle>{avatar.title}</AvatarTitle>
-        )}
-      </AvatarFigure>
-      <ListBody>
-        <div>
-          <ContentTitle active={active}>
-            {name}
-          </ContentTitle>
-          <TextPrimary>{text}</TextPrimary>
-        </div>
-      </ListBody>
-    </>
-  );
-};
+        </>
+      )}
+    </AvatarFigure>
+    <ListBody>
+      <div>
+        <ContentTitle active={active}>
+          {name}
+        </ContentTitle>
+        <TextPrimary>{text}</TextPrimary>
+      </div>
+    </ListBody>
+  </>
+);
 
 export default UserFigure;

@@ -60,7 +60,7 @@ const SearchContainer = styled.div`
   dispay: inline-box;
   position: relative;
   width: 100%;
-  height: 98px;
+  height: 6rem;
 `;
 
 const SearchInput = styled(Input)`

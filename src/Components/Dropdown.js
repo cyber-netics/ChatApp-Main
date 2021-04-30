@@ -4,13 +4,15 @@ import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import { CardSecondary } from './SharedStyles';
 
 const Container = styled.div`
+  z-index: 12;
   position: relative;
   border-color: transparent;
   transform: none;
   cursor: pointer;
+  transform: none;
+
   text-align: ${(props) =>
     props.align ? props.align : 'center'};
-  transform: none;
 `;
 
 const ContentStyle = styled(CardSecondary)`
@@ -28,7 +30,7 @@ const MenuContainer = styled.div`
   line-height: 1.5;
   min-width: 10rem;
   transform: none;
-`; 
+`;
 
 const Content = styled(ContentStyle)`
   transform: ${(props) =>
@@ -39,6 +41,9 @@ const Content = styled(ContentStyle)`
 
   display: ${(props) =>
     props.isOpen ? 'block' : 'none'};
+
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
 `;
 
 const DropDown = (props) => {
@@ -62,7 +67,12 @@ const DropDown = (props) => {
         {props.children}
       </div>
 
-      <Content placement={props.placement} isOpen={isOpen}>
+      <Content
+        placement={props.placement}
+        isOpen={isOpen}
+        top={props.top}
+        left={props.left}
+      >
         <MenuContainer>
           {props.overlay && props.overlay()}
         </MenuContainer>

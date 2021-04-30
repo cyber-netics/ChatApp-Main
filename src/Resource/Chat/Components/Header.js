@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 import UserFigure from 'Components/UserFigure';
 import Button from 'Components/Button';
-import Tooltip from '../../../Components/Tooltip';
+import Tooltip from 'Components/Tooltip';
+import Dropdown from 'Components/Dropdown';
+import Menu from 'Components/Menu';
 
 import { List } from 'Components/Common';
 import {
@@ -22,9 +24,6 @@ const HeaderUser = styled.div`
   align-items: center;
 `;
 
-// **
-const HeaderAction = styled.div``;
-
 const ListAction = styled(List)`
   padding-left: 0;
   list-style: none;
@@ -38,6 +37,9 @@ const ListItem = styled.li`
 const ButtonAction = styled(Button)`
   padding: 8px 12.5px;
 `;
+
+// **
+const HeaderAction = styled.div``;
 
 const Header = ({ user }) => (
   <Container>
@@ -68,7 +70,19 @@ const Header = ({ user }) => (
           </Tooltip>
         </ListItem>
         <ListItem>
-          <ButtonAction icon={'moreHorizontal'} />
+          <Dropdown
+            placement={'bottomLeft'}
+            top="20px"
+            left="-20px"
+            overlay={() => (
+              <Menu>
+                <Menu.Item>Add to group</Menu.Item>
+                <Menu.Item>Profile</Menu.Item>
+              </Menu>
+            )}
+          >
+            <ButtonAction icon={'moreHorizontal'} />
+          </Dropdown>
         </ListItem>
       </ListAction>
     </HeaderAction>

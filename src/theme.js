@@ -116,4 +116,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     height: 100%;
   }
+  .dark {
+    background: red;
+  }
 `;

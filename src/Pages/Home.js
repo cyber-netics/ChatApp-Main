@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { Container } from 'Components/Common';
+import Metadata from 'Components/Metadata';
 
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 
+import * as content from './content';
 import { navTab } from 'Store/action/ui';
 import {
   getFriends,
@@ -27,8 +30,20 @@ class Home extends Component {
       activeNavAction,
     } = this.props;
 
+    const {
+      title,
+      description,
+      path,
+    } = content.metadata;
+
     return (
       <Container>
+        <Metadata
+          path={path}
+          title={title}
+          description={description}
+        />
+
         <Navigation
           toggleTheme={toggleTheme}
           toggleNavTab={toggleNavTab}

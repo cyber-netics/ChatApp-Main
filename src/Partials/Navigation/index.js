@@ -8,6 +8,7 @@ import Icon from 'Components/Icon';
 import Avatar from 'Components/Avatar';
 import Dropdown from 'Components/Dropdown';
 import Menu from 'Components/Menu';
+import Tooltip from 'Components/Tooltip';
 
 import {
   Container as Wrapper,
@@ -55,7 +56,7 @@ const NavList = styled(List)`
 `;
 
 const NavItem = styled(ListItem)`
-  margin: 1.5rem 15px 0;
+  margin: 1.5rem 20px 0;
 `;
 
 const Navigation = (props) => {
@@ -79,27 +80,39 @@ const Navigation = (props) => {
           <NavFooter>
             <NavList>
               <NavItem>
-                <ButtonSelect
-                  onClick={props.toggleTheme}
+                <Tooltip
+                  placement="right"
+                  title="Dark Mode"
                 >
-                  <Icon icon={'Moon'} />
-                </ButtonSelect>
+                  <ButtonSelect
+                    onClick={props.toggleTheme}
+                  >
+                    <Icon icon={'Moon'} />
+                  </ButtonSelect>
+                </Tooltip>
               </NavItem>
               <NavItem>
-                <Dropdown
-                  position={'topRight'}
-                  overlay={() => (
-                    <Menu>
-                      <Menu.Item>Edit profile</Menu.Item>
-                      <Menu.Item>Profile</Menu.Item>
-                      <Menu.Item>Settings</Menu.Item>
-                      <Menu.Divider />
-                      <Menu.Item>Logout</Menu.Item>
-                    </Menu>
-                  )}
+                <Tooltip
+                  placement="right"
+                  title="User Menu"
                 >
-                  <Avatar />
-                </Dropdown>
+                  <Dropdown 
+                    placement={'topRight'}
+                    overlay={() => (
+                      <Menu>
+                        <Menu.Item>
+                          Edit profile
+                        </Menu.Item>
+                        <Menu.Item>Profile</Menu.Item>
+                        <Menu.Item>Settings</Menu.Item>
+                        <Menu.Divider />
+                        <Menu.Item>Logout</Menu.Item>
+                      </Menu>
+                    )}
+                  >
+                    <Avatar />
+                  </Dropdown>
+                </Tooltip>
               </NavItem>
             </NavList>
           </NavFooter>

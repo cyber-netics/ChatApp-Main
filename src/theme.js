@@ -13,6 +13,9 @@ const highlight600 = 'rgba(255, 255, 255, 0.75)';
 const highlight700 = '#f0f0f0';
 const highlight800 = '#1f273b';
 
+const highlight1000 = 'rgba(255, 255, 255, 0.3)';
+const highlight900 = 'rgba(0, 0, 0, 0.5)';
+
 const secondary100 = 'black';
 const secondary200 = 'rgba(255, 255, 255, 0.5)';
 const secondary300 = '#ebebeb';
@@ -34,6 +37,7 @@ const baseColors = {
 
 const lightColors = {
   background: light,
+  highlightbg: highlight900,
 
   highlight: highlight200,
   highlightSecondary: light,
@@ -55,6 +59,7 @@ const lightColors = {
 
 const darkColors = {
   background: dark,
+  highlightbg: highlight1000,
 
   highlight: highlight100,
   highlightPrimary: highlight300,

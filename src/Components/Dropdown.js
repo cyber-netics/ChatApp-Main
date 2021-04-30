@@ -28,14 +28,14 @@ const MenuContainer = styled.div`
   line-height: 1.5;
   min-width: 10rem;
   transform: none;
-`;
+`; 
 
 const Content = styled(ContentStyle)`
   transform: ${(props) =>
     ({
       topRight: 'translate3d(12px, -143px, 0px)',
       bottomLeft: 'translate3d(-100px, 20px, 0px)',
-    }[props.position])};
+    }[props.placement])};
 
   display: ${(props) =>
     props.isOpen ? 'block' : 'none'};
@@ -62,7 +62,7 @@ const DropDown = (props) => {
         {props.children}
       </div>
 
-      <Content position={props.position} isOpen={isOpen}>
+      <Content placement={props.placement} isOpen={isOpen}>
         <MenuContainer>
           {props.overlay && props.overlay()}
         </MenuContainer>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { tabs } from './tabs.json';
 import Icon from 'Components/Icon';
+import Tootip from 'Components/Tooltip';
 import { ListItem } from 'Components/Common';
 import {
   ButtonSelect,
@@ -16,13 +17,15 @@ const TabItem = styled(ListItem)`
 const TabPanel = (props) => {
   return tabs.map(({ name, action, icon, status }) => (
     <TabItem key={name}>
-      <ButtonSelect
-        active={props.selected === name}
-        onClick={() => props.toggle({ name, action })}
-      >
-        <Icon icon={icon} />
-        <Badge status={status} />
-      </ButtonSelect>
+      <Tootip placement="right" title={name}>
+        <ButtonSelect
+          active={props.selected === name}
+          onClick={() => props.toggle({ name, action })}
+        >
+          <Icon icon={icon} />
+          <Badge status={status} />
+        </ButtonSelect>
+      </Tootip>
     </TabItem>
   ));
 };

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import UserFigure from 'Components/UserFigure';
 import Button from 'Components/Button';
+import Tooltip from '../../../Components/Tooltip';
 
 import { List } from 'Components/Common';
 import {
@@ -51,16 +52,20 @@ const Header = ({ user }) => (
     <HeaderAction>
       <ListAction>
         <ListItem>
-          <ButtonAction
-            icon={'phone'}
-            color={'#28a745'}
-          />
+          <Tooltip placement="bottom" title="Voice Call">
+            <ButtonAction
+              icon={'phone'}
+              color={'#28a745'}
+            />
+          </Tooltip>
         </ListItem>
         <ListItem>
-          <ButtonAction
-            icon={'video'}
-            color={'#ffb822'}
-          />
+          <Tooltip placement="bottom" title="Video call">
+            <ButtonAction
+              icon={'video'}
+              color={'#ffb822'}
+            />
+          </Tooltip>
         </ListItem>
         <ListItem>
           <ButtonAction icon={'moreHorizontal'} />

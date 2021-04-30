@@ -1,5 +1,6 @@
 import React from 'react';
 import * as FeatherIcon from 'react-feather';
+import Helpers from 'Helpers';
 
 const iconSize = {
   sm: {
@@ -16,14 +17,9 @@ const iconSize = {
   },
 };
 
-const uppercase = (string) => {
-  return (
-    string.charAt(0).toUpperCase() + string.slice(1)
-  );
-};
-
 const Icon = (props) => {
   const { icon, size } = props;
+  const uppercase = Helpers.firstChartUppercase;
 
   const IconComponent = FeatherIcon[uppercase(icon)];
   const sizeIcon = size

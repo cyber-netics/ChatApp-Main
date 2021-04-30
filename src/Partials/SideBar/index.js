@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import Icon from 'Components/Icon';
+import Tooltip from 'Components/Tooltip';
 import UserList from './UserList';
 
 import {
@@ -81,14 +82,27 @@ const Sidebar = ({ data, active, select }) => (
           <div>
             <ButtonList>
               <ButtonItem>
-                <Button>
-                  <Icon size="sm" icon={'Users'} />
-                </Button>
+                <Tooltip
+                  placement="bottom"
+                  title="Add Group"
+                >
+                  <Button>
+                    <Icon size="sm" icon={'users'} />
+                  </Button>
+                </Tooltip>
               </ButtonItem>
               <ButtonItem>
-                <Button>
-                  <Icon size="sm" icon={'PlusCircle'} />
-                </Button>
+                <Tooltip
+                  placement="bottom"
+                  title="New Chat"
+                >
+                  <Button>
+                    <Icon
+                      size="sm"
+                      icon={'plusCircle'}
+                    />
+                  </Button>
+                </Tooltip>
               </ButtonItem>
             </ButtonList>
           </div>

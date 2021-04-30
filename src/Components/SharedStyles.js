@@ -147,3 +147,8 @@ export const MessageStyle = styled.div`
       ? 'white'
       : props.theme.colors.fontSecondary};
 `;
+
+export const BgHighlight = styled.div`
+  background: ${(props) =>
+    props.theme.colors.highlightbg};
+`;

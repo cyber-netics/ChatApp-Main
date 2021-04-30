@@ -115,9 +115,9 @@ const ChatView = ({ data, select, menu }) => {
               </Action>
               <DropDown
                 className="dropdown-item"
-                position="bottomLeft"
+                placement="bottomLeft"
                 align="right"
-                overlay={() => (
+                overlay={() => ( 
                   <>
                     {menu === 'chat' && (
                       <Menu>

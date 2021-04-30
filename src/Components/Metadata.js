@@ -61,7 +61,7 @@ const PageMetadata = ({
                 property: `og:site_name`,
                 content: siteUri,
               },
-            ].concat(meta)}
+            ]}
           >
             <script type="application/ld+json">
               {`
@@ -102,7 +102,7 @@ PageMetadata.defaultProps = {
 
 PageMetadata.propTypes = {
   description: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
+  meta: PropTypes.array,
   image: PropTypes.string,
   title: PropTypes.string.isRequired,
 };

@@ -37,7 +37,7 @@ const baseColors = {
 
 const lightColors = {
   background: light,
-  highlightbg: highlight900,
+  highlightBackground: highlight900,
 
   highlight: highlight200,
   highlightSecondary: light,
@@ -59,7 +59,7 @@ const lightColors = {
 
 const darkColors = {
   background: dark,
-  highlightbg: highlight1000,
+  highlightBackground: highlight1000,
 
   highlight: highlight100,
   highlightPrimary: highlight300,

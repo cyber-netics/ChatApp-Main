@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import UserFigure from 'Components/UserFigure';
@@ -89,4 +89,4 @@ const Header = ({ user }) => (
   </Container>
 );
 
-export default Header;
+export default memo(Header);

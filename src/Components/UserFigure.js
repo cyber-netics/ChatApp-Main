@@ -57,7 +57,7 @@ const CustomBadge = styled(Badge)`
   right: -2px;
 `;
 
-const AvatarFigure = (props) => (
+const AvatarFigure = memo((props) => (
   <>
     <Figure>
       {props.status && (
@@ -73,7 +73,7 @@ const AvatarFigure = (props) => (
       {props.children}
     </Figure>
   </>
-);
+));
 
 const UserFigure = ({
   text,

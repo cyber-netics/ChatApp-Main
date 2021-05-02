@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
 import {
@@ -82,4 +82,4 @@ const Messages = ({ messages = [] }) => (
   </Container>
 );
 
-export default Messages;
+export default memo(Messages);

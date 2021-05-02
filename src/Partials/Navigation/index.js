@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as logo } from 'assets/logo.svg';
@@ -122,4 +122,4 @@ const Navigation = (props) => {
   );
 };
 
-export default Navigation;
+export default memo(Navigation);

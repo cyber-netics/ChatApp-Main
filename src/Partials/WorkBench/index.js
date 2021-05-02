@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import UnselectedChat from 'assets/img/unselected-chat.svg';
@@ -59,4 +59,4 @@ const Workbench = ({ data }) => {
   );
 };
 
-export default Workbench;
+export default memo(Workbench);

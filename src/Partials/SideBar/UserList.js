@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import styled from 'styled-components';
 
 import UserFigure from 'Components/UserFigure';
@@ -153,4 +153,4 @@ const ChatView = ({ data, select, menu }) => {
   );
 };
 
-export default ChatView;
+export default memo(ChatView);

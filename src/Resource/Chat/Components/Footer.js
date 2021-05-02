@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Btn from 'Components/Button';
 import { Input } from 'Components/SharedStyles';
@@ -93,4 +93,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

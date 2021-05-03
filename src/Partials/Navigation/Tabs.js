@@ -8,7 +8,7 @@ import { ListItem } from 'Components/Common';
 import {
   ButtonSelect,
   Badge,
-} from 'Components/SharedStyles';
+} from 'Components/Common/styled';
 
 const TabItem = styled(ListItem)`
   margin: 5px 20px;

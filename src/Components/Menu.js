@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { List } from './Common';
+import { List } from 'Components/Common';
 import {
   ListItemHighlight,
   Divider,
-} from './SharedStyles';
+} from 'Components/Common';
 
 const MenuItem = styled(ListItemHighlight)`
   padding: 0.25rem 1.5rem;

@@ -20,7 +20,7 @@ import {
 import {
   Section,
   ButtonSelect,
-} from 'Components/SharedStyles';
+} from 'Components/Common/styled';
 
 const Container = styled(Wrapper)`
   width: 100px;

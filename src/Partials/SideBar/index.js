@@ -17,7 +17,7 @@ import {
   TextSecondary,
   ButtonSimple,
   Input,
-} from 'Components/SharedStyles';
+} from 'Components/Common/styled';
 
 const Container = styled(Wrapper)`
   width: 350px;

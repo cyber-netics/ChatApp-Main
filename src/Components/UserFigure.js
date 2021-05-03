@@ -4,7 +4,7 @@ import {
   Badge,
   TitleText,
   TextPrimary,
-} from './SharedStyles';
+} from 'Components/Common';
 
 const Figure = styled.figure`
   display: inline-block;

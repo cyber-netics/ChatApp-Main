@@ -11,7 +11,7 @@ import { List } from 'Components/Common';
 import {
   Small,
   BorderBox,
-} from 'Components/SharedStyles';
+} from 'Components/Common/styled';
 
 const Container = styled(BorderBox)`
   display: flex;

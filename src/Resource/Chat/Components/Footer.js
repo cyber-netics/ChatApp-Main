@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import Btn from 'Components/Button';
-import { Input } from 'Components/SharedStyles';
+import { Input } from 'Components/Common/styled';
 import {
   List as Ul,
   ListItem as Ui,

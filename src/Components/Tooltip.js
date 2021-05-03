@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { BgHighlight } from 'Components/SharedStyles';
+import { BgHighlight } from 'Components/Common';
 import Helpers from 'helpers';
 
 const Container = styled.span`

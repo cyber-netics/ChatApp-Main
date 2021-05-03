@@ -1,7 +1,7 @@
 import React, { memo, useState, createRef } from 'react';
 import styled from 'styled-components';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
-import { CardSecondary } from './SharedStyles';
+import { CardSecondary } from 'Components/Common';
 
 const Container = styled.div`
   z-index: 12;

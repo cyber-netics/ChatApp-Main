@@ -9,7 +9,7 @@ import {
   ListItemDivider,
   Small,
   ActiveIcon,
-} from 'Components/SharedStyles';
+} from 'Components/Common';
 
 const ListAction = styled.div`
   right: 0;

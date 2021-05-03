@@ -6,7 +6,7 @@ import {
   ListItem,
   TextBase,
   InputBase,
-} from 'Components/Common';
+} from 'Components/Common/base';
 
 import {
   border,
@@ -37,9 +37,6 @@ export const Section = styled.div`
   }
 `;
 
-/**
- * @param  {Boolean} active  is button active
- */
 export const ButtonSelect = styled(BtnSelect)`
   background-color: ${(props) =>
     props.active && activePrimary};
@@ -53,10 +50,6 @@ export const ButtonSelect = styled(BtnSelect)`
   }
 `;
 
-/**
- * @param  {Boolean}  border  option to have border
- * @param  {String}   status  color code for bg
- */
 export const Badge = styled(BadgeBase)`
   background-color: ${statuses};
   border: ${(props) =>
@@ -75,9 +68,6 @@ export const ListItemHighlight = styled(ListItem)`
   }
 `;
 
-/**
- * @param  {Boolean} active  is button active
- */
 export const ListItemDivider = styled(ListItem)`
   border-bottom: 1px solid ${highlight};
   background-color: ${(props) =>
@@ -140,9 +130,6 @@ export const BorderBox = styled.div`
   border-bottom: 1px solid ${highlight};
 `;
 
-/**
- * @param  {Boolean} outgoing  is button active
- */
 export const MessageStyle = styled.div`
   background-color: ${(props) =>
     props.outgoing ? activePrimary : textHighlight};

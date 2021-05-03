@@ -4,7 +4,7 @@ import UserFigure from 'Components/UserFigure';
 import {
   Small,
   MessageStyle,
-} from 'Components/SharedStyles';
+} from 'Components/Common/styled';
 
 const Container = styled.div`
   position: relative;

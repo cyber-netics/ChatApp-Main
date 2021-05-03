@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
-import { ButtonSimple } from 'Components/SharedStyles';
+import { ButtonSimple } from 'Components/Common';
 
 const Button = styled(ButtonSimple)`
   background: none;

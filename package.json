@@ -32,10 +32,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "doc": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json"
   },
   "alias": {
-    "Component": "./src/Component",
+    "Components": "./src/Components",
     "helpers": "./src/helpers"
   },
   "eslintConfig": {

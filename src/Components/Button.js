@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Icon from './Icon';
+import Icon from 'Components/Icon';
 import { ButtonSimple } from 'Components/Common';
 
 const Button = styled(ButtonSimple)`
@@ -25,12 +25,16 @@ const Button = styled(ButtonSimple)`
     border-color: rgb(133, 133, 133);
     box-shadow: rgb(133, 133, 133);
   }
-
-  &: hover {
-    background-color: ${(props) =>
-      props.theme.colors.borderColor};
-  }
 `;
+
+/**
+ *
+ * @component
+ * @param {Object} props passed props
+ * @param {Function} props.onClick onClick handler function
+ * @param {String} props.icon button icon
+ * @param {String} [props.color] color code
+ */
 
 const ButtonComponent = ({
   onClick,

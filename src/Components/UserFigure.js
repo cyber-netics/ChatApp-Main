@@ -57,23 +57,31 @@ const CustomBadge = styled(Badge)`
   right: -2px;
 `;
 
-const AvatarFigure = memo((props) => (
+const AvatarFigure = memo(({ children, status }) => (
   <>
     <Figure>
-      {props.status && (
+      {status && (
         <CustomBadge
           border={true}
           status={
-            props.status === 'active'
-              ? 'success'
-              : 'warning'
+            status === 'active' ? 'success' : 'warning'
           }
         />
       )}
-      {props.children}
+      {children}
     </Figure>
   </>
 ));
+
+/**
+ *
+ * @component
+ * @param {String} avatar   image url
+ * @param {String} name     user's name
+ * @param {String} [text]   underlaying text
+ * @param {String} [active] is active state
+ * @param {String} [status] badge status
+ */
 
 const UserFigure = ({
   text,

@@ -46,35 +46,54 @@ const Content = styled(ContentStyle)`
   left: ${(props) => props.left};
 `;
 
-const DropDown = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const ref = createRef();
+/**
+ *
+ * @component
+ * @param {Object} children                  child component
+ * @param {String} className                 passed by styled-components or overwritten by user
+ * @param {Object} [overlay]                 dropdown menu
+ * @param {String | undefined} [align]       align item for parent div
+ * @param {String | undefined} [placement]   menu component placement
+ * @param {String | undefined} [top]         margin top in px
+ * @param {String | undefined} [left]        margin left in px
+ */
 
+const DropDown = ({
+  children,
+  className,
+  align,
+  placement,
+  top,
+  left,
+  overlay,
+}) => {
+  const ref = createRef();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // hooks
   useOnClickOutside(ref, () => {
     if (isOpen) setIsOpen();
   });
 
-  const toggle = (e) => {
+  // dropdown open/close state
+  const toggle = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <Container
-      align={props.align}
-      className={props.className}
-    >
+    <Container align={align} className={className}>
       <div ref={ref} onClick={toggle}>
-        {props.children}
+        {children}
       </div>
 
       <Content
-        placement={props.placement}
+        placement={placement}
         isOpen={isOpen}
-        top={props.top}
-        left={props.left}
+        top={top}
+        left={left}
       >
         <MenuContainer>
-          {props.overlay && props.overlay()}
+          {overlay && overlay()}
         </MenuContainer>
       </Content>
     </Container>

@@ -55,17 +55,17 @@ const Title = styled(BgHighlight)`
   white-space: nowrap;
 `;
 
-const Tooltip = (props) => {
+const Tooltip = ({ children, placement, title }) => {
   const toUppercase = Helpers.firstChartUppercase;
 
   return (
-    <Container placement={props.placement}>
-      <Children>{props.children}</Children>
+    <Container placement={placement}>
+      <Children>{children}</Children>
 
       <div>
-        <Content placement={props.placement}>
+        <Content placement={placement}>
           <div className="tooltip">
-            <Title>{toUppercase(props.title)}</Title>
+            <Title>{toUppercase(title)}</Title>
           </div>
         </Content>
       </div>

@@ -5,7 +5,15 @@ const LinkElem = styled.a`
   display: inline-block;
 `;
 
+/**
+ * @component
+ * @param {String} to         link to href
+ * @param {String} className  className passed by styled-comp. or overwritten
+ * @param {Object} children   child component
+ */
+
 const Link = ({ to, className, children }) => {
+  // regex to test inner or outer link
   const DOMAIN_PATTERN = /^(?:https?:)?[/]{2,}([^/]+)/;
   const isExternal = DOMAIN_PATTERN.test(to);
 

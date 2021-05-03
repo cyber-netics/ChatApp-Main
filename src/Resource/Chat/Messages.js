@@ -4,7 +4,7 @@ import UserFigure from 'Components/UserFigure';
 import {
   Small,
   MessageStyle,
-} from 'Components/Common/styled';
+} from 'Components/Common';
 
 const Container = styled.div`
   position: relative;
@@ -32,6 +32,7 @@ const UserContainer = styled.div`
 const UserInfo = styled.div`
   display: flex;
   margin-bottom: 1rem;
+  line-height: 1.4;
   float: ${(props) => props.outgoing && 'right'};
 `;
 
@@ -44,40 +45,43 @@ const Message = styled(MessageStyle)`
   border-radius: 7px;
   padding: 10px 20px;
   min-width: 115px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 14px;
 `;
 
 const Messages = ({ messages = [] }) => (
   <Container>
     <Wrapper>
-      <>
-        {messages.map(
-          ({ outgoing, name, avatar, date, text }) => (
-            <Content
-              outgoing={outgoing}
-              key={`${name}${date}`}
-            >
-              <>
-                <UserContainer>
-                  <UserInfo outgoing={outgoing}>
-                    <UserFigure
-                      name={name}
-                      avatar={avatar}
-                      text={<Small>{date}</Small>}
-                    />
-                  </UserInfo>
-                </UserContainer>
-                <MessageContent>
-                  <Message outgoing={!!outgoing}>
-                    <span>{text}</span>
-                  </Message>
-                </MessageContent>
-              </>
-            </Content>
-          ),
-        )}
-      </>
+      {messages.map(
+        ({ outgoing, name, avatar, date, text }) => (
+          <Content
+            outgoing={outgoing}
+            key={`${name}${date}`}
+          >
+            <>
+              <UserContainer>
+                <UserInfo outgoing={outgoing}>
+                  <UserFigure
+                    name={name}
+                    fontSize={'sm'}
+                    avatar={avatar}
+                    text={
+                      <span>
+                        <Small>{date}</Small>
+                      </span>
+                    }
+                  />
+                </UserInfo>
+              </UserContainer>
+              <MessageContent>
+                <Message outgoing={!!outgoing}>
+                  <span>{text}</span>
+                </Message>
+              </MessageContent>
+            </>
+          </Content>
+        ),
+      )}
     </Wrapper>
   </Container>
 );

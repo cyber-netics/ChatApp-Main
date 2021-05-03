@@ -11,7 +11,6 @@ const Button = styled(ButtonSimple)`
   font-size: 14px;
   width: auto;
   display: inline-flex;
-  padding: 9px 14px;
   line-height: 14px;
   outline: none;
 
@@ -30,10 +29,10 @@ const Button = styled(ButtonSimple)`
 /**
  *
  * @component
- * @param {Object} props passed props
- * @param {Function} props.onClick onClick handler function
- * @param {String} props.icon button icon
- * @param {String} [props.color] color code
+ * @param {Function} onClick  onClick handler function
+ * @param {String} icon       button icon
+ * @param {String} [color]    color code
+ * @param {String} [size]     sm | md | lg options
  */
 
 const ButtonComponent = ({
@@ -41,9 +40,10 @@ const ButtonComponent = ({
   className,
   icon,
   color,
+  size,
 }) => (
   <Button className={className} onClick={onClick}>
-    <Icon icon={icon} color={color} />
+    <Icon icon={icon} color={color} size={size} />
   </Button>
 );
 

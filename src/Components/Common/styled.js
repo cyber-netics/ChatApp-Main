@@ -6,17 +6,19 @@ import {
   ListItem,
   TextBase,
   InputBase,
+  SmallStyle,
 } from 'Components/Common/base';
 
 import {
+  background,
   border,
+  borderSecondary,
   activePrimary,
   activeSecondary,
   highlightBG,
   highlightSecondary,
   fontActive,
   fontInactive,
-  background,
   statuses,
   fontSecondary,
   highlight,
@@ -24,7 +26,6 @@ import {
   highlightItemSecondary,
   fontNeutral,
   fontNeutralSecondary,
-  highlightPrimary,
   textHighlight,
   highlightBackground,
 } from 'Components/Common/colors';
@@ -52,8 +53,8 @@ export const ButtonSelect = styled(BtnSelect)`
 
 export const Badge = styled(BadgeBase)`
   background-color: ${statuses};
-  border: ${(props) =>
-    props.border && `3px solid ${background}`};
+  border: ${(props) => props.border && '3px solid'}
+    ${background};
 `;
 
 export const CardSecondary = styled.div`
@@ -97,11 +98,9 @@ export const Input = styled(InputBase)`
   }
 `;
 
-export const Small = styled.small`
+export const Small = styled(SmallStyle)`
   color: ${(props) =>
     props.active ? activePrimary : fontNeutral};
-  font-size: 12px;
-  font-weight: 400;
 `;
 
 export const TextPrimary = styled.p`
@@ -116,10 +115,6 @@ export const TextSecondary = styled(TextBase)`
 export const TitleText = styled.h5`
   color: ${(props) =>
     props.active ? activePrimary : fontNeutralSecondary};
-`;
-
-export const Divider = styled.hr`
-  border-color: ${highlightPrimary};
 `;
 
 export const ActiveIcon = styled.span`
@@ -139,4 +134,12 @@ export const MessageStyle = styled.div`
 
 export const BgHighlight = styled.div`
   background: ${highlightBackground};
+`;
+
+export const Border = styled.div`
+  border-color: ${border};
+`;
+
+export const BorderSecondary = styled.div`
+  border-color: ${borderSecondary};
 `;

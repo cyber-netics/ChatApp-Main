@@ -1,10 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import {
-  Badge,
-  TitleText,
-  TextPrimary,
-} from 'Components/Common';
+import { Badge, TitleText } from 'Components/Common';
 
 const Figure = styled.figure`
   display: inline-block;
@@ -44,12 +40,18 @@ const ListBody = styled.div`
   display: flex;
 `;
 
-const ContentTitle = styled(TitleText)`
-  white-space: nowrap;
-  font-size: 16px;
+const TitleSize = styled(TitleText)`
+  font-size: ${({ fontSize }) =>
+    ({
+      sm: '15px',
+      md: '16px',
+    }[fontSize || 'md'])};
+`;
+
+const ContentTitle = styled(TitleSize)`
   font-weight: 500;
   margin: 0;
-  margin-bottom: 0.2rem;
+  line-height: 1;
 `;
 
 const CustomBadge = styled(Badge)`
@@ -81,31 +83,46 @@ const AvatarFigure = memo(({ children, status }) => (
  * @param {String} [text]   underlaying text
  * @param {String} [active] is active state
  * @param {String} [status] badge status
+ * @param {String} [fontSize] name font size
  */
 
 const UserFigure = ({
   text,
   avatar,
   name,
+  fontSize,
   active,
   status,
 }) => (
   <>
-    <AvatarFigure status={status} avatar={avatar}>
-      <>
-        {avatar.image ? (
-          <AvatarImg src={avatar.image} alt="avatar" />
-        ) : (
-          <AvatarTitle>{avatar.title}</AvatarTitle>
-        )}
-      </>
-    </AvatarFigure>
+    <Figure>
+      {status && (
+        <CustomBadge
+          border={true}
+          status={
+            status === 'active' ? 'success' : 'warning'
+          }
+        />
+      )}
+      <AvatarFigure status={status} avatar={avatar}>
+        <>
+          {avatar.image ? (
+            <AvatarImg src={avatar.image} alt="avatar" />
+          ) : (
+            <AvatarTitle>{avatar.title}</AvatarTitle>
+          )}
+        </>
+      </AvatarFigure>
+    </Figure>
     <ListBody>
       <div>
-        <ContentTitle active={active}>
+        <ContentTitle
+          fontSize={fontSize}
+          active={active}
+        >
           {name}
         </ContentTitle>
-        <TextPrimary>{text}</TextPrimary>
+        {text}
       </div>
     </ListBody>
   </>

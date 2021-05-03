@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as logo } from 'assets/logo.svg';
-import TabPanel from './Tabs';
 import Link from 'Components/Link';
 import Icon from 'Components/Icon';
 import Avatar from 'Components/Avatar';
 import Dropdown from 'Components/Dropdown';
 import Menu from 'Components/Menu';
 import Tooltip from 'Components/Tooltip';
+
+import { ReactComponent as logo } from 'assets/logo.svg';
+import TabPanel from './Tabs';
 
 import {
   Container as Wrapper,

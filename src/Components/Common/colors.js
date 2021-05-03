@@ -21,6 +21,10 @@ export const border = css`
   ${({ theme }) => theme.colors.highlight};
 `;
 
+export const borderSecondary = css`
+  ${({ theme }) => theme.colors.borderSecondary};
+`;
+
 export const fontNeutral = css`
   ${({ theme }) => theme.colors.fontNeutral};
 `;

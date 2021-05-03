@@ -33,3 +33,6 @@ reactComponents['Icon'] = Component2;
 
 import Component3 from '../src/Components/Link.js';
 reactComponents['Link'] = Component3;
+
+import Component4 from '../src/Components/UserFigure.js';
+reactComponents['UserFigure'] = Component4;

@@ -39,15 +39,17 @@ const Count = styled.div`
   margin-left: auto;
 `;
 
-const Text = styled.span`
-  font-size: 15px;
+const Text = styled(Small)`
+  top: 3px;
+  font-size: 14px;
 `;
 
 const ListView = styled(ListItemDivider)`
-  padding: 17px 30px;
+  padding: 19px 30px;
   display: flex;
   cursor: pointer;
   border-width: 0 0 1px;
+  line-height: 1.5;
 
   &: hover .dropdown-item {
     display: block;

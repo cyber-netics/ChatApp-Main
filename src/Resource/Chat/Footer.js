@@ -5,11 +5,12 @@ import { Input } from 'Components/Common/styled';
 import {
   List as Ul,
   ListItem as Ui,
+  Border,
 } from 'Components/Common';
 
-const Container = styled.div`
-  border-top: 1px solid #e6e6e6;
-  border-top-color: #293145;
+const Container = styled(Border)`
+  border-top-width: 1px;
+  border-top-style: solid;
   padding: 17px 20px;
   position: relative;
 

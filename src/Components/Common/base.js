@@ -38,6 +38,7 @@ export const BtnSelect = styled.span`
 
 export const BtnSimple = styled.button`
   display: inline-flex;
+  padding: 9px 14px;
   background: transparent;
   border-radius: 0.25rem;
   border-width: 1px;
@@ -77,4 +78,10 @@ export const InputBase = styled.input`
   border-radius: 0.25rem;
   transition: border-color 0.2s ease-in-out,
     box-shadow 0.15s ease-in-out;
+`;
+
+export const SmallStyle = styled.small`
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
 `;

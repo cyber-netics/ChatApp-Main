@@ -9,14 +9,14 @@ import Menu from 'Components/Menu';
 
 import { List } from 'Components/Common';
 import {
-  Small,
+  Small as SmallFont,
   BorderBox,
 } from 'Components/Common/styled';
 
 const Container = styled(BorderBox)`
   display: flex;
   justify-content: space-between;
-  padding: 16px 30px;
+  padding: 17px 30px;
 `;
 
 const HeaderUser = styled.div`
@@ -34,8 +34,9 @@ const ListItem = styled.li`
   margin: 0 0 0.5rem 0.5rem;
 `;
 
-const ButtonAction = styled(Button)`
-  padding: 8px 12.5px;
+const Small = styled(SmallFont)`
+  font-size: 13px;
+  font-family: italic;
 `;
 
 // **
@@ -55,15 +56,17 @@ const Header = ({ user }) => (
       <ListAction>
         <ListItem>
           <Tooltip placement="bottom" title="Voice Call">
-            <ButtonAction
+            <Button
+              size={'sm'}
               icon={'phone'}
-              color={'#28a745'}
+              color={'#0abb87'}
             />
           </Tooltip>
         </ListItem>
         <ListItem>
           <Tooltip placement="bottom" title="Video call">
-            <ButtonAction
+            <Button
+              size={'sm'}
               icon={'video'}
               color={'#ffb822'}
             />
@@ -81,7 +84,10 @@ const Header = ({ user }) => (
               </Menu>
             )}
           >
-            <ButtonAction icon={'moreHorizontal'} />
+            <Button
+              icon={'moreHorizontal'}
+              size={'sm'}
+            />
           </Dropdown>
         </ListItem>
       </ListAction>

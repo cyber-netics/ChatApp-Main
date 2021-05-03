@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import WomenAvatar5 from '../assets/img/women_avatar5.jpg';
+import WomenAvatar5 from 'assets/img/women_avatar5.jpg';
 
 const Figure = styled.figure`
   display: inline-block;

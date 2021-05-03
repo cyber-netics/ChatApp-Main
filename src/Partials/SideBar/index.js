@@ -45,10 +45,6 @@ const ButtonItem = styled(ListItem)`
   margin-left: 0.5rem;
 `;
 
-const Button = styled(ButtonSimple)`
-  padding: 8px 14px;
-`;
-
 const Form = styled.form`
   display: block;
   padding: 17px 30px;
@@ -60,7 +56,7 @@ const SearchContainer = styled.div`
   dispay: inline-box;
   position: relative;
   width: 100%;
-  height: 6rem;
+  height: 5.75rem;
 `;
 
 const SearchInput = styled(Input)`
@@ -86,9 +82,9 @@ const Sidebar = ({ data, active, select }) => (
                   placement="bottom"
                   title="Add Group"
                 >
-                  <Button>
+                  <ButtonSimple>
                     <Icon size="sm" icon={'users'} />
-                  </Button>
+                  </ButtonSimple>
                 </Tooltip>
               </ButtonItem>
               <ButtonItem>
@@ -96,12 +92,12 @@ const Sidebar = ({ data, active, select }) => (
                   placement="bottom"
                   title="New Chat"
                 >
-                  <Button>
+                  <ButtonSimple>
                     <Icon
                       size="sm"
                       icon={'plusCircle'}
                     />
-                  </Button>
+                  </ButtonSimple>
                 </Tooltip>
               </ButtonItem>
             </ButtonList>

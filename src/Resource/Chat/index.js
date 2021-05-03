@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from './Components/Header';
-import Messages from './Components/Messages';
-import Footer from './Components/Footer';
+import Header from './Header';
+import Messages from './Messages';
+import Footer from './Footer';
 
 const Chat = ({ data }) => {
   return (

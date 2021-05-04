@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
 import Dropdown from 'Components/Dropdown';
 import Icon from 'Components/Icon';
-import Menu from 'Components/Menu';
+
 import {
   ListItemDivider,
   Small,
   ActiveIcon,
+  Count,
 } from 'Components/Common';
 
 const ListAction = styled.div`
@@ -25,23 +26,10 @@ const Action = styled.div`
   text-align: right;
 `;
 
-const Count = styled.div`
-  width: 23px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  font-size: 13px;
-  height: 23px;
-  background-color: #0a80ff;
-  color: white;
-  border-radius: 50%;
-  margin-left: auto;
-`;
-
 const Text = styled(Small)`
   top: 3px;
   font-size: 14px;
+  font-weight: inherit;
 `;
 
 const ListView = styled(ListItemDivider)`
@@ -68,11 +56,11 @@ const DropDown = styled(Dropdown)`
   text-align: right;
 `;
 
-const ChatView = ({ data, select, menu }) => {
+const ChatView = ({ data, select, activeTab, menu }) => {
   const [active, setactive] = useState({});
 
   const handleSelect = (item) => {
-    setactive({ ...active, [menu]: item });
+    setactive({ ...active, [activeTab]: item });
     select(item); // Get Content action
   };
 
@@ -94,7 +82,7 @@ const ChatView = ({ data, select, menu }) => {
         return (
           <ListView
             key={i}
-            active={active[menu]?.id === id}
+            active={active[activeTab]?.id === id}
             onClick={() => handleSelect(item)}
           >
             {avatar && (
@@ -121,24 +109,7 @@ const ChatView = ({ data, select, menu }) => {
                 className="dropdown-item"
                 placement="bottomLeft"
                 align="right"
-                overlay={() => (
-                  <>
-                    {menu === 'chat' && (
-                      <Menu>
-                        <Menu.Item>Profile</Menu.Item>
-                        <Menu.Item>Delete</Menu.Item>
-                      </Menu>
-                    )}
-                    {menu === 'users' && (
-                      <Menu>
-                        <Menu.Item>New Chat</Menu.Item>
-                        <Menu.Item>Profile</Menu.Item>
-                        <Menu.Divider />
-                        <Menu.Item>Block</Menu.Item>
-                      </Menu>
-                    )}
-                  </>
-                )}
+                overlay={menu}
               >
                 <ActiveIcon>
                   <Icon

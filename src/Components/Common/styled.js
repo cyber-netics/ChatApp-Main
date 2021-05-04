@@ -7,12 +7,14 @@ import {
   TextBase,
   InputBase,
   SmallStyle,
+  CountBase,
 } from 'Components/Common/base';
 
 import {
   background,
   border,
   borderSecondary,
+  primary,
   activePrimary,
   activeSecondary,
   highlightBG,
@@ -71,18 +73,24 @@ export const ListItemHighlight = styled(ListItem)`
 
 export const ListItemDivider = styled(ListItem)`
   border-bottom: 1px solid ${highlight};
-  background-color: ${(props) =>
-    props.active && highlightItemSecondary};
+
+  background-color: ${({ active }) =>
+    active && highlightItemSecondary};
+
+  font-weight: ${({ active }) =>
+    active ? '600' : '400'};
 `;
 
 export const ButtonSimple = styled(BtnSimple)`
   border: 1px solid ${highlight};
   color: ${fontSecondary};
+
   &: focus {
     border-width: 1px;
     box-shadow: rgb(133, 133, 133);
     border-color: ${activeSecondary};
   }
+
   &: hover {
     background-color: ${highlight};
   }
@@ -91,6 +99,7 @@ export const ButtonSimple = styled(BtnSimple)`
 export const Input = styled(InputBase)`
   color: ${fontSecondary};
   border: 1px solid ${highlight};
+
   &:focus {
     outline-style: none;
     outline-offset: 0px;
@@ -100,7 +109,7 @@ export const Input = styled(InputBase)`
 
 export const Small = styled(SmallStyle)`
   color: ${(props) =>
-    props.active ? activePrimary : fontNeutral};
+    props.active ? primary : fontNeutral};
 `;
 
 export const TextPrimary = styled.p`
@@ -114,11 +123,11 @@ export const TextSecondary = styled(TextBase)`
 
 export const TitleText = styled.h5`
   color: ${(props) =>
-    props.active ? activePrimary : fontNeutralSecondary};
+    props.active ? primary : fontNeutralSecondary};
 `;
 
 export const ActiveIcon = styled.span`
-  color: ${activePrimary};
+  color: ${primary};
 `;
 
 export const BorderBox = styled.div`
@@ -127,7 +136,7 @@ export const BorderBox = styled.div`
 
 export const MessageStyle = styled.div`
   background-color: ${(props) =>
-    props.outgoing ? activePrimary : textHighlight};
+    props.outgoing ? primary : textHighlight};
   color: ${(props) =>
     props.outgoing ? 'white' : fontSecondary};
 `;
@@ -142,4 +151,8 @@ export const Border = styled.div`
 
 export const BorderSecondary = styled.div`
   border-color: ${borderSecondary};
+`;
+
+export const Count = styled(CountBase)`
+  background-color: ${primary};
 `;

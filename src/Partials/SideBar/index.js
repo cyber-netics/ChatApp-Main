@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
+import Menu from 'Components/Menu';
 import UserList from './UserList';
 
 import {
@@ -69,7 +70,12 @@ const SidebarBody = styled.div`
   height: calc(100% - 180px);
 `;
 
-const Sidebar = ({ data, active, select }) => (
+const Sidebar = ({
+  data,
+  active,
+  select,
+  toggleDrawer,
+}) => (
   <Section>
     <Container>
       <InnerContainer>
@@ -114,9 +120,39 @@ const Sidebar = ({ data, active, select }) => (
         <SidebarBody>
           {(active === 'chat' || 'users') && (
             <UserList
-              menu={active}
-              data={data}
+              activeTab={active}
               select={select}
+              data={data}
+              menu={() => (
+                <>
+                  {active === 'chat' && (
+                    <Menu>
+                      <Menu.Item
+                        onClick={() => {
+                          toggleDrawer(true);
+                        }}
+                      >
+                        <span>Profile</span>
+                      </Menu.Item>
+                      <Menu.Item
+                        onClick={() => {
+                          console.log('asdfasdf...xx');
+                        }}
+                      >
+                        <span>Delete</span>
+                      </Menu.Item>
+                    </Menu>
+                  )}
+                  {active === 'users' && (
+                    <Menu>
+                      <Menu.Item>New Chat</Menu.Item>
+                      <Menu.Item>Profile</Menu.Item>
+                      <Menu.Divider />
+                      <Menu.Item>Block</Menu.Item>
+                    </Menu>
+                  )}
+                </>
+              )}
             />
           )}
         </SidebarBody>

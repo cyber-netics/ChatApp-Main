@@ -1,11 +1,19 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import WomenAvatar5 from 'assets/img/women_avatar5.jpg';
 
+const figureSize = css`
+  ${({ size }) =>
+    ({
+      md: '2.3rem',
+      xl: '6.1rem',
+    }[size ? size : 'md'])};
+`;
+
 const Figure = styled.figure`
+  height: ${figureSize};
+  width: ${figureSize};
   display: inline-block;
-  height: 2.3rem;
-  width: 2.3rem;
   border-radius: 50%;
   margin: 0;
 `;
@@ -17,12 +25,12 @@ const Img = styled.img`
   border-radius: 50%;
 `;
 
-const Dropdown = () => {
+const Avatar = ({ size }) => {
   return (
-    <Figure>
+    <Figure size={size}>
       <Img src={WomenAvatar5} alt="avatar" />
     </Figure>
   );
 };
 
-export default memo(Dropdown);
+export default memo(Avatar);

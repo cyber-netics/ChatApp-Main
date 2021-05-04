@@ -7,9 +7,10 @@ import Metadata from 'Components/Metadata';
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
+import SideDrawer from 'Partials/SideDrawer';
 
 import * as content from './content';
-import { navTab } from 'Store/action/ui';
+import { navTab, toggleDrawer } from 'Store/action/ui';
 import {
   getFriends,
   getChat,
@@ -28,6 +29,8 @@ class Home extends Component {
       toggleNavTab,
       activeNavTab,
       activeNavAction,
+      drawerState,
+      toggleDrawer,
     } = this.props;
 
     const {
@@ -52,6 +55,7 @@ class Home extends Component {
 
         <SideBar
           active={activeNavTab}
+          toggleDrawer={toggleDrawer}
           select={this.props[activeNavAction]}
           data={this.props.data[activeNavTab]}
         />
@@ -59,6 +63,11 @@ class Home extends Component {
         <WorkBench
           current={activeNavTab}
           data={this.props.data.messages}
+        />
+
+        <SideDrawer
+          active={drawerState}
+          toggle={toggleDrawer}
         />
       </Container>
     );
@@ -69,6 +78,7 @@ const mapStateToProps = (state) => {
   return {
     activeNavTab: state.ui.nav.name,
     activeNavAction: state.ui.nav.action,
+    drawerState: state.ui.drawer.isOpen,
     data: state.data,
   };
 };
@@ -79,6 +89,7 @@ const mapDispatchToProsp = (dispatch) => {
     getFriendList: () => dispatch(getFriends()),
     getChatList: () => dispatch(getChat()),
     getMessage: (id) => dispatch(getMessage(id)),
+    toggleDrawer: (s) => dispatch(toggleDrawer(s)),
   };
 };
 

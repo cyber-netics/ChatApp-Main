@@ -29,6 +29,10 @@ export const fontNeutral = css`
   ${({ theme }) => theme.colors.fontNeutral};
 `;
 
+export const primary = css`
+  ${({ theme }) => theme.colors.primary}
+`;
+
 export const activePrimary = css`
   ${({ theme }) => theme.colors.active};
 `;

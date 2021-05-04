@@ -81,7 +81,21 @@ export const InputBase = styled.input`
 `;
 
 export const SmallStyle = styled.small`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   position: relative;
+`;
+
+export const CountBase = styled.div`
+  width: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  font-size: 13px;
+  font-weight: 400;
+  height: 23px;
+  color: white;
+  border-radius: 50%;
+  margin-left: auto;
 `;

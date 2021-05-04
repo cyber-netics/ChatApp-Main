@@ -111,7 +111,7 @@ const Navigation = (props) => {
                       </Menu>
                     )}
                   >
-                    <Avatar />
+                    <Avatar size="md" />
                   </Dropdown>
                 </Tooltip>
               </NavItem>

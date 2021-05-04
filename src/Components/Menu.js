@@ -9,10 +9,11 @@ import {
 const MenuItem = styled(ListItemHighlight)`
   padding: 0.25rem 1.5rem;
   cursor: pointer;
+  font-weight: 400;
 `;
 
-const MenuComponent = (props) => {
-  return <List>{props.children}</List>;
+const MenuComponent = ({ children }) => {
+  return <List id='testinxxx'>{children}</List>;
 };
 
 const Divider = styled(BorderSecondary)`
@@ -21,10 +22,10 @@ const Divider = styled(BorderSecondary)`
   margin: 0.4rem 0;
 `;
 
-const ItemMenuComponent = (props) => {
+const ItemMenuComponent = ({ children, onClick }) => {
   return (
-    <MenuItem>
-      <span>{props.children}</span>
+    <MenuItem onClick={onClick}>
+      <span>{children}</span>
     </MenuItem>
   );
 };

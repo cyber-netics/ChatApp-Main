@@ -39,8 +39,8 @@ const Content = styled(ContentStyle)`
       bottomLeft: 'translate3d(-100px, 20px, 0px)',
     }[props.placement])};
 
-  display: ${(props) =>
-    props.isOpen ? 'block' : 'none'};
+  visibility: ${(props) =>
+    props.isOpen ? 'visible' : 'hidden'};
 
   top: ${(props) => props.top};
   left: ${(props) => props.left};
@@ -67,12 +67,12 @@ const DropDown = ({
   left,
   overlay,
 }) => {
-  const ref = createRef();
   const [isOpen, setIsOpen] = useState(false);
+  const ref = createRef();
 
   // hooks
   useOnClickOutside(ref, () => {
-    if (isOpen) setIsOpen();
+    isOpen && setIsOpen();
   });
 
   // dropdown open/close state
@@ -82,8 +82,8 @@ const DropDown = ({
 
   return (
     <Container align={align} className={className}>
-      <div ref={ref} onClick={toggle}>
-        {children}
+      <div ref={ref} aria-label={className}>
+        <div onClick={toggle}>{children}</div>
       </div>
 
       <Content

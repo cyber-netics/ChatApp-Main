@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Drawer from 'Components/Drawer';
 import Avatar from 'Components/Avatar';
+import Switch from 'Components/Switch';
 
 import { Small } from 'Components/Common';
 
@@ -41,11 +42,14 @@ const Profile = memo(({ drawer, toggle }) => {
             <Small>Last seen: Today</Small>
           </>
         )}
-        
+
         {drawer.activeMenu === 'settings' && (
           <>
-            <Title>Settings</Title>
-            <Small>Last seen: Today</Small>
+            {/* <Title>Settings</Title>
+            <Small>Last seen: Today</Small> */}
+            <div style={{ zIndex: '100' }}>
+              <Switch />
+            </div>
           </>
         )}
       </Content>

@@ -51,6 +51,7 @@ class Home extends Component {
           toggleTheme={toggleTheme}
           toggleNavTab={toggleNavTab}
           activeNavTab={activeNavTab}
+          toggleDrawer={toggleDrawer}
         />
 
         <SideBar
@@ -66,7 +67,7 @@ class Home extends Component {
         />
 
         <SideDrawer
-          active={drawerState}
+          drawer={drawerState}
           toggle={toggleDrawer}
         />
       </Container>
@@ -78,7 +79,7 @@ const mapStateToProps = (state) => {
   return {
     activeNavTab: state.ui.nav.name,
     activeNavAction: state.ui.nav.action,
-    drawerState: state.ui.drawer.isOpen,
+    drawerState: state.ui.drawer,
     data: state.data,
   };
 };
@@ -89,7 +90,7 @@ const mapDispatchToProsp = (dispatch) => {
     getFriendList: () => dispatch(getFriends()),
     getChatList: () => dispatch(getChat()),
     getMessage: (id) => dispatch(getMessage(id)),
-    toggleDrawer: (s) => dispatch(toggleDrawer(s)),
+    toggleDrawer: (s, c) => dispatch(toggleDrawer(s, c)),
   };
 };
 

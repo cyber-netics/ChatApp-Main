@@ -5,7 +5,6 @@ import UserFigure from 'Components/UserFigure';
 import Button from 'Components/Button';
 import Tooltip from 'Components/Tooltip';
 import Dropdown from 'Components/Dropdown';
-import Menu from 'Components/Menu';
 
 import { List } from 'Components/Common';
 import {
@@ -42,57 +41,72 @@ const Small = styled(SmallFont)`
 // **
 const HeaderAction = styled.div``;
 
-const Header = ({ user }) => (
-  <Container>
-    <HeaderUser>
-      <UserFigure
-        name={user.name}
-        avatar={user.avatar}
-        text={<Small>{'5 minutes ago'}</Small>}
-        status={user.status}
-      />
-    </HeaderUser>
-    <HeaderAction>
-      <ListAction>
-        <ListItem>
-          <Tooltip placement="bottom" title="Voice Call">
-            <Button
-              size={'sm'}
-              icon={'phone'}
-              color={'#0abb87'}
-            />
-          </Tooltip>
-        </ListItem>
-        <ListItem>
-          <Tooltip placement="bottom" title="Video call">
-            <Button
-              size={'sm'}
-              icon={'video'}
-              color={'#ffb822'}
-            />
-          </Tooltip>
-        </ListItem>
-        <ListItem>
-          <Dropdown
-            placement={'bottomLeft'}
-            top="20px"
-            left="-20px"
-            overlay={() => (
-              <Menu>
-                <Menu.Item>Add to group</Menu.Item>
-                <Menu.Item>Profile</Menu.Item>
-              </Menu>
-            )}
-          >
-            <Button
-              icon={'moreHorizontal'}
-              size={'sm'}
-            />
-          </Dropdown>
-        </ListItem>
-      </ListAction>
-    </HeaderAction>
-  </Container>
-);
+const Header = ({ user }) => {
+  // Menu
+  const dropmenu = [
+    {
+      name: 'Add to group',
+      toggle: () => console.log(),
+    },
+    {
+      name: 'Profile',
+      toggle: () => console.log(),
+    },
+  ];
+
+  return (
+    <Container>
+      <HeaderUser>
+        <UserFigure
+          name={user.name}
+          avatar={user.avatar}
+          text={<Small>{'5 minutes ago'}</Small>}
+          status={user.status}
+        />
+      </HeaderUser>
+      <HeaderAction>
+        <ListAction>
+          <ListItem>
+            <Tooltip
+              placement="bottom"
+              title="Voice Call"
+            >
+              <Button
+                size={'sm'}
+                icon={'phone'}
+                color={'#0abb87'}
+              />
+            </Tooltip>
+          </ListItem>
+          <ListItem>
+            <Tooltip
+              placement="bottom"
+              title="Video call"
+            >
+              <Button
+                size={'sm'}
+                icon={'video'}
+                color={'#ffb822'}
+              />
+            </Tooltip>
+          </ListItem>
+          <ListItem>
+            <Dropdown
+              placement={'bottomLeft'}
+              top="20px"
+              left="-20px"
+              overlay={dropmenu}
+            >
+              <Button
+                icon={'moreHorizontal'}
+                size={'sm'}
+              />
+            </Dropdown>
+          </ListItem>
+        </ListAction>
+      </HeaderAction>
+    </Container>
+  );
+};
 
 export default memo(Header);

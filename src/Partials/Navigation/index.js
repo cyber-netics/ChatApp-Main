@@ -5,7 +5,6 @@ import Link from 'Components/Link';
 import Icon from 'Components/Icon';
 import Avatar from 'Components/Avatar';
 import Dropdown from 'Components/Dropdown';
-import Menu from 'Components/Menu';
 import Tooltip from 'Components/Tooltip';
 
 import { ReactComponent as logo } from 'assets/logo.svg';
@@ -60,7 +59,33 @@ const NavItem = styled(ListItem)`
   margin: 1.5rem 20px 0;
 `;
 
-const Navigation = (props) => {
+const Navigation = ({
+  activeNavTab,
+  toggleNavTab,
+  toggleTheme,
+  toggleDrawer,
+}) => {
+  // Dropdown menu
+  const dropmenu = [
+    {
+      name: 'Edit profile',
+      toggle: () => console.log(),
+    },
+    {
+      name: 'Profile',
+      toggle: () => console.log(),
+    },
+    {
+      name: 'Settings',
+      toggle: (cnt) => toggleDrawer(true, cnt),
+    },
+    { divider: true },
+    {
+      name: 'Logout',
+      toggle: () => console.log(),
+    },
+  ];
+
   return (
     <Section>
       <Container>
@@ -73,8 +98,8 @@ const Navigation = (props) => {
           <NavBody>
             <NavList>
               <TabPanel
-                selected={props.activeNavTab}
-                toggle={props.toggleNavTab}
+                selected={activeNavTab}
+                toggle={toggleNavTab}
               />
             </NavList>
           </NavBody>
@@ -85,9 +110,7 @@ const Navigation = (props) => {
                   placement="right"
                   title="Dark Mode"
                 >
-                  <ButtonSelect
-                    onClick={props.toggleTheme}
-                  >
+                  <ButtonSelect onClick={toggleTheme}>
                     <Icon icon={'Moon'} />
                   </ButtonSelect>
                 </Tooltip>
@@ -99,17 +122,7 @@ const Navigation = (props) => {
                 >
                   <Dropdown
                     placement={'topRight'}
-                    overlay={() => (
-                      <Menu>
-                        <Menu.Item>
-                          Edit profile
-                        </Menu.Item>
-                        <Menu.Item>Profile</Menu.Item>
-                        <Menu.Item>Settings</Menu.Item>
-                        <Menu.Divider />
-                        <Menu.Item>Logout</Menu.Item>
-                      </Menu>
-                    )}
+                    overlay={dropmenu}
                   >
                     <Avatar size="md" />
                   </Dropdown>

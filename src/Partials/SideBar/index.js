@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
-import Menu from 'Components/Menu';
 import UserList from './UserList';
 
 import {
@@ -53,7 +52,7 @@ const Form = styled.form`
   box-sizing: border-box;
 `;
 
-const SearchContainer = styled.div`
+const SearchBox = styled.div`
   dispay: inline-box;
   position: relative;
   width: 100%;
@@ -75,90 +74,77 @@ const Sidebar = ({
   active,
   select,
   toggleDrawer,
-}) => (
-  <Section>
-    <Container>
-      <InnerContainer>
-        <Header>
-          <Title>Chats</Title>
-          <div>
-            <ButtonList>
-              <ButtonItem>
-                <Tooltip
-                  placement="bottom"
-                  title="Add Group"
-                >
-                  <ButtonSimple>
-                    <Icon size="sm" icon={'users'} />
-                  </ButtonSimple>
-                </Tooltip>
-              </ButtonItem>
-              <ButtonItem>
-                <Tooltip
-                  placement="bottom"
-                  title="New Chat"
-                >
-                  <ButtonSimple>
-                    <Icon
-                      size="sm"
-                      icon={'plusCircle'}
-                    />
-                  </ButtonSimple>
-                </Tooltip>
-              </ButtonItem>
-            </ButtonList>
-          </div>
-        </Header>
-        <SearchContainer>
-          <Form>
-            <SearchInput
-              onChange={() => {}}
-              placeholder="Search chats"
-            />
-          </Form>
-        </SearchContainer>
-        <SidebarBody>
-          {(active === 'chat' || 'users') && (
-            <UserList
-              activeTab={active}
-              select={select}
-              data={data}
-              menu={() => (
-                <>
-                  {active === 'chat' && (
-                    <Menu>
-                      <Menu.Item
-                        onClick={() => {
-                          toggleDrawer(true);
-                        }}
-                      >
-                        <span>Profile</span>
-                      </Menu.Item>
-                      <Menu.Item
-                        onClick={() => {
-                          console.log('asdfasdf...xx');
-                        }}
-                      >
-                        <span>Delete</span>
-                      </Menu.Item>
-                    </Menu>
-                  )}
-                  {active === 'users' && (
-                    <Menu>
-                      <Menu.Item>New Chat</Menu.Item>
-                      <Menu.Item>Profile</Menu.Item>
-                      <Menu.Divider />
-                      <Menu.Item>Block</Menu.Item>
-                    </Menu>
-                  )}
-                </>
+}) => {
+  // Dropdown menu
+  const dropmenu = [
+    {
+      name: 'Profile',
+      toggle: (cnt) => toggleDrawer(true, cnt),
+    },
+    {
+      name: 'Delete',
+      toggle: () => console.log(),
+    },
+  ];
+
+  return (
+    <Section>
+      <Container>
+        <InnerContainer>
+          <Header>
+            <Title>Chats</Title>
+            <div>
+              <ButtonList>
+                <ButtonItem>
+                  <Tooltip
+                    placement="bottom"
+                    title="Add Group"
+                  >
+                    <ButtonSimple>
+                      <Icon size="sm" icon={'users'} />
+                    </ButtonSimple>
+                  </Tooltip>
+                </ButtonItem>
+                <ButtonItem>
+                  <Tooltip
+                    placement="bottom"
+                    title="New Chat"
+                  >
+                    <ButtonSimple>
+                      <Icon
+                        size="sm"
+                        icon={'plusCircle'}
+                      />
+                    </ButtonSimple>
+                  </Tooltip>
+                </ButtonItem>
+              </ButtonList>
+            </div>
+          </Header>
+          <SearchBox>
+            <Form>
+              <SearchInput
+                onChange={() => {}}
+                placeholder="Search chats"
+              />
+            </Form>
+          </SearchBox>
+          <SidebarBody>
+            <>
+              {(active === 'chat' || 'users') && (
+                <UserList
+                  activeTab={active}
+                  select={select}
+                  data={data}
+                  menu={dropmenu}
+                />
               )}
-            />
-          )}
-        </SidebarBody>
-      </InnerContainer>
-    </Container>
-  </Section>
-);
+            </>
+          </SidebarBody>
+        </InnerContainer>
+      </Container>
+    </Section>
+  );
+};
 
 export default memo(Sidebar);

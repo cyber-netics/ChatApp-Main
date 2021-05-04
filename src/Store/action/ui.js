@@ -12,14 +12,18 @@ export const navTab = (tab) => {
   };
 };
 
-export const toggleDrawer = (action) => {
+export const toggleDrawer = (status, content) => {
   return (dispatch, getState) => {
     const state = getState().ui.drawer;
-    const isOpen = action || !state.isOpen;
+
+    const isOpen = status || !state.isOpen;
+
+    const activeMenu =
+      content?.toLowerCase() || state.activeMenu;
 
     dispatch({
       type: SET_DRAWER_STATE,
-      payload: { isOpen: isOpen },
+      payload: { isOpen, activeMenu },
     });
   };
 };

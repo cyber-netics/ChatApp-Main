@@ -1,7 +1,10 @@
 import React, { memo, useState, createRef } from 'react';
 import styled from 'styled-components';
+import helpers from 'helpers';
+
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 import { CardSecondary } from 'Components/Common';
+import Menu from 'Components/Menu';
 
 const Container = styled.div`
   z-index: 12;
@@ -51,7 +54,7 @@ const Content = styled(ContentStyle)`
  * @component
  * @param {Object} children                  child component
  * @param {String} className                 passed by styled-components or overwritten by user
- * @param {Object} [overlay]                 dropdown menu
+ * @param {Array} [overlay]                  dropdown menu items array
  * @param {String | undefined} [align]       align item for parent div
  * @param {String | undefined} [placement]   menu component placement
  * @param {String | undefined} [top]         margin top in px
@@ -68,11 +71,19 @@ const DropDown = ({
   overlay,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const ref = createRef();
 
   // hooks
-  useOnClickOutside(ref, () => {
-    isOpen && setIsOpen();
+  useOnClickOutside(ref, (data) => {
+    if (disabled && data.includes('outside')) {
+      helpers.promisify(setIsOpen);
+    }
+
+    if (data.includes('inside')) {
+      setIsOpen(false);
+      setDisabled(true);
+    }
   });
 
   // dropdown open/close state
@@ -82,8 +93,12 @@ const DropDown = ({
 
   return (
     <Container align={align} className={className}>
-      <div ref={ref} aria-label={className}>
-        <div onClick={toggle}>{children}</div>
+      <div
+        ref={ref}
+        aria-label={className}
+        onClick={toggle}
+      >
+        {children}
       </div>
 
       <Content
@@ -93,7 +108,22 @@ const DropDown = ({
         left={left}
       >
         <MenuContainer>
-          {overlay && overlay()}
+          <Menu>
+            <>
+              {overlay.map(
+                ({ name, toggle, divider }, index) => (
+                  <span key={name + index}>
+                    <Menu.Item
+                      onClick={(cnt) => toggle(cnt)}
+                    >
+                      <span>{name}</span>
+                    </Menu.Item>
+                    {divider && <Menu.Divider />}
+                  </span>
+                ),
+              )}
+            </>
+          </Menu>
         </MenuContainer>
       </Content>
     </Container>

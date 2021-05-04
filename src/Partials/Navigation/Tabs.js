@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Icon from 'Components/Icon';
 import Tootip from 'Components/Tooltip';
 import { ListItem } from 'Components/Common';
-
 import {
   ButtonSelect,
   Badge,
@@ -50,8 +49,10 @@ const TabPanel = ({ selected, toggle }) => {
                 active={selected === name}
                 onClick={() => toggle({ name, action })}
               >
-                <Icon icon={icon} />
-                <Badge status={status} />
+                <>
+                  <Icon icon={icon} />
+                  <Badge status={status} />
+                </>
               </ButtonSelect>
             </Tootip>
           </TabItem>

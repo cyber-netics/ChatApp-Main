@@ -9,7 +9,7 @@ const initialState = {
     action: 'getMessage',
   },
   drawer: {
-    isOpen: true,
+    isOpen: false,
   },
 };
 

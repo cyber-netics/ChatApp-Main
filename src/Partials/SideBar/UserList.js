@@ -15,7 +15,6 @@ import {
 const ListAction = styled.div`
   right: 0;
   width: 50px;
-
   .count {
     visibility: visible;
   }
@@ -32,13 +31,15 @@ const Text = styled(Small)`
   font-weight: inherit;
 `;
 
-const ListView = styled(ListItemDivider)`
+const ListViewBase = styled(ListItemDivider)`
   padding: 19px 30px;
   display: flex;
   cursor: pointer;
   border-width: 0 0 1px;
   line-height: 1.5;
+`;
 
+const ListView = styled(ListViewBase)`
   &: hover .dropdown-item {
     display: block;
     visibility: visible;

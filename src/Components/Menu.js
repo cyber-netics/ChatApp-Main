@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import styled from 'styled-components';
 import { List } from 'Components/Common';
 import {
@@ -12,19 +12,21 @@ const MenuItem = styled(ListItemHighlight)`
   font-weight: 400;
 `;
 
-const MenuComponent = ({ children }) => {
-  return <List id='testinxxx'>{children}</List>;
-};
-
 const Divider = styled(BorderSecondary)`
   border-width: 1px;
   border-style: solid;
   margin: 0.4rem 0;
 `;
 
+const MenuComponent = ({ children }) => {
+  return <List>{children}</List>;
+};
+
 const ItemMenuComponent = ({ children, onClick }) => {
   return (
-    <MenuItem onClick={onClick}>
+    <MenuItem
+      onClick={() => onClick(children.props.children)}
+    >
       <span>{children}</span>
     </MenuItem>
   );

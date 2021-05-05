@@ -48,7 +48,7 @@ const Profile = memo(({ drawer, toggle }) => {
             {/* <Title>Settings</Title>
             <Small>Last seen: Today</Small> */}
             <div style={{ zIndex: '100' }}>
-              <Switch />
+              <Switch size="sm" />
             </div>
           </>
         )}

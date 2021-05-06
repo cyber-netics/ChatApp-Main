@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
 export const InnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
 `;
 
 export const List = styled.ul`

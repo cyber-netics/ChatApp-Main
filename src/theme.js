@@ -37,6 +37,7 @@ const baseColors = {
   success,
   warning,
   error,
+  border: highlight200,//
 };
 
 const lightColors = {

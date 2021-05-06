@@ -15,7 +15,7 @@ import {
   getFriends,
   getChat,
   getMessage,
-} from '../Store/action/data';
+} from 'Store/action/data';
 
 class Home extends Component {
   componentDidMount() {

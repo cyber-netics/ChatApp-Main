@@ -1,19 +1,29 @@
-import { Redirect } from "react-router";
-import { Route } from "react-router-dom";
+import { Redirect } from 'react-router';
+import { Route } from 'react-router-dom';
 
-import Layout from "../Layout";
+// Test Only **
+const auth = false; // needs to be in context
+// ************
 
 export const PrivateRoute = (props) => {
   const Component = props.component;
 
-  const auth = true;
   if (!auth) return <Redirect to="/login" />;
 
   return (
     <Route exact={props.exact} path={props.path}>
-      <Layout>
-        <Component />
-      </Layout>
+      <Component />
+    </Route>
+  );
+};
+
+export const ProtectedRoute = (props) => {
+  const Component = props.component;
+  if (auth) return <Redirect to="/" />;
+
+  return (
+    <Route exact={props.exact} path={props.path}>
+      <Component />
     </Route>
   );
 };

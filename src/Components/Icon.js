@@ -10,7 +10,7 @@ import Helpers from 'helpers';
  * @param {String} [color] color code
  */
 
-const Icon = ({ icon, size, color }) => {
+const Icon = ({ icon, size, color, fill }) => {
   const uppercase = Helpers.firstChartUppercase;
 
   const iconSize = {
@@ -34,7 +34,11 @@ const Icon = ({ icon, size, color }) => {
     : iconSize['md'];
 
   return (
-    <IconComponent color={color} style={sizeIcon} />
+    <IconComponent
+      color={color}
+      fill={fill}
+      style={sizeIcon}
+    />
   );
 };
 

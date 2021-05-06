@@ -17,10 +17,6 @@ export const background = css`
   ${({ theme }) => theme.colors.background};
 `;
 
-export const borderStatic = css`
-  ${({ theme }) => theme.colors.border};
-`;
-
 export const border = css`
   ${({ theme }) => theme.colors.highlight};
 `;

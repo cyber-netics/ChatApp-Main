@@ -1,9 +1,13 @@
 import {
   SET_NAV_TAB,
   SET_DRAWER_STATE,
+  SET_THEME_MODE,
 } from '../static';
 
 const initialState = {
+  theme: {
+    isDarkTheme: true,
+  },
   nav: {
     name: 'chat',
     action: 'getMessage',
@@ -27,6 +31,16 @@ const uiInterface = (state = initialState, action) => {
         ...state,
         drawer: {
           ...state.drawer,
+          ...action.payload,
+        },
+      };
+    }
+
+    case SET_THEME_MODE: {
+      return {
+        ...state,
+        theme: {
+          ...state.theme,
           ...action.payload,
         },
       };

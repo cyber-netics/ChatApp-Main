@@ -10,7 +10,11 @@ import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
 
-import { navTab, toggleDrawer } from 'Store/action/ui';
+import {
+  navTab,
+  toggleDrawer,
+  toggleTheme,
+} from 'Store/action/ui';
 import {
   getFriends,
   getChat,
@@ -86,11 +90,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProsp = (dispatch) => {
   return {
+    toggleTheme: (mode) => dispatch(toggleTheme(mode)),
     toggleNavTab: (tab) => dispatch(navTab(tab)),
+    toggleDrawer: (s, c) => dispatch(toggleDrawer(s, c)),
+
     getFriendList: () => dispatch(getFriends()),
     getChatList: () => dispatch(getChat()),
     getMessage: (id) => dispatch(getMessage(id)),
-    toggleDrawer: (s, c) => dispatch(toggleDrawer(s, c)),
   };
 };
 

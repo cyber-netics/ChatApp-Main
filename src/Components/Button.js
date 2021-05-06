@@ -33,6 +33,7 @@ const Button = styled(ButtonSimple)`
  * @param {String} icon       button icon
  * @param {String} [color]    color code
  * @param {String} [size]     sm | md | lg options
+ * @param {String} [title]    button title
  */
 
 const ButtonComponent = ({
@@ -40,10 +41,21 @@ const ButtonComponent = ({
   className,
   icon,
   color,
+  fill,
   size,
+  title,
 }) => (
   <Button className={className} onClick={onClick}>
-    <Icon icon={icon} color={color} size={size} />
+    {icon ? (
+      <Icon
+        icon={icon}
+        color={color}
+        size={size}
+        fill={fill}
+      />
+    ) : (
+      <span>{title}</span>
+    )}
   </Button>
 );
 

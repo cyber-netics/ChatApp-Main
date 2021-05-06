@@ -144,11 +144,9 @@ const Input = styled.input`
   }
 `;
 
-const App = ({ size = 'md', label }) => {
+const App = ({ size = 'md', label, id = uuidv4() }) => {
   const [status, setStatus] = useState(false);
   const [anim, setAnimate] = useState(false);
-
-  const itemId = uuidv4();
 
   const onChange = () => {
     setStatus(!status);
@@ -163,7 +161,7 @@ const App = ({ size = 'md', label }) => {
     <CheckBoxWrapper>
       <Input
         onClick={onChange}
-        id={itemId}
+        id={id}
         size={size}
         type="checkbox"
       />
@@ -171,7 +169,7 @@ const App = ({ size = 'md', label }) => {
         status={status}
         anim={anim}
         size={size}
-        htmlFor={itemId}
+        htmlFor={id}
       />
       {label && <Lable size={size}>{label}</Lable>}
     </CheckBoxWrapper>

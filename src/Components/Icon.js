@@ -36,7 +36,7 @@ const Icon = ({ icon, size, color, fill }) => {
   return (
     <IconComponent
       color={color}
-      fill={fill}
+      fill={fill || 'none'}
       style={sizeIcon}
     />
   );

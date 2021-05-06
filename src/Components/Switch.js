@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+
 import { waveAnimation } from 'Components/Common/anim';
+import {
+  fontSecondary,
+  highlightSecondary,
+  borderTertiary,
+} from 'Components/Common';
 
 const sizes = {
   md: {
@@ -17,6 +24,9 @@ const sizes = {
       left: '25px',
       top: '2.5px',
     },
+    label: {
+      top: '1.5px',
+    },
   },
   sm: {
     slider: {
@@ -25,19 +35,23 @@ const sizes = {
     },
     after: {
       size: '12.5px',
-      left: '2px',
+      left: '1px',
       top: '1px',
     },
     input: {
-      left: '12.5px',
+      left: '13px',
       top: '1px',
+    },
+    label: {
+      top: '0px',
     },
   },
 };
 
 // Colors
 const borderStyle = css`
-  ${({ status }) => (status ? '#0e9bff' : '#424a5e')};
+  ${({ status }) =>
+    status ? '#0e9bff' : borderTertiary};
 `;
 const backgroundStyle = css`
   ${({ status }) => (status ? '#fff' : '#adb5bd')};
@@ -69,10 +83,21 @@ const CheckBoxWrapper = styled.div`
   position: relative;
 `;
 
+const Lable = styled.span`
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 14px;
+  white-space: nowrap;
+  color: ${fontSecondary};
+  left: ${({ size }) => sizes[size].slider.width};
+  top: ${({ size }) => sizes[size].label.top};
+`;
+
 const Slider = styled.label`
   ${sliderSize};
   border: 1px solid ${borderStyle};
-  background: #293145;
+  background: ${highlightSecondary};
 
   position: absolute;
   cursor: pointer;
@@ -89,8 +114,9 @@ const Slider = styled.label`
     content: '';
     display: block;
     border-radius: 50%;
-    -webkit-transition: 0.35s;
-    transition: 0.35s;
+
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
 
     ${afterMargin};
     ${sliderAfterSize};
@@ -118,37 +144,37 @@ const Input = styled.input`
   }
 `;
 
-const App = ({ size = 'md' }) => {
+const App = ({ size = 'md', label }) => {
   const [status, setStatus] = useState(false);
-  const [anim, setAnim] = useState(false);
+  const [anim, setAnimate] = useState(false);
+
+  const itemId = uuidv4();
 
   const onChange = () => {
     setStatus(!status);
-    setAnim(true);
-
+    setAnimate(true);
     // Triggers wave animation for .ms
     setTimeout(() => {
-      anim && setAnim(false);
+      anim && setAnimate(false);
     }, 650);
   };
 
   return (
-    <div>
-      <CheckBoxWrapper>
-        <Input
-          id="checkbox"
-          type="checkbox"
-          size={size}
-          onChange={onChange}
-        />
-        <Slider
-          status={status}
-          anim={anim}
-          size={size}
-          htmlFor="checkbox"
-        />
-      </CheckBoxWrapper>
-    </div>
+    <CheckBoxWrapper>
+      <Input
+        onClick={onChange}
+        id={itemId}
+        size={size}
+        type="checkbox"
+      />
+      <Slider
+        status={status}
+        anim={anim}
+        size={size}
+        htmlFor={itemId}
+      />
+      {label && <Lable size={size}>{label}</Lable>}
+    </CheckBoxWrapper>
   );
 };
 

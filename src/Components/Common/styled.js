@@ -27,10 +27,14 @@ import {
   highlightItem,
   highlightItemSecondary,
   fontNeutral,
-  fontNeutralSecondary,
   textHighlight,
   highlightBackground,
 } from 'Components/Common/colors';
+
+export const Background = styled.div`
+  background: ${(props) =>
+    props.theme.colors.background};
+`;
 
 export const Section = styled.div`
   border-right: 1px solid ${border};
@@ -123,7 +127,7 @@ export const TextSecondary = styled(TextBase)`
 
 export const TitleText = styled.h5`
   color: ${(props) =>
-    props.active ? primary : fontNeutralSecondary};
+    props.active ? primary : fontSecondary};
 `;
 
 export const ActiveIcon = styled.span`

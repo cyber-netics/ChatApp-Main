@@ -10,9 +10,9 @@ import {
   GlobalStyle,
 } from './theme';
 
-const LayoutContainer = styled.div`
-  background: ${(props) =>
-    props.theme.colors.background};
+import { Background } from 'Components/Common';
+
+const LayoutContainer = styled(Background)`
   height: 100vh;
   display: flex;
   overflow: hidden;

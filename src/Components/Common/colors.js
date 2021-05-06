@@ -25,6 +25,10 @@ export const borderSecondary = css`
   ${({ theme }) => theme.colors.borderSecondary};
 `;
 
+export const borderTertiary = css`
+  ${({ theme }) => theme.colors.borderTertiary};
+`;
+
 export const fontNeutral = css`
   ${({ theme }) => theme.colors.fontNeutral};
 `;
@@ -67,10 +71,6 @@ export const highlightItem = css`
 
 export const highlightItemSecondary = css`
   ${({ theme }) => theme.colors.highlightItemSecondary};
-`;
-
-export const fontNeutralSecondary = css`
-  ${({ theme }) => theme.colors.fontNeutralSecondary};
 `;
 
 export const highlightPrimary = css`

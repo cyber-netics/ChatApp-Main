@@ -1,41 +1,13 @@
 import React, { memo } from 'react';
-import styled, {
-  keyframes,
-  css,
-} from 'styled-components';
+import styled from 'styled-components';
 
 import helpers from 'helpers';
 import Button from 'Components/Button';
 
-const keyframes_slideOut = keyframes`
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-`;
-
-const keyframes_slideIn = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-`;
-
-const slidein = css`
-  animation: ${keyframes_slideIn};
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-`;
-
-const slideout = css`
-  animation: ${keyframes_slideOut};
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-`;
+import {
+  slidein,
+  slideout,
+} from 'Components/Common/anim';
 
 const ContainerStyles = styled.div`
   transition: visibility 1s ease-in;
@@ -52,7 +24,7 @@ const Container = styled(ContainerStyles)`
   overflow: hidden;
   z-index: 1010;
   height: 100%;
-  background: #1a2236;
+  background-color: inherit;
   border-radius: 5px;
   box-shadow: 25px 0px 30px 5px black;
 `;
@@ -84,6 +56,7 @@ const Title = styled.h2`
 const Body = styled.div`
   flex: 1 1;
   overflow: auto;
+  padding: 2rem;
 `;
 
 const Drawer = memo(

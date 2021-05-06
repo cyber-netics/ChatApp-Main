@@ -4,7 +4,7 @@ const dark = '#1a2236';
 const light = 'white';
 const primary = '#0a80ff';
 
-const highlight100 = '#293145';
+const highlight100 = '#293145'; // background secondary
 const highlight200 = '#e6e6e6';
 const highlight300 = '#384054';
 const highlight350 = '#e9ecef';
@@ -23,6 +23,8 @@ const secondary200 = 'rgba(255, 255, 255, 0.5)';
 const secondary300 = '#ebebeb';
 const secondary400 = '#969696';
 const secondary500 = '#6c757d';
+const secondary600 = '#424a5e'; //
+const secondary700 = '#adb5bd';
 
 const success = '#0abb87';
 const warning = '#ffc107';
@@ -52,11 +54,11 @@ const lightColors = {
 
   activeSecondary: primary,
   fontNeutral: secondary400,
-  fontNeutralSecondary: highlight400,
   fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
 
+  borderTertiary: secondary700, //
   textHighlight: secondary300,
 };
 
@@ -67,21 +69,22 @@ const darkColors = {
   borderSecondary: highlight300,
 
   highlight: highlight100,
-  highlightPrimary: highlight300,
   highlightSecondary: highlight100,
+  textHighlight: highlight100,
+
+  highlightPrimary: highlight300,
   highlightItem: highlight500,
   highlightItemSecondary: highlight800,
 
   active: primary,
   activeSecondary: secondary200,
 
-  fontNeutralSecondary: highlight600,
   fontNeutral: secondary500,
   fontSecondary: highlight600,
   fontInactive: secondary200,
   fontActive: light,
 
-  textHighlight: highlight100,
+  borderTertiary: secondary600, //
 };
 
 const lightThemeColors = Object.assign(

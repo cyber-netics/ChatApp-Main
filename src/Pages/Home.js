@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 import { Container } from 'Components/Common';
 import Metadata from 'Components/Metadata';
+import * as content from './content';
 
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
 
-import * as content from './content';
 import { navTab, toggleDrawer } from 'Store/action/ui';
 import {
   getFriends,

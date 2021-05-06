@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import { tabsMenu } from './menu';
+import { ListItem } from 'Components/Common';
+
 import Icon from 'Components/Icon';
 import Tootip from 'Components/Tooltip';
-import { ListItem } from 'Components/Common';
+
 import {
   ButtonSelect,
   Badge,
@@ -14,51 +17,24 @@ const TabItem = styled(ListItem)`
 `;
 
 const TabPanel = ({ selected, toggle }) => {
-  const tabs = [
-    {
-      name: 'chat',
-      action: 'getMessage',
-      content: 'messages',
-      icon: 'MessageCircle',
-      status: 'warning',
-    },
-    {
-      name: 'users',
-      action: 'getMessage',
-      content: 'messages',
-      icon: 'User',
-      status: 'error',
-    },
-    {
-      name: 'stars',
-      icon: 'Star',
-    },
-    {
-      name: 'archive',
-      icon: 'Archive',
-    },
-  ];
-
-  return (
-    <>
-      {tabs.map(({ name, icon, action, status }) => (
-        <>
-          <TabItem key={name}>
-            <Tootip placement="right" title={name}>
+  return tabsMenu.map(
+    ({ tab, icon, action, status }) => (
+      <>
+        <TabItem key={tab}>
+          <Tootip placement="right" title={tab}>
+            <>
               <ButtonSelect
-                active={selected === name}
-                onClick={() => toggle({ name, action })}
+                active={selected === tab}
+                onClick={() => toggle({ tab, action })}
               >
-                <>
-                  <Icon icon={icon} />
-                  <Badge status={status} />
-                </>
+                <Icon icon={icon} />
+                <Badge status={status} />
               </ButtonSelect>
-            </Tootip>
-          </TabItem>
-        </>
-      ))}
-    </>
+            </>
+          </Tootip>
+        </TabItem>
+      </>
+    ),
   );
 };
 

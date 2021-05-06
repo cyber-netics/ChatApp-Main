@@ -57,12 +57,17 @@ const DropDown = styled(Dropdown)`
   text-align: right;
 `;
 
-const ChatView = ({ data, select, activeTab, menu }) => {
+const ChatView = ({
+  data,
+  handleFetch,
+  activeTab,
+  menu,
+}) => {
   const [active, setactive] = useState({});
 
   const handleSelect = (item) => {
     setactive({ ...active, [activeTab]: item });
-    select(item); // Get Content action
+    handleFetch(item); // Get Content action
   };
 
   if (!data) return <></>;

@@ -9,8 +9,8 @@ const initialState = {
     isDarkTheme: true,
   },
   nav: {
-    name: 'chat',
-    action: 'getMessage',
+    tab: 'chat',
+    action: 'messages',
   },
   drawer: {
     isOpen: false,

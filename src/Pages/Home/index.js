@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Container } from 'Components/Common';
-import Metadata from 'Components/Metadata';
-import * as content from './content';
+import { metadata } from './content';
+import PageWrapper from 'Components/Page';
 
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
@@ -11,96 +10,95 @@ import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
 
 import {
-  navTab,
+  toggleNavTab,
   toggleDrawer,
   toggleTheme,
 } from 'Store/action/ui';
+
 import {
   getFriends,
   getChat,
   getMessage,
 } from 'Store/action/data';
 
-class Home extends Component {
+class HomePage extends Component {
+  // Initial fetch
   componentDidMount() {
-    this.props.getFriendList();
-    this.props.getChatList();
+    this.props.apiHandlers.getFriendList();
+    this.props.apiHandlers.getChatList();
   }
 
   render() {
     const {
-      toggleTheme,
-      toggleNavTab,
-      activeNavTab,
-      activeNavAction,
-      drawerState,
-      toggleDrawer,
+      uiState,
+      uiHandlers,
+      dataState,
+      apiHandlers,
     } = this.props;
 
-    const {
-      title,
-      description,
-      path,
-    } = content.metadata;
+    const { toggleDrawer } = uiHandlers;
 
     return (
-      <Container>
-        <Metadata
-          path={path}
-          title={title}
-          description={description}
-        />
-
+      <PageWrapper metadata={metadata}>
         <Navigation
-          toggleTheme={toggleTheme}
-          toggleNavTab={toggleNavTab}
-          activeNavTab={activeNavTab}
-          toggleDrawer={toggleDrawer}
+          uiHandlers={uiHandlers}
+          activeTab={uiState.navTab}
         />
 
         <SideBar
-          active={activeNavTab}
+          activeTab={uiState.navTab}
+          apiHandlers={apiHandlers}
           toggleDrawer={toggleDrawer}
-          select={this.props[activeNavAction]}
-          data={this.props.data[activeNavTab]}
+          data={dataState.tabContext}
         />
 
         <WorkBench
-          current={activeNavTab}
-          data={this.props.data.messages}
+          activeTab={uiState.navTab}
+          data={dataState.barContext}
         />
 
         <SideDrawer
-          drawer={drawerState}
           toggle={toggleDrawer}
+          drawer={uiState.drawer}
         />
-      </Container>
+      </PageWrapper>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  const { ui, data } = state;
   return {
-    activeNavTab: state.ui.nav.name,
-    activeNavAction: state.ui.nav.action,
-    drawerState: state.ui.drawer,
-    data: state.data,
+    uiState: {
+      navTab: ui.nav.tab,
+      drawer: ui.drawer,
+    },
+    dataState: {
+      // gets data based on nav/tab selection
+      tabContext: data[ui.nav.tab],
+      // gets data based on nav/tab and sidebar sel.
+      barContext: data[ui.nav.action],
+    },
   };
 };
 
 const mapDispatchToProsp = (dispatch) => {
   return {
-    toggleTheme: (mode) => dispatch(toggleTheme(mode)),
-    toggleNavTab: (tab) => dispatch(navTab(tab)),
-    toggleDrawer: (s, c) => dispatch(toggleDrawer(s, c)),
-
-    getFriendList: () => dispatch(getFriends()),
-    getChatList: () => dispatch(getChat()),
-    getMessage: (id) => dispatch(getMessage(id)),
+    uiHandlers: {
+      toggleTheme: (mode) => dispatch(toggleTheme(mode)),
+      toggleNavTab: (tab) => dispatch(toggleNavTab(tab)),
+      toggleDrawer: (s, c) =>
+        dispatch(toggleDrawer(s, c)),
+    },
+    apiHandlers: {
+      getFriendList: () => dispatch(getFriends()),
+      getChatList: () => dispatch(getChat()),
+      getMessage: (id) => dispatch(getMessage(id)),
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProsp,
-)(Home);
+)(HomePage);

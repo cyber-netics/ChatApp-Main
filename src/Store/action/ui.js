@@ -4,7 +4,7 @@ import {
   SET_THEME_MODE,
 } from '../static';
 
-export const navTab = (tab) => {
+export const toggleNavTab = (tab) => {
   return (dispatch) => {
     dispatch({
       type: SET_NAV_TAB,
@@ -16,7 +16,7 @@ export const navTab = (tab) => {
 export const toggleTheme = (mode) => {
   return (dispatch, getState) => {
     const current = getState().ui.theme.isDarkTheme;
-    
+
     const setMode =
       typeof mode === 'object' ? !current : mode;
 

@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import { Background } from 'Components/Common';
 import Drawer from 'Components/Drawer';
 
-import { Background } from 'Components/Common';
-
-// Menues
+// Menus
 import ProfileMenu from './menus/Profile';
 import SettingMenu from './menus/Setting';
 

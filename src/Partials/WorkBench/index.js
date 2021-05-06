@@ -39,7 +39,7 @@ const Text = styled.p`
 `;
 
 const Workbench = ({ data }) => {
-  if (!data.user) {
+  if (!data?.user) {
     return (
       <UnselectedContainer>
         <Unselected>

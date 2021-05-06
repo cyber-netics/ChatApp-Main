@@ -71,80 +71,74 @@ const SidebarBody = styled.div`
 
 const Sidebar = ({
   data,
-  active,
-  select,
+  activeTab,
+  apiHandlers,
   toggleDrawer,
-}) => {
-  // Dropdown menu
-  const dropmenu = [
-    {
-      name: 'Profile',
-      toggle: (cnt) => toggleDrawer(true, cnt),
-    },
-    {
-      name: 'Delete',
-      toggle: () => console.log(),
-    },
-  ];
-
-  return (
-    <Section>
-      <Container>
-        <InnerContainer>
-          <Header>
-            <Title>Chats</Title>
-            <div>
-              <ButtonList>
-                <ButtonItem>
-                  <Tooltip
-                    placement="bottom"
-                    title="Add Group"
-                  >
-                    <ButtonSimple>
-                      <Icon size="sm" icon={'users'} />
-                    </ButtonSimple>
-                  </Tooltip>
-                </ButtonItem>
-                <ButtonItem>
-                  <Tooltip
-                    placement="bottom"
-                    title="New Chat"
-                  >
-                    <ButtonSimple>
-                      <Icon
-                        size="sm"
-                        icon={'plusCircle'}
-                      />
-                    </ButtonSimple>
-                  </Tooltip>
-                </ButtonItem>
-              </ButtonList>
-            </div>
-          </Header>
-          <SearchBox>
-            <Form>
-              <SearchInput
-                onChange={() => {}}
-                placeholder="Search chats"
-              />
-            </Form>
-          </SearchBox>
-          <SidebarBody>
-            <>
-              {(active === 'chat' || 'users') && (
-                <UserList
-                  activeTab={active}
-                  select={select}
-                  data={data}
-                  menu={dropmenu}
-                />
-              )}
-            </>
-          </SidebarBody>
-        </InnerContainer>
-      </Container>
-    </Section>
-  );
-};
+}) => (
+  <Section>
+    <Container>
+      <InnerContainer>
+        <Header>
+          <Title>Chats</Title>
+          <div>
+            <ButtonList>
+              <ButtonItem>
+                <Tooltip
+                  placement="bottom"
+                  title="Add Group"
+                >
+                  <ButtonSimple>
+                    <Icon size="sm" icon={'users'} />
+                  </ButtonSimple>
+                </Tooltip>
+              </ButtonItem>
+              <ButtonItem>
+                <Tooltip
+                  placement="bottom"
+                  title="New Chat"
+                >
+                  <ButtonSimple>
+                    <Icon
+                      size="sm"
+                      icon={'plusCircle'}
+                    />
+                  </ButtonSimple>
+                </Tooltip>
+              </ButtonItem>
+            </ButtonList>
+          </div>
+        </Header>
+        <SearchBox>
+          <Form>
+            <SearchInput
+              onChange={() => {}}
+              placeholder="Search chats"
+            />
+          </Form>
+        </SearchBox>
+        <SidebarBody>
+          {(activeTab === 'chat' || 'users') && (
+            <UserList
+              handleFetch={apiHandlers.getMessage}
+              activeTab={activeTab}
+              data={data}
+              menu={[
+                {
+                  name: 'Profile',
+                  toggle: (cnt) =>
+                    toggleDrawer(true, cnt),
+                },
+                {
+                  name: 'Delete',
+                  toggle: () => console.log(),
+                },
+              ]}
+            />
+          )}
+        </SidebarBody>
+      </InnerContainer>
+    </Container>
+  </Section>
+);
 
 export default memo(Sidebar);

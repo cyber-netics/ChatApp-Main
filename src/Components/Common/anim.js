@@ -31,6 +31,17 @@ const keyframes_slideIn = keyframes`
   }
 `;
 
+const keyframes_rotate = keyframes`
+ from {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+`;
+
 // Wave Animation
 // ** ** ** ** **
 
@@ -69,5 +80,11 @@ export const slidein = css`
 export const slideout = css`
   animation: ${keyframes_slideOut};
   animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+`;
+
+export const rotate = css`
+  animation-name: ${keyframes_rotate};
+  animation-duration: 0.3s;
   animation-fill-mode: forwards;
 `;

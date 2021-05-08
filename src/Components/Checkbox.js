@@ -1,8 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
-import styled, {
-  css,
-  keyframes,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { rotate } from 'Components/Common/anim';
 import {
   primary,
   border,
@@ -15,17 +14,6 @@ const active = css`
 const cursor = css`
   ${(props) =>
     props.disabled ? 'not-allowed' : 'pointer'};
-`;
-
-const rotate = keyframes`
- from {
-    opacity: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(45deg);
-  }
 `;
 
 const Input = styled.input`
@@ -56,10 +44,6 @@ const Indicator = styled.div`
     background: #d1d1d1;
   }
 
-  // ${Label}:hover & {
-  //   background: #ccc;
-  // }
-
   &::after {
     content: '';
     position: absolute;
@@ -67,6 +51,7 @@ const Indicator = styled.div`
   }
 
   ${Input}:checked + &::after {
+    ${rotate};
     display: block;
     top: 1px;
     left: 5px;
@@ -74,9 +59,6 @@ const Indicator = styled.div`
     height: 8px;
     border: solid #fff;
     border-width: 0 0.17em 0.18em 0;
-    animation-name: ${rotate};
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
   }
 
   &::disabled {

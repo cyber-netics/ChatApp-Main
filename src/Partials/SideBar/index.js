@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
+import { ButtonSimple } from 'Components/Button';
 import UserList from './UserList';
 
 import {
@@ -15,7 +16,6 @@ import {
 import {
   Section,
   TextSecondary,
-  ButtonSimple,
   Input,
 } from 'Components/Common/styled';
 

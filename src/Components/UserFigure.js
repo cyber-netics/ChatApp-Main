@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { Badge, TitleText } from 'Components/Common';
+
+import Badge from 'Components/Badge';
+import { TitleText } from 'Components/Common';
 
 const Figure = styled.figure`
   display: inline-block;

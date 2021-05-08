@@ -1,22 +1,17 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { tabsMenu } from './menu';
-import { ListItem } from 'Components/Common';
-
 import Icon from 'Components/Icon';
 import Tootip from 'Components/Tooltip';
-
-import {
-  ButtonSelect,
-  Badge,
-} from 'Components/Common/styled';
+import ButtonSelect from 'Components/Select';
+import Badge from 'Components/Badge';
+import { ListItem } from 'Components/Common';
 
 const TabItem = styled(ListItem)`
   margin: 5px 20px;
 `;
 
-const TabPanel = ({ selected, toggle }) => {
+const TabPanel = ({ tabsMenu, selected, toggle }) => {
   return tabsMenu.map(
     ({ tab, icon, action, status }) => (
       <>

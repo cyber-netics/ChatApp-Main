@@ -1,10 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
-import {
-  Small,
-  MessageStyle,
-} from 'Components/Common';
+import { Small, MessageStyle } from 'Components/Common';
 
 const Container = styled.div`
   position: relative;
@@ -49,7 +46,7 @@ const Message = styled(MessageStyle)`
   font-size: 14px;
 `;
 
-const Messages = ({ messages = [] }) => (
+const Messages = memo(({ messages = [] }) => (
   <Container>
     <Wrapper>
       {messages.map(
@@ -58,32 +55,30 @@ const Messages = ({ messages = [] }) => (
             outgoing={outgoing}
             key={`${name}${date}`}
           >
-            <>
-              <UserContainer>
-                <UserInfo outgoing={outgoing}>
-                  <UserFigure
-                    name={name}
-                    fontSize={'sm'}
-                    avatar={avatar}
-                    text={
-                      <span>
-                        <Small>{date}</Small>
-                      </span>
-                    }
-                  />
-                </UserInfo>
-              </UserContainer>
-              <MessageContent>
-                <Message outgoing={!!outgoing}>
-                  <span>{text}</span>
-                </Message>
-              </MessageContent>
-            </>
+            <UserContainer>
+              <UserInfo outgoing={outgoing}>
+                <UserFigure
+                  name={name}
+                  fontSize={'sm'}
+                  avatar={avatar}
+                  text={
+                    <span>
+                      <Small>{date}</Small>
+                    </span>
+                  }
+                />
+              </UserInfo>
+            </UserContainer>
+            <MessageContent>
+              <Message outgoing={!!outgoing}>
+                <span>{text}</span>
+              </Message>
+            </MessageContent>
           </Content>
         ),
       )}
     </Wrapper>
   </Container>
-);
+));
 
 export default memo(Messages);

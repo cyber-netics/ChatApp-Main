@@ -5,7 +5,6 @@ import Messages from './Messages';
 import Footer from './Footer';
 
 const Chat = ({ data }) => {
-  console.log('dataasdf', data);
   return (
     <>
       <Header user={data.user} />

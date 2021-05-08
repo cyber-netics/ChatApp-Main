@@ -23,12 +23,12 @@ const Container = styled.span`
   }
 `;
 
-const Children = styled.div`
+const Content = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const Content = styled.div`
+const TitleWrapper = styled.div`
   position: relative;
   color: white;
 
@@ -60,14 +60,14 @@ const Tooltip = ({ children, placement, title }) => {
 
   return (
     <Container placement={placement}>
-      <Children>{children}</Children>
+      <Content>{children}</Content>
 
       <div>
-        <Content placement={placement}>
+        <TitleWrapper placement={placement}>
           <div className="tooltip">
             <Title>{toUppercase(title)}</Title>
           </div>
-        </Content>
+        </TitleWrapper>
       </div>
     </Container>
   );

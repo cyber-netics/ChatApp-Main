@@ -1,12 +1,16 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { Background } from 'Components/Common';
 import Drawer from 'Components/Drawer';
+import { background } from 'Components/Common/colors';
 
 // Menus
 import ProfileMenu from './menus/Profile';
 import SettingMenu from './menus/Setting';
+
+const Container = styled.div`
+  background: ${background};
+`;
 
 const Content = styled.div`
   text-align: center;
@@ -18,7 +22,7 @@ const Profile = memo(({ drawer, toggle }) => {
   const { isOpen, activeMenu } = drawer;
 
   return (
-    <Background>
+    <Container>
       <Drawer
         toggle={toggle}
         open={isOpen}
@@ -29,7 +33,7 @@ const Profile = memo(({ drawer, toggle }) => {
           {activeMenu === 'settings' && <SettingMenu />}
         </Content>
       </Drawer>
-    </Background>
+    </Container>
   );
 });
 

@@ -6,11 +6,11 @@ import Button from 'Components/Button';
 import Tooltip from 'Components/Tooltip';
 import Dropdown from 'Components/Dropdown';
 
-import { List } from 'Components/Common';
 import {
+  List,
   Small as SmallFont,
   BorderBox,
-} from 'Components/Common/styled';
+} from 'Components/Common';
 
 const Container = styled(BorderBox)`
   display: flex;

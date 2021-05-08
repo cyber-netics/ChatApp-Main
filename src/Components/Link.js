@@ -5,6 +5,8 @@ const LinkElem = styled.a`
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  hight: 100%;
+  width: auto;
 `;
 
 /**

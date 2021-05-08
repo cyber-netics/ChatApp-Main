@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import {
-  BtnSelect,
-  BtnSimple,
-  BadgeBase,
   ListItem,
   TextBase,
   InputBase,
@@ -11,17 +8,11 @@ import {
 } from 'Components/Common/base';
 
 import {
-  background,
   border,
   borderSecondary,
   primary,
   activePrimary,
-  activeSecondary,
-  highlightBG,
   highlightSecondary,
-  fontActive,
-  fontInactive,
-  statuses,
   fontSecondary,
   highlight,
   highlightItem,
@@ -31,36 +22,12 @@ import {
   highlightBackground,
 } from 'Components/Common/colors';
 
-export const Background = styled.div`
-  background: ${(props) =>
-    props.theme.colors.background};
-`;
-
 export const Section = styled.div`
   border-right: 1px solid ${border};
 
   @media (max-width: 1200px) {
     display: none;
   }
-`;
-
-export const ButtonSelect = styled(BtnSelect)`
-  background-color: ${(props) =>
-    props.active && activePrimary};
-
-  color: ${(props) =>
-    props.active ? fontActive : fontInactive};
-
-  &: hover {
-    background-color: ${(props) =>
-      !props.active && highlightBG};
-  }
-`;
-
-export const Badge = styled(BadgeBase)`
-  background-color: ${statuses};
-  border: ${(props) => props.border && '3px solid'}
-    ${background};
 `;
 
 export const CardSecondary = styled.div`
@@ -83,21 +50,6 @@ export const ListItemDivider = styled(ListItem)`
 
   font-weight: ${({ active }) =>
     active ? '600' : '400'};
-`;
-
-export const ButtonSimple = styled(BtnSimple)`
-  border: 1px solid ${highlight};
-  color: ${fontSecondary};
-
-  &: focus {
-    border-width: 1px;
-    box-shadow: rgb(133, 133, 133);
-    border-color: ${activeSecondary};
-  }
-
-  &: hover {
-    background-color: ${highlight};
-  }
 `;
 
 export const Input = styled(InputBase)`

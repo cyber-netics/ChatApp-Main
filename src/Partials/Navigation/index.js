@@ -1,27 +1,24 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import Link from 'Components/Link';
+import Icon from 'Components/Icon';
+import Avatar from 'Components/Avatar';
+import Dropdown from 'Components/Dropdown';
+import Tooltip from 'Components/Tooltip';
+import Logo from 'Components/Logo';
+import Select from 'Components/Select';
+
+import TabPanel from './Tabs';
+import { dropmenu, tabsMenu } from './menu';
+
+import { Section } from 'Components/Common';
 import {
   Container as Wrapper,
   InnerContainer,
   List,
   ListItem,
 } from 'Components/Common';
-
-import {
-  Section,
-  ButtonSelect,
-} from 'Components/Common/styled';
-
-import { ReactComponent as logo } from 'assets/logo.svg';
-import { dropmenu, tabsMenu } from './menu';
-
-import Link from 'Components/Link';
-import Icon from 'Components/Icon';
-import Avatar from 'Components/Avatar';
-import Dropdown from 'Components/Dropdown';
-import Tooltip from 'Components/Tooltip';
-import TabPanel from './Tabs';
 
 const Container = styled(Wrapper)`
   width: 100px;
@@ -30,16 +27,6 @@ const Container = styled(Wrapper)`
 
 const NavHeader = styled.div`
   padding: 25px 0;
-`;
-
-const NavLogo = styled(Link)`
-  height: 100%;
-`;
-
-const LogoIcon = styled(logo)`
-  width: 30px;
-  height: 30px;
-  fill: #0a80ff;
 `;
 
 const NavBody = styled.div`
@@ -68,9 +55,9 @@ const Navigation = ({ activeTab, uiHandlers }) => {
       <Container>
         <InnerContainer>
           <NavHeader>
-            <NavLogo to={'/'}>
-              <LogoIcon />
-            </NavLogo>
+            <Link to={'/'}>
+              <Logo size="md" />
+            </Link>
           </NavHeader>
           <NavBody>
             <NavList>
@@ -88,9 +75,9 @@ const Navigation = ({ activeTab, uiHandlers }) => {
                   placement="right"
                   title="Dark Mode"
                 >
-                  <ButtonSelect onClick={toggleTheme}>
+                  <Select onClick={toggleTheme}>
                     <Icon icon={'Moon'} />
-                  </ButtonSelect>
+                  </Select>
                 </Tooltip>
               </NavItem>
               <NavItem>

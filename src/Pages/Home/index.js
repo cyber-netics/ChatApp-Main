@@ -22,6 +22,7 @@ import {
 } from 'Store/action/data';
 
 class HomePage extends Component {
+  
   // Initial fetch
   componentDidMount() {
     this.props.apiHandlers.getFriendList();

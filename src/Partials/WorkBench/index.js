@@ -2,14 +2,10 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import UnselectedChat from 'assets/img/unselected-chat.svg';
-import { Container as ContainerStyle } from 'Components/Common';
+import { Container } from 'Components/Common';
 
 // App
 import ChatApplication from 'Resource/Chat';
-
-const Container = styled(ContainerStyle)`
-  border-right: none;
-`;
 
 const Wrapper = styled.div`
   width: 100%;

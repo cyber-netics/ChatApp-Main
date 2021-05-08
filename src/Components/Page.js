@@ -2,12 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Metadata from 'Components/Metadata';
-import {
-  Background,
-  Container,
-} from 'Components/Common';
+import { Container } from 'Components/Common';
+import { background } from 'Components/Common/colors';
 
-const PageWrapper = styled(Background)`
+const PageWrapper = styled.div`
+  background: ${background};
   height: 100vh;
   display: flex;
   overflow: hidden;

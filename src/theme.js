@@ -38,6 +38,7 @@ const baseColors = {
   warning,
   error,
   font: secondary500,
+  smooth: highlight1000,
 };
 
 const lightColors = {

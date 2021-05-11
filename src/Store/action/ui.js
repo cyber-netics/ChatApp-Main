@@ -2,11 +2,13 @@ import {
   SET_NAV_TAB,
   SET_DRAWER_STATE,
   SET_THEME_MODE,
+  SET_MODAL_STATE,
 } from '../static';
 
 export const toggleNavTab = (tab) => {
   return (dispatch) => {
-    localStorage.setItem('nav', JSON.stringify(tab));
+    const parsed = JSON.stringify(tab);
+    localStorage.setItem('nav', parsed);
 
     dispatch({
       type: SET_NAV_TAB,
@@ -49,6 +51,15 @@ export const toggleDrawer = (status, content) => {
     dispatch({
       type: SET_DRAWER_STATE,
       payload: { isOpen, activeMenu },
+    });
+  };
+};
+
+export const toggleModal = (isOpen) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_MODAL_STATE,
+      payload: { isOpen },
     });
   };
 };

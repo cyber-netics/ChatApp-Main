@@ -8,11 +8,13 @@ import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
+import ModalMenu from 'Partials/ModalMenu';
 
 import {
   toggleNavTab,
   toggleDrawer,
   toggleTheme,
+  toggleModal,
 } from 'Store/action/ui';
 
 import {
@@ -22,7 +24,6 @@ import {
 } from 'Store/action/data';
 
 class HomePage extends Component {
-  
   // Initial fetch
   componentDidMount() {
     this.props.apiHandlers.getFriendList();
@@ -62,6 +63,11 @@ class HomePage extends Component {
           toggle={toggleDrawer}
           drawer={uiState.drawer}
         />
+
+        <ModalMenu
+          modal={uiState.modal}
+          close={toggleModal}
+        />
       </PageWrapper>
     );
   }
@@ -73,6 +79,7 @@ const mapStateToProps = (state) => {
     uiState: {
       navTab: ui.nav.tab,
       drawer: ui.drawer,
+      modal: ui.modal,
     },
     dataState: {
       // gets data based on nav/tab selection
@@ -88,6 +95,7 @@ const mapDispatchToProsp = (dispatch) => {
     uiHandlers: {
       toggleTheme: (mode) => dispatch(toggleTheme(mode)),
       toggleNavTab: (tab) => dispatch(toggleNavTab(tab)),
+      toggleModal: (m) => dispatch(toggleModal(m)),
       toggleDrawer: (s, c) =>
         dispatch(toggleDrawer(s, c)),
     },

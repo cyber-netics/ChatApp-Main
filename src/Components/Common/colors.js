@@ -84,3 +84,7 @@ export const textHighlight = css`
 export const highlightBackground = css`
   ${(props) => props.theme.colors.highlightBackground}
 `;
+
+export const smooth = css`
+  ${(props) => props.theme.colors.smooth};
+`;

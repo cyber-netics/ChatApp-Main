@@ -18,6 +18,9 @@ const initialState = {
   drawer: {
     isOpen: false,
   },
+  modal: {
+    isOpen: false,
+  },
 };
 
 const uiInterface = (state = initialState, action) => {

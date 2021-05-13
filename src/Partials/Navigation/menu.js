@@ -29,11 +29,11 @@ export const dropmenu = (handlers) => {
     },
     {
       name: 'Profile',
-      toggle: () => console.log(),
+      toggle: (cnt) => handlers.toggleDrawer(true, cnt),
     },
     {
       name: 'Settings',
-      toggle: (cnt) => handlers.toggleDrawer(true, cnt),
+      toggle: (cnt) => handlers.toggleModal(true, cnt),
     },
     { divider: true },
     {

@@ -28,14 +28,16 @@ const Profile = memo(({ drawer, toggle, profile }) => {
         open={isOpen}
         title={activeMenu}
       >
-        <Content>
-          {activeMenu === 'profile' && (
-            <ProfileMenu profile={profile} />
-          )}
-          {activeMenu === 'settings' && (
-            <SettingMenu profile={profile} />
-          )}
-        </Content>
+        <>
+          <Content>
+            {activeMenu === 'profile' && (
+              <ProfileMenu profile={profile} />
+            )}
+            {activeMenu === 'settings' && (
+              <SettingMenu profile={profile} />
+            )}
+          </Content>
+        </>
       </Drawer>
     </Container>
   );

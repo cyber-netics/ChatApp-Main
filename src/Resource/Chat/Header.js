@@ -10,6 +10,7 @@ import {
   List,
   Small as SmallFont,
   BorderBox,
+  VisibleArea,
 } from 'Components/Common';
 
 const Container = styled(BorderBox)`
@@ -66,6 +67,21 @@ const Header = ({ user }) => {
       </HeaderUser>
       <HeaderAction>
         <ListAction>
+          <VisibleArea md="hidden">
+            <ListItem>
+              <Tooltip
+                placement="bottom"
+                title="Close Chat"
+              >
+                <Button
+                  size={'sm'}
+                  icon={'x'}
+                  color={'red'}
+                />
+              </Tooltip>
+            </ListItem>
+          </VisibleArea>
+
           <ListItem>
             <Tooltip
               placement="bottom"

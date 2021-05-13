@@ -30,6 +30,13 @@ export const Section = styled.div`
   }
 `;
 
+export const VisibleArea = styled.div`
+  @media (${({ md }) =>
+      md === 'visible' ? 'max' : 'min'}-width: 1200px) {
+    display: none;
+  }
+`;
+
 export const CardSecondary = styled.div`
   box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
   background: ${highlightSecondary};

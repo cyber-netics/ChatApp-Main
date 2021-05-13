@@ -74,6 +74,7 @@ const Sidebar = ({
   activeTab,
   apiHandlers,
   toggleDrawer,
+  toggleModal,
 }) => (
   <Section>
     <Container>
@@ -97,7 +98,7 @@ const Sidebar = ({
                   placement="bottom"
                   title="New Chat"
                 >
-                  <ButtonSimple>
+                  <ButtonSimple onClick={()=> toggleModal(true)}>
                     <Icon
                       size="sm"
                       icon={'plusCircle'}

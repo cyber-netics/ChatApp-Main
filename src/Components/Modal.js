@@ -1,4 +1,6 @@
-import React, { memo, useState } from 'react';
+import React, { memo, createRef } from 'react';
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
+
 import styled from 'styled-components';
 import {
   primary,
@@ -11,10 +13,7 @@ const H3 = styled.h3`
   padding: 0.25rem;
 `;
 
-const Modal = styled.div`
-  display: ${({ active }) =>
-    active ? 'block' : 'none'};
-
+const ModalBase = styled.div`
   position: fixed;
   z-index: 100;
   padding-top: 100px;
@@ -23,8 +22,16 @@ const Modal = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+`;
+
+const Modal = styled(ModalBase)`
+  visibility: ${({ active }) =>
+    active ? 'visible' : 'hidden'};
+
   background-color: rgb(0 0 0 / 51%);
   backdrop-filter: blur(2px);
+  transition-duration: 0.01s;
+  transition-delay: 0.08s;
 `;
 
 const Content = styled.div`
@@ -53,6 +60,8 @@ const Body = styled.div`
 `;
 
 const Close = styled.span`
+  background: ${smooth};
+
   color: #fff;
   float: right;
   font-size: 15px;
@@ -61,35 +70,45 @@ const Close = styled.span`
   cursor: pointer;
   padding: 0.15rem;
   padding-top: 0.3rem;
-
   width: 28px;
   height: 25px;
   border-radius: 50%;
   text-align: center;
   align-self: center;
 
-  background: ${smooth};
-
   &:hover {
     opacity: 0.75;
   }
 `;
 
-const ModalComponent = memo(
-  ({ active, title, close, children }) => {
-    const [isActive, setActive] = useState(active);
+/**
+ *
+ * @component
+ * @param {Boolean}  active   is modal active
+ * @param {String}   title    title in the header
+ * @param {Function} close    close modal
+ * @param {Object}   children passed components
+ */
 
-    const handleClose = () => {
-      setActive(false);
-      close && close();
-    };
+const ModalComponent = memo(
+  ({ active, title, toggle, children }) => {
+    const ref = createRef();
+
+    // hooks
+    useOnClickOutside(ref, (data) => {
+      if (!data.includes('inside')) {
+        toggle(false);
+      }
+    });
 
     return (
-      <Modal active={isActive}>
-        <Content>
+      <Modal active={active}>
+        <Content ref={ref}>
           <Header>
             <H3>{title}</H3>
-            <Close onClick={handleClose}>&times;</Close>
+            <Close onClick={() => toggle(false)}>
+              &times;
+            </Close>
           </Header>
           <Body>{children}</Body>
         </Content>

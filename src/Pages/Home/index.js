@@ -39,7 +39,7 @@ class HomePage extends Component {
       apiHandlers,
     } = this.props;
 
-    const { toggleDrawer } = uiHandlers;
+    const { toggleDrawer, toggleModal } = uiHandlers;
 
     return (
       <PageWrapper metadata={metadata}>
@@ -52,6 +52,7 @@ class HomePage extends Component {
           activeTab={uiState.navTab}
           apiHandlers={apiHandlers}
           toggleDrawer={toggleDrawer}
+          toggleModal={toggleModal}
           data={dataState.tabContext}
         />
 
@@ -68,7 +69,7 @@ class HomePage extends Component {
 
         <ModalMenu
           modal={uiState.modal}
-          close={toggleModal}
+          toggle={toggleModal}
         />
       </PageWrapper>
     );

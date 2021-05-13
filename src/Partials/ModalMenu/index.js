@@ -1,12 +1,12 @@
 import React from 'react';
 import Modal from 'Components/Modal';
 
-const ModalMenu = ({ modal, close }) => (
+const ModalMenu = ({ modal, toggle }) => (
   <div>
     <Modal
       active={modal.isOpen}
+      toggle={toggle}
       title={'Add Friends'}
-      close={close}
     >
       <>
         <h2>hello</h2>

@@ -25,6 +25,7 @@ const secondary400 = '#969696';
 const secondary500 = '#6c757d';
 const secondary600 = '#424a5e'; //
 const secondary700 = '#adb5bd';
+const secondary800 = 'rgba(255, 255, 255, 0.4)';
 
 const success = '#0abb87';
 const warning = '#ffc107';
@@ -59,6 +60,8 @@ const lightColors = {
   fontSecondary: highlight400,
   fontInactive: secondary100,
   fontActive: primary,
+  fontTernry: secondary500,
+  fontMain: highlight400,
 
   borderTertiary: secondary700, //
   textHighlight: secondary300,
@@ -85,6 +88,8 @@ const darkColors = {
   fontSecondary: highlight600,
   fontInactive: secondary200,
   fontActive: light,
+  fontTernry: secondary800,
+  fontMain: highlight600,
 
   borderTertiary: secondary600, //
 };

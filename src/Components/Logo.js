@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 import { ReactComponent as logo } from 'assets/logo.svg';
 
@@ -17,8 +17,8 @@ const LogoIcon = styled(logo)`
   height: ${iconSize};
 `;
 
-const Logo = ({ size = 'sm' }) => {
-  return <LogoIcon size={size} />;
-};
+const Logo = memo(({ size = 'sm' }) => (
+  <LogoIcon size={size} />
+));
 
 export default Logo;

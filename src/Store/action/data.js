@@ -2,13 +2,30 @@ import {
   SET_FRIEND_LIST,
   SET_CHAT_LIST,
   GET_CONVERSATION,
+  SET_USER_INFO,
 } from '../static';
 
 // ** DEV_DATASET
 import { friendUsers } from '../../__Dataset/friendsList';
 import { chatLists } from '../../__Dataset/latestChat';
 import { conversation } from '../../__Dataset/messages';
+import { user } from '../../__Dataset/users';
 // ** **/
+
+export const getUserProfile = () => {
+  return async (dispatch, getState) => {
+    const selected = getState().data.selected;
+
+    const dataset = await Promise.all([
+      user[selected.id],
+    ]);
+
+    dispatch({
+      type: SET_USER_INFO,
+      payload: dataset[0],
+    });
+  };
+};
 
 export const getFriends = () => {
   return async (dispatch) => {
@@ -41,6 +58,7 @@ export const getMessage = (user) => {
     dispatch({
       type: GET_CONVERSATION,
       payload: { chat, user },
+      track: user,
     });
   };
 };

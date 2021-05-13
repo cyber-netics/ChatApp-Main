@@ -1,27 +1,134 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import Avatar from 'Components/Avatar';
-import { Small } from 'Components/Common';
+import Social from 'Components/SocialIcon';
+import Switch from 'Components/Switch';
 
-const Container = styled.div``;
+import {
+  Small,
+  List,
+  ListItem,
+} from 'Components/Common';
+
+import {
+  fontTernry,
+  fontMain,
+} from 'Components/Common/colors';
+
+const Container = styled.div`
+  position: relative;
+  display: block;
+`;
 
 const Title = styled.h2`
+  color: ${fontMain};
   display: flex !important;
   justify-content: center;
   font-size: 22px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1px;
 `;
 
-const ProfileMenu = () => {
+const TP = styled.p`
+  color: ${fontMain};
+  margin: 0;
+  font-weight: 600;
+`;
+
+const P = styled.p`
+  color: ${fontTernry};
+  margin: 0.35rem 0;
+  font-size: 15px;
+`;
+
+const SocialMedia = styled(List)`
+  display: flex;
+  position: relative;
+`;
+
+const ItemList = styled(ListItem)`
+  padding: 0.8rem 0;
+`;
+
+const Content = styled.div`
+  text-align: start;
+  margin-top: 2.5rem;
+`;
+
+const SwitchWrapper = styled.div`
+  padding-top: 0.5rem;
+`;
+
+const SocialIcons = memo(({ profile }) => (
+  <SocialMedia>
+    {profile.social.map((social) => (
+      <ItemList key={social.name}>
+        <Social social={social} size="xs" />
+      </ItemList>
+    ))}
+  </SocialMedia>
+));
+
+const ProfileMenu = memo(({ profile }) => {
   return (
     <Container>
-      <Avatar size="xl" />
-      <Title>Mirabelle Tow</Title>
-      <Small>Last seen: Today</Small>
+      <span>
+        <Avatar size="xl" />
+        <Title>{profile.name}</Title>
+        <Small>Last seen: Today</Small>
+      </span>
+
+      <Content>
+        <List>
+          <ItemList>
+            <span>
+              {profile.about && <P>{profile.about}</P>}
+            </span>
+          </ItemList>
+          <ItemList>
+            {profile.city && (
+              <span>
+                <TP>City</TP>
+                <P>{profile.city}</P>
+              </span>
+            )}
+          </ItemList>
+          <ItemList>
+            {profile.website && (
+              <span>
+                <TP>Website</TP>
+                <P>{profile.website}</P>
+              </span>
+            )}
+          </ItemList>
+          <ItemList>
+            {profile.social && (
+              <span>
+                <TP>Social Media</TP>
+                <SocialIcons profile={profile} />
+              </span>
+            )}
+          </ItemList>
+          <ItemList>
+            <span>
+              <TP>Settings</TP>
+              <SwitchWrapper>
+                <List>
+                  <ItemList>
+                    <Switch label="Block" size="sm" />
+                  </ItemList>
+                  <ItemList>
+                    <Switch label="Mute" size="sm" />
+                  </ItemList>
+                </List>
+              </SwitchWrapper>
+            </span>
+          </ItemList>
+        </List>
+      </Content>
     </Container>
   );
-};
+});
 
 export default ProfileMenu;

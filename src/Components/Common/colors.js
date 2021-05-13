@@ -41,6 +41,14 @@ export const activePrimary = css`
   ${({ theme }) => theme.colors.active};
 `;
 
+export const fontTernry = css`
+  ${({ theme }) => theme.colors.fontTernry};
+`;
+
+export const fontMain = css`
+  ${({ theme }) => theme.colors.fontMain};
+`;
+
 export const fontActive = css`
   ${({ theme }) => theme.colors.fontActive};
 `;

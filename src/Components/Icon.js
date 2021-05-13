@@ -5,15 +5,26 @@ import Helpers from 'helpers';
 /**
  *
  * @component
- * @param {String} icon icon name
- * @param {String} [size] size in pixels
- * @param {String} [color] color code
+ * @param {String} icon     icon name
+ * @param {String} [size]   size in pixels
+ * @param {String} [color]  color code
+ * @param {String} [fill]   fill icon color
  */
 
-const Icon = ({ icon, size, color, fill }) => {
+const Icon = ({
+  icon,
+  size,
+  color,
+  fill,
+  className,
+}) => {
   const uppercase = Helpers.firstChartUppercase;
 
   const iconSize = {
+    xs: {
+      height: '12px',
+      width: '12px',
+    },
     sm: {
       height: '16px',
       width: '16px',
@@ -35,6 +46,7 @@ const Icon = ({ icon, size, color, fill }) => {
 
   return (
     <IconComponent
+      className={className}
       color={color}
       fill={fill || 'none'}
       style={sizeIcon}

@@ -21,6 +21,7 @@ import {
   getFriends,
   getChat,
   getMessage,
+  getUserProfile,
 } from 'Store/action/data';
 
 class HomePage extends Component {
@@ -62,6 +63,7 @@ class HomePage extends Component {
         <SideDrawer
           toggle={toggleDrawer}
           drawer={uiState.drawer}
+          profile={dataState.profile}
         />
 
         <ModalMenu
@@ -86,6 +88,7 @@ const mapStateToProps = (state) => {
       tabContext: data[ui.nav.tab],
       // gets data based on nav/tab and sidebar sel.
       barContext: data[ui.nav.action],
+      profile: data.profile,
     },
   };
 };
@@ -103,6 +106,7 @@ const mapDispatchToProsp = (dispatch) => {
       getFriendList: () => dispatch(getFriends()),
       getChatList: () => dispatch(getChat()),
       getMessage: (id) => dispatch(getMessage(id)),
+      getUserProfile: () => dispatch(getUserProfile()),
     },
   };
 };

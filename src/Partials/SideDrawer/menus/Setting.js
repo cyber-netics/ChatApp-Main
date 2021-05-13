@@ -49,6 +49,7 @@ const SettingsMenu = () => {
           <OptionItem>
             <Switch label="Allow contacts" size="sm" />
           </OptionItem>
+          
           <OptionItem>
             <Switch label="Private Profile" size="sm" />
           </OptionItem>

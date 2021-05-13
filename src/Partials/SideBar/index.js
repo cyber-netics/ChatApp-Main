@@ -125,8 +125,10 @@ const Sidebar = ({
               menu={[
                 {
                   name: 'Profile',
-                  toggle: (cnt) =>
-                    toggleDrawer(true, cnt),
+                  toggle: (cnt) => {
+                    toggleDrawer(true, cnt);
+                    apiHandlers.getUserProfile();
+                  },
                 },
                 {
                   name: 'Delete',

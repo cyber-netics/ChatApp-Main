@@ -16,7 +16,7 @@ const Content = styled.div`
   text-align: center;
 `;
 
-const Profile = memo(({ drawer, toggle }) => {
+const Profile = memo(({ drawer, toggle, profile }) => {
   if (!drawer.activeMenu) return <></>;
 
   const { isOpen, activeMenu } = drawer;
@@ -29,8 +29,12 @@ const Profile = memo(({ drawer, toggle }) => {
         title={activeMenu}
       >
         <Content>
-          {activeMenu === 'profile' && <ProfileMenu />}
-          {activeMenu === 'settings' && <SettingMenu />}
+          {activeMenu === 'profile' && (
+            <ProfileMenu profile={profile} />
+          )}
+          {activeMenu === 'settings' && (
+            <SettingMenu profile={profile} />
+          )}
         </Content>
       </Drawer>
     </Container>

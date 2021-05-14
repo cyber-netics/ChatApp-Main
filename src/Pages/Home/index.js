@@ -27,27 +27,23 @@ import {
 class HomePage extends Component {
   // Initial fetch
   componentDidMount() {
-    this.props.apiHandlers.getFriendList();
-    this.props.apiHandlers.getChatList();
+    this.props.initFetch.getFriendList();
+    this.props.initFetch.getChatList();
   }
 
   render() {
-    const {
-      uiState,
-      uiHandlers,
-      dataState,
-      apiHandlers,
-    } = this.props;
+    const { uiState, uiHandlers, dataState, apiHandlers } =
+      this.props;
 
     const { toggleDrawer, toggleModal } = uiHandlers;
 
     return (
       <PageWrapper metadata={metadata}>
         <Navigation
-          uiHandlers={uiHandlers}
           uiState={uiState}
-          apiHandlers={apiHandlers}
           dataState={dataState}
+          uiHandlers={uiHandlers}
+          apiHandlers={apiHandlers}
         />
 
         <SideBar
@@ -99,19 +95,19 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProsp = (dispatch) => {
   return {
+    initFetch: {
+      getChatList: () => dispatch(getChat()),
+      getFriendList: () => dispatch(getFriends()),
+    },
+    apiHandlers: {
+      getMessage: (id) => dispatch(getMessage(id)),
+      getUserProfile: (id) => dispatch(getUserProfile(id)),
+    },
     uiHandlers: {
       toggleTheme: (mode) => dispatch(toggleTheme(mode)),
       toggleNavTab: (tab) => dispatch(toggleNavTab(tab)),
       toggleModal: (m, c) => dispatch(toggleModal(m, c)),
-      toggleDrawer: (s, c) =>
-        dispatch(toggleDrawer(s, c)),
-    },
-    apiHandlers: {
-      getFriendList: () => dispatch(getFriends()),
-      getChatList: () => dispatch(getChat()),
-      getMessage: (id) => dispatch(getMessage(id)),
-      getUserProfile: (id) =>
-        dispatch(getUserProfile(id)),
+      toggleDrawer: (s, c) => dispatch(toggleDrawer(s, c)),
     },
   };
 };

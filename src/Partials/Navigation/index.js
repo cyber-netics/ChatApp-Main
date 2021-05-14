@@ -91,7 +91,7 @@ const Navigation = ({
                   title="User Menu"
                 >
                   <Dropdown
-                    // id={dataState.masterUser.id}
+                    id={dataState.masterUser.id}
                     placement={'topRight'}
                     overlay={dropmenu(
                       uiHandlers,

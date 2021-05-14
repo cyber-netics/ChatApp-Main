@@ -17,9 +17,6 @@ const TabPanel = ({ tabsMenu, selected, toggle }) => {
       <TabItem key={tab}>
         <Tootip placement="right" title={tab}>
           <>
-            {console.log('selected', selected)}
-            {console.log('tab', tab)}
-
             <ButtonSelect
               active={selected === tab}
               onClick={() => toggle({ tab, action })}

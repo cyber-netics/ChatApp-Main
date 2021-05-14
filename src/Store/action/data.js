@@ -9,12 +9,12 @@ import {
 import { friendUsers } from '../../__Dataset/friendsList';
 import { chatLists } from '../../__Dataset/latestChat';
 import { conversation } from '../../__Dataset/messages';
-import { user } from '../../__Dataset/users';
+import { users } from '../../__Dataset/users';
 // ** **/
 
 export const getUserProfile = (id) => {
-  return async (dispatch, getState) => {
-    const dataset = await Promise.all([user[id]]);
+  return async (dispatch) => {
+    const dataset = await Promise.all([users[id]]);
 
     dispatch({
       type: SET_USER_INFO,
@@ -50,7 +50,6 @@ export const getMessage = (user) => {
     const chat = await Promise.all(
       conversation[user.id],
     );
-
     dispatch({
       type: GET_CONVERSATION,
       payload: { chat, user },

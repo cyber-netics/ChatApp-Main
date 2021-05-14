@@ -1,6 +1,20 @@
 import WomenAvatar5 from '../assets/img/women_avatar5.jpg';
 
-export const user = {
+export const users = {
+  24: {
+    id: 2,
+    name: 'Antonio Franchesco',
+    text: 'Software engineer',
+    avatar: { image: WomenAvatar5 },
+    about:
+      "Led in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups.",
+    city: 'New York',
+    website: 'https://myprofile.com',
+    social: [
+      { name: 'facebook' },
+      { name: 'instagram' },
+    ],
+  },
   1: {
     id: 1,
     name: 'Harrietta Souten',

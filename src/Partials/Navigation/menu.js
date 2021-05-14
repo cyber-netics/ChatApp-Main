@@ -29,8 +29,9 @@ export const dropmenu = (uiHandlers, apiHandlers) => {
     },
     {
       name: 'Profile',
-      toggle: (cnt) => {
+      toggle: (cnt, id) => {
         uiHandlers.toggleDrawer(true, cnt);
+        apiHandlers.getUserProfile(id);
       },
     },
     {

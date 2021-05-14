@@ -81,12 +81,10 @@ const DropDown = ({
     if (data.includes('inside')) {
       isOpen && helpers.promisify(setIsOpen);
       disabled && setDisabled(true);
-      return;
     }
 
     if (data.includes('outside')) {
       setIsOpen(false);
-      return;
     }
   });
 

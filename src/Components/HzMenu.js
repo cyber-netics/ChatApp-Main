@@ -34,7 +34,6 @@ const MenuTitle = styled(ButtonBase)`
  * @param {Array}     menus       menu list
  * @param {Function}  children   callback function as child returns active menu
  */
-
 const HorizontalMenu = memo(({ menus, children }) => {
   // Initial menu is first index
   const [menu, setMenu] = useState(menus[0]);

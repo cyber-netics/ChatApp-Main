@@ -66,17 +66,17 @@ const DropDown = ({
   id,
   children,
   className,
+  overlay,
   align,
   placement,
   top,
   left,
-  overlay,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const ref = createRef();
 
-  // hooks
+  // outside click hook
   useOnClickOutside(ref, (data) => {
     if (data.includes('inside')) {
       isOpen && helpers.promisify(setIsOpen);
@@ -88,16 +88,11 @@ const DropDown = ({
     }
   });
 
-  // dropdown open/close state
-  const dropdownOnClose = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <Container align={align} className={className}>
       <div
         aria-label={className}
-        onClick={dropdownOnClose}
+        onClick={() => setIsOpen(!isOpen)}
       >
         {children}
       </div>
@@ -111,18 +106,16 @@ const DropDown = ({
         <MenuContainer ref={ref}>
           <Menu>
             <>
-              {overlay.map(
-                ({ name, toggle, divider }) => (
-                  <span key={`${name}${id}`}>
-                    <Menu.Item
-                      onClick={(cnt) => toggle(cnt, id)}
-                    >
-                      <span>{name}</span>
-                    </Menu.Item>
-                    {divider && <Menu.Divider />}
-                  </span>
-                ),
-              )}
+              {overlay.map(({ name, toggle, divider }) => (
+                <span key={`${name}${id}`}>
+                  <Menu.Item
+                    onClick={(cnt) => toggle(cnt, id)}
+                  >
+                    <span>{name}</span>
+                  </Menu.Item>
+                  {divider && <Menu.Divider />}
+                </span>
+              ))}
             </>
           </Menu>
         </MenuContainer>

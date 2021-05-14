@@ -42,8 +42,8 @@ const HorizontalMenu = memo(({ menus, children }) => {
   return (
     <>
       <MenuList>
-        {menus.map((name) => (
-          <ListItem>
+        {menus.map((name, indx) => (
+          <ListItem key={`${name}${indx}`}>
             <MenuItem>
               <MenuTitle
                 onClick={() => setMenu(name)}

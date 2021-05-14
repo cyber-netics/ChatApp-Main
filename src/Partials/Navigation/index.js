@@ -47,9 +47,12 @@ const NavItem = styled(ListItem)`
   margin: 1.5rem 20px 0;
 `;
 
-const Navigation = ({ activeTab, uiHandlers }) => {
-  const { toggleNavTab, toggleTheme } = uiHandlers;
-
+const Navigation = ({
+  uiState,
+  uiHandlers,
+  apiHandlers,
+  dataState,
+}) => {
   return (
     <Section>
       <Container>
@@ -63,8 +66,8 @@ const Navigation = ({ activeTab, uiHandlers }) => {
             <NavList>
               <TabPanel
                 tabsMenu={tabsMenu}
-                selected={activeTab}
-                toggle={toggleNavTab}
+                selected={uiState.navTab}
+                toggle={uiHandlers.toggleNavTab}
               />
             </NavList>
           </NavBody>
@@ -75,7 +78,9 @@ const Navigation = ({ activeTab, uiHandlers }) => {
                   placement="right"
                   title="Dark Mode"
                 >
-                  <Select onClick={toggleTheme}>
+                  <Select
+                    onClick={uiHandlers.toggleTheme}
+                  >
                     <Icon icon={'Moon'} />
                   </Select>
                 </Tooltip>
@@ -86,8 +91,12 @@ const Navigation = ({ activeTab, uiHandlers }) => {
                   title="User Menu"
                 >
                   <Dropdown
+                    // id={dataState.masterUser.id}
                     placement={'topRight'}
-                    overlay={dropmenu(uiHandlers)}
+                    overlay={dropmenu(
+                      uiHandlers,
+                      apiHandlers,
+                    )}
                   >
                     <Avatar size="md" />
                   </Dropdown>

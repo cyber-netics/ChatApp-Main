@@ -101,7 +101,11 @@ const LoginPage = memo((props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('tesintg...', e);
+
+    // *** ToDo Move to action
+    const id = 24; // is callback user id
+    localStorage.setItem('masterUser', id);
+    localStorage.setItem('auth', true);
   };
 
   return (

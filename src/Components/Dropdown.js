@@ -7,7 +7,7 @@ import { CardSecondary } from 'Components/Common';
 import Menu from 'Components/Menu';
 
 const Container = styled.div`
-  z-index: 12;
+  z-index: 1;
   position: relative;
   border-color: transparent;
   transform: none;
@@ -52,9 +52,10 @@ const Content = styled(ContentStyle)`
 /**
  *
  * @component
- * @param {Object} children                  child component
- * @param {String} className                 passed by styled-components or overwritten by user
- * @param {Array} [overlay]                  dropdown menu items array
+ * @param {string}  id                       target id
+ * @param {Object}  children                 child component
+ * @param {String}  className                passed by styled-components or overwritten by user
+ * @param {Array}   [overlay]                dropdown menu items array
  * @param {String | undefined} [align]       align item for parent div
  * @param {String | undefined} [placement]   menu component placement
  * @param {String | undefined} [top]         margin top in px
@@ -62,6 +63,7 @@ const Content = styled(ContentStyle)`
  */
 
 const DropDown = ({
+  id,
   children,
   className,
   align,
@@ -76,27 +78,28 @@ const DropDown = ({
 
   // hooks
   useOnClickOutside(ref, (data) => {
-    if (disabled && data.includes('outside')) {
-      helpers.promisify(setIsOpen);
+    if (data.includes('inside')) {
+      isOpen && helpers.promisify(setIsOpen);
+      disabled && setDisabled(true);
+      return;
     }
 
-    if (data.includes('inside')) {
+    if (data.includes('outside')) {
       setIsOpen(false);
-      setDisabled(true);
+      return;
     }
   });
 
   // dropdown open/close state
-  const toggle = () => {
+  const dropdownOnClose = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <Container align={align} className={className}>
       <div
-        ref={ref}
         aria-label={className}
-        onClick={toggle}
+        onClick={dropdownOnClose}
       >
         {children}
       </div>
@@ -107,14 +110,14 @@ const DropDown = ({
         top={top}
         left={left}
       >
-        <MenuContainer>
+        <MenuContainer ref={ref}>
           <Menu>
             <>
               {overlay.map(
-                ({ name, toggle, divider }, index) => (
-                  <span key={name + index}>
+                ({ name, toggle, divider }) => (
+                  <span key={`${name}${id}`}>
                     <Menu.Item
-                      onClick={(cnt) => toggle(cnt)}
+                      onClick={(cnt) => toggle(cnt, id)}
                     >
                       <span>{name}</span>
                     </Menu.Item>

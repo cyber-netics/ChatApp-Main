@@ -45,7 +45,9 @@ class HomePage extends Component {
       <PageWrapper metadata={metadata}>
         <Navigation
           uiHandlers={uiHandlers}
-          activeTab={uiState.navTab}
+          uiState={uiState}
+          apiHandlers={apiHandlers}
+          dataState={dataState}
         />
 
         <SideBar
@@ -90,6 +92,7 @@ const mapStateToProps = (state) => {
       // gets data based on nav/tab and sidebar sel.
       barContext: data[ui.nav.action],
       profile: data.profile,
+      masterUser: data.masterUser,
     },
   };
 };
@@ -107,7 +110,8 @@ const mapDispatchToProsp = (dispatch) => {
       getFriendList: () => dispatch(getFriends()),
       getChatList: () => dispatch(getChat()),
       getMessage: (id) => dispatch(getMessage(id)),
-      getUserProfile: () => dispatch(getUserProfile()),
+      getUserProfile: (id) =>
+        dispatch(getUserProfile(id)),
     },
   };
 };

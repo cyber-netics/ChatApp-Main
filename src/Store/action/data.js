@@ -12,13 +12,9 @@ import { conversation } from '../../__Dataset/messages';
 import { user } from '../../__Dataset/users';
 // ** **/
 
-export const getUserProfile = () => {
+export const getUserProfile = (id) => {
   return async (dispatch, getState) => {
-    const selected = getState().data.selected;
-
-    const dataset = await Promise.all([
-      user[selected.id],
-    ]);
+    const dataset = await Promise.all([user[id]]);
 
     dispatch({
       type: SET_USER_INFO,
@@ -58,7 +54,6 @@ export const getMessage = (user) => {
     dispatch({
       type: GET_CONVERSATION,
       payload: { chat, user },
-      track: user,
     });
   };
 };

@@ -5,12 +5,18 @@ import {
   SET_USER_INFO,
 } from '../static';
 
+const masterId = localStorage.getItem('masterUser');
+const isAuth = localStorage.getItem('auth');
+
 const initialState = {
   users: [],
   chat: [],
   messages: {},
-  selected: '',
   profile: {},
+  masterUser: {
+    id: masterId,
+    isAuth: isAuth,
+  },
 };
 
 const appData = (state = initialState, action) => {
@@ -33,7 +39,6 @@ const appData = (state = initialState, action) => {
       return {
         ...state,
         messages: action.payload,
-        selected: action.track,
       };
     }
 

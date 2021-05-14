@@ -98,7 +98,9 @@ const Sidebar = ({
                   placement="bottom"
                   title="New Chat"
                 >
-                  <ButtonSimple onClick={()=> toggleModal(true)}>
+                  <ButtonSimple
+                    onClick={() => toggleModal(true)}
+                  >
                     <Icon
                       size="sm"
                       icon={'plusCircle'}
@@ -126,9 +128,9 @@ const Sidebar = ({
               menu={[
                 {
                   name: 'Profile',
-                  toggle: (cnt) => {
+                  toggle: (cnt, id) => {
                     toggleDrawer(true, cnt);
-                    apiHandlers.getUserProfile();
+                    apiHandlers.getUserProfile(id);
                   },
                 },
                 {

@@ -16,6 +16,8 @@ const Content = styled.div`
   text-align: center;
 `;
 
+// *** Change Profile to sidrower menu
+// *****
 const Profile = memo(({ drawer, toggle, profile }) => {
   if (!drawer.activeMenu) return <></>;
 

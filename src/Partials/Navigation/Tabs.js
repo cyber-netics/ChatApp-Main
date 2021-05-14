@@ -14,21 +14,22 @@ const TabItem = styled(ListItem)`
 const TabPanel = ({ tabsMenu, selected, toggle }) => {
   return tabsMenu.map(
     ({ tab, icon, action, status }) => (
-      <>
-        <TabItem key={tab}>
-          <Tootip placement="right" title={tab}>
-            <>
-              <ButtonSelect
-                active={selected === tab}
-                onClick={() => toggle({ tab, action })}
-              >
-                <Icon icon={icon} />
-                <Badge status={status} />
-              </ButtonSelect>
-            </>
-          </Tootip>
-        </TabItem>
-      </>
+      <TabItem key={tab}>
+        <Tootip placement="right" title={tab}>
+          <>
+            {console.log('selected', selected)}
+            {console.log('tab', tab)}
+
+            <ButtonSelect
+              active={selected === tab}
+              onClick={() => toggle({ tab, action })}
+            >
+              <Icon icon={icon} />
+              <Badge status={status} />
+            </ButtonSelect>
+          </>
+        </Tootip>
+      </TabItem>
     ),
   );
 };

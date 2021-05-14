@@ -115,6 +115,7 @@ const ChatView = ({
                 className="dropdown-item"
                 placement="bottomLeft"
                 align="right"
+                id={id}
                 overlay={menu}
               >
                 <ActiveIcon>

@@ -149,8 +149,10 @@ const App = ({ size = 'md', label, id = uuidv4() }) => {
   const [anim, setAnimate] = useState(false);
 
   const onChange = () => {
+    // status & anim state
     setStatus(!status);
     setAnimate(true);
+
     // Triggers wave animation for .ms
     setTimeout(() => {
       anim && setAnimate(false);

@@ -2,19 +2,34 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import Switch from 'Components/Switch';
+import Button from 'Components/Button';
 import HzMenu from 'Components/HzMenu';
 
 import { List, ListItem } from 'Components/Common';
+
+const Container = styled.div`
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  min-height: 270px;
+  padding: 0.5rem 0;
+`;
+
+const Wrapper = styled.div`
+  padding-top: 1.5rem;
+`;
 
 const OptionItem = styled(ListItem)`
   text-align: start;
   padding: 0.6rem 1rem;
 `;
 
-const Container = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 100%;
+const ButtonSave = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 1rem;
+  color: #fff;
 `;
 
 const AccountMenu = memo(() => (
@@ -37,7 +52,7 @@ const AccountMenu = memo(() => (
   </List>
 ));
 
-const NotificationMenu = memo(() => (
+const NotificMenu = memo(() => (
   <List>
     <OptionItem>
       <Switch
@@ -62,22 +77,36 @@ const NotificationMenu = memo(() => (
   </List>
 ));
 
-const SecurityMenu = memo(() => <div>{'Security'}</div>);
+const SecurityMenu = memo(() => (
+  <List>
+    <OptionItem>
+      <Switch label="Two way authentication" size="sm" />
+    </OptionItem>
+  </List>
+));
+
+/* ** OptionItems can be in form */
+// **** */
 
 const Settings = memo(() => (
   <Container>
     <HzMenu
-      list={['Account', 'Notification', 'Security']}
+      menus={['Account', 'Notification', 'Security']}
     >
       {(menu) => (
         <>
-          {menu === 'Account' && <AccountMenu />}
-
-          {menu === 'Notification' && (
-            <NotificationMenu />
-          )}
-
-          {menu === 'Security' && <SecurityMenu />}
+          <Wrapper>
+            {menu === 'Account' && <AccountMenu />}
+            {menu === 'Notification' && <NotificMenu />}
+            {menu === 'Security' && <SecurityMenu />}
+          </Wrapper>
+          <Wrapper>
+            <ButtonSave
+              onClick={() => {}}
+              type={'primary'}
+              title="Save"
+            />
+          </Wrapper>
         </>
       )}
     </HzMenu>

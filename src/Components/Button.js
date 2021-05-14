@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
 import Icon from 'Components/Icon';
 import {
   highlight,
@@ -38,8 +39,15 @@ export const ButtonSimple = styled(BtnSimple)`
   }
 `;
 
+const ButtonColor = css`
+  ${(props) =>
+    props.type
+      ? props.theme.colors[props.type]
+      : 'none'};
+`;
+
 export const Button = styled(ButtonSimple)`
-  background: none;
+  background: ${ButtonColor};
   border-radius: 0.25rem;
   border-width: 1px;
 
@@ -69,6 +77,7 @@ export const Button = styled(ButtonSimple)`
  * @param {String} [color]    color code
  * @param {String} [size]     sm | md | lg options
  * @param {String} [title]    button title
+ * @param {String} [type]     primary | success etc.. custom colors
  */
 
 const ButtonComponent = ({
@@ -79,8 +88,13 @@ const ButtonComponent = ({
   fill,
   size,
   title,
+  type,
 }) => (
-  <Button className={className} onClick={onClick}>
+  <Button
+    type={type}
+    className={className}
+    onClick={onClick}
+  >
     {icon ? (
       <Icon
         icon={icon}

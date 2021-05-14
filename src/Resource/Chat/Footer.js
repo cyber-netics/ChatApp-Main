@@ -42,10 +42,6 @@ const InputMessage = styled(Input)`
 
 const Button = styled(Btn)`
   padding: 10px 15px;
-  background: ${(props) =>
-    props.type
-      ? props.theme.colors[props.type]
-      : 'none'};
 `;
 
 const Footer = () => {

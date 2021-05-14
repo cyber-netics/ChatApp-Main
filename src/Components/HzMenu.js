@@ -1,54 +1,57 @@
 import React, { memo, useState } from 'react';
 import styled from 'styled-components';
 
-import {
-  Container,
-  List,
-  ListItem,
-} from 'Components/Common';
+import { List, ListItem } from 'Components/Common';
+import { fontSecondary } from 'Components/Common/colors';
+
+const MenuItem = styled.div`
+  padding: 0.5rem;
+  display: flex;
+`;
 
 const MenuList = styled(List)`
   display: flex;
   justify-content: center;
 `;
 
-const MenuItem = styled.div`
-  padding: 0.5rem;
+const ButtonBase = styled.button`
+  color: ${fontSecondary};
+  background: transparent;
+  border: none;
+  font-size: 15px;
 `;
 
-const MenuTitle = styled.p`
+const MenuTitle = styled(ButtonBase)`
   margin-right: 0.5rem;
+  padding-bottom: 0.6rem;
   cursor: pointer;
   border-bottom: ${({ active }) =>
-    active ? '1px solid gray' : 'none'};
+    active ? '2px solid #0a80ff' : 'none'};
 `;
-
-// Clenaup needed ****
 
 /**
  * @component
- * @param {Array}     list       menu list
+ * @param {Array}     menus       menu list
  * @param {Function}  children   callback function as child returns active menu
  */
 
-const HorizontalMenu = memo(({ list, children }) => {
-  const [menu, setMenu] = useState(list[0]);
+const HorizontalMenu = memo(({ menus, children }) => {
+  // Initial menu is first index
+  const [menu, setMenu] = useState(menus[0]);
 
   return (
     <>
       <MenuList>
-        {list.map((name) => (
+        {menus.map((name) => (
           <ListItem>
-            <Container>
-              <MenuItem>
-                <MenuTitle
-                  onClick={() => setMenu(name)}
-                  active={menu === name}
-                >
-                  <span>{name}</span>
-                </MenuTitle>
-              </MenuItem>
-            </Container>
+            <MenuItem>
+              <MenuTitle
+                onClick={() => setMenu(name)}
+                active={menu === name}
+              >
+                <span>{name}</span>
+              </MenuTitle>
+            </MenuItem>
           </ListItem>
         ))}
       </MenuList>

@@ -8,7 +8,7 @@ import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
-import ModalMenu from 'Partials/ModalMenu';
+import ModalMenu from 'Partials/Modal';
 
 import {
   toggleNavTab,
@@ -99,7 +99,7 @@ const mapDispatchToProsp = (dispatch) => {
     uiHandlers: {
       toggleTheme: (mode) => dispatch(toggleTheme(mode)),
       toggleNavTab: (tab) => dispatch(toggleNavTab(tab)),
-      toggleModal: (m) => dispatch(toggleModal(m)),
+      toggleModal: (m, c) => dispatch(toggleModal(m, c)),
       toggleDrawer: (s, c) =>
         dispatch(toggleDrawer(s, c)),
     },

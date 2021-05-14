@@ -55,11 +55,11 @@ export const toggleDrawer = (status, content) => {
   };
 };
 
-export const toggleModal = (isOpen) => {
+export const toggleModal = (isOpen, activeMenu) => {
   return (dispatch) => {
     dispatch({
       type: SET_MODAL_STATE,
-      payload: { isOpen },
+      payload: { isOpen, activeMenu },
     });
   };
 };

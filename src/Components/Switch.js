@@ -115,8 +115,8 @@ const Slider = styled.label`
     display: block;
     border-radius: 50%;
 
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
 
     ${afterMargin};
     ${sliderAfterSize};
@@ -138,7 +138,7 @@ const Input = styled.input`
       ${inputAfter};
 
       content: '';
-      transition: 0.35s;
+      transition: 0.15s;
       display: block;
     }
   }
@@ -154,7 +154,7 @@ const App = ({ size = 'md', label, id = uuidv4() }) => {
     // Triggers wave animation for .ms
     setTimeout(() => {
       anim && setAnimate(false);
-    }, 650);
+    }, 600);
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { memo, createRef } from 'react';
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
+import Icon from 'Components/Icon';
 import styled from 'styled-components';
 import {
   primary,
@@ -81,6 +82,12 @@ const Close = styled.span`
   }
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+`;
+
 /**
  *
  * @component
@@ -88,10 +95,11 @@ const Close = styled.span`
  * @param {String}   title    title in the header
  * @param {Function} close    close modal
  * @param {Object}   children passed components
+ * @param {String}   icon     icon name
  */
 
 const ModalComponent = memo(
-  ({ active, title, toggle, children }) => {
+  ({ active, title, icon, toggle, children }) => {
     const ref = createRef();
 
     // hooks
@@ -105,7 +113,10 @@ const ModalComponent = memo(
       <Modal active={active}>
         <Content ref={ref}>
           <Header>
-            <H3>{title}</H3>
+            <TitleWrapper>
+              {icon && <Icon icon={icon} />}
+              <H3>{title}</H3>
+            </TitleWrapper>
             <Close onClick={() => toggle(false)}>
               &times;
             </Close>

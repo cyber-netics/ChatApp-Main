@@ -31,7 +31,7 @@ export const ProtectedRoute = ({
     <Route
       {...rest}
       render={(props) =>
-        auth ? (
+        !auth ? (
           <Component {...props} />
         ) : (
           <Redirect to="/" />
